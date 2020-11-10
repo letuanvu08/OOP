@@ -10,14 +10,14 @@ namespace Lab4
         public const int MIN_VALUE_OIL = 10;
         public const int MIN_VALUE_FLUID = 10;
 
-        public const int ERROR_CAR_KILOMETERS = 1000; 
+        public const int ERROR_CAR_KILOMETERS = 1000;
     }
 
     enum TypeVehicle
     {
-        Car=0,
-        Truck=1,
-        
+        Car = 0,
+        Truck = 1,
+
     }
     enum TypeCar
     {
@@ -42,9 +42,9 @@ namespace Lab4
         VeryGood,
     }
 
-    abstract class Vehicle 
+    abstract class Vehicle
     {
-        protected  string name;
+        protected string name;
         public string Name
         {
             get { return name; }
@@ -108,13 +108,13 @@ namespace Lab4
         protected bool maintain;
         protected bool stateUsed;
 
-        protected ServiceHistory serviceHistory;
+        protected ServiceHistory serviceHistory=new ServiceHistory();
 
 
         // ============== METHOD SERVICE ==================== 
-        abstract public void serviceEngine(DateTime d,string error);
-        abstract public void serviceTransmission(DateTime d,string error);
-        abstract public void serviceTires(DateTime d,string error);
+        abstract public void serviceEngine(DateTime d, string error);
+        abstract public void serviceTransmission(DateTime d, string error);
+        abstract public void serviceTires(DateTime d, string error);
 
         abstract public void checkVehicleCondition();
 
@@ -123,10 +123,12 @@ namespace Lab4
     }
     class Car : Vehicle
     {
-       private  TypeCar typeCar;
+        private TypeCar typeCar;
 
         public TypeCar TypeCar { get => typeCar; set => typeCar = value; }
-        public Car() {
+        public Car()
+        {
+
             Console.WriteLine(" Constuctor New Car not Parameter");
             this.name = "";
             this.branch = "";
@@ -148,7 +150,7 @@ namespace Lab4
             this.maintain = false;
 
         }
-        public Car(string NameCar, string Branch, int idCar,TypeCar typeCar,string Description)
+        public Car(string NameCar, string Branch, int idCar, TypeCar typeCar, string Description)
         {
             Console.WriteLine(" Constuctor New Car Parameter with 5 paramter: NameCar, Branch, IdCar, typeCar, Description");
             this.name = NameCar;
@@ -160,7 +162,7 @@ namespace Lab4
             this.maintain = false;
 
         }
-        public Car(string NameCar,string Branch,int idCar,TypeCar typecar, string Description,bool maintain,bool stateUse)
+        public Car(string NameCar, string Branch, int idCar, TypeCar typecar, string Description, bool maintain, bool stateUse)
         {
             Console.WriteLine(" Constuctor New Car Parameter with 7 paramter: NameCar, Branch, IdCar, typeCar, Description,maintain,stateUse");
             this.name = NameCar;
@@ -171,27 +173,27 @@ namespace Lab4
             this.stateUsed = stateUse;
             this.maintain = maintain;
         }
-        
+
         override public void serviceEngine(DateTime date, string error)
-        { 
-            
-            EngineRecord record = new EngineRecord(this.id,date,this.numberKilometers,this.numberOilNow,error);
+        {
+
+            EngineRecord record = new EngineRecord(this.id, date, this.numberKilometers, this.numberOilNow, error);
             Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
             this.serviceHistory.listRecord.Add(record);
         }
 
-        override public void serviceTransmission(DateTime dateTime,string error)
+        override public void serviceTransmission(DateTime dateTime, string error)
         {
-            TransmissionRecord record = new TransmissionRecord(this.id, dateTime,this.numberKilometers,this.numberFluidNow,error);
+            TransmissionRecord record = new TransmissionRecord(this.id, dateTime, this.numberKilometers, this.numberFluidNow, error);
             Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
             this.serviceHistory.listRecord.Add(record);
         }
-        override public void serviceTires(DateTime dateTime,string error)
+        override public void serviceTires(DateTime dateTime, string error)
         {
-            TiresRecord record = new TiresRecord(this.id,dateTime,this.numberKilometers);
+            TiresRecord record = new TiresRecord(this.id, dateTime, this.numberKilometers);
             Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
             this.serviceHistory.listRecord.Add(record);
-            
+
         }
         override public void checkVehicleCondition()
         {
@@ -208,7 +210,7 @@ namespace Lab4
             }
             if (errorEngine != "")
             {
-                this.serviceEngine(d,errorEngine);
+                this.serviceEngine(d, errorEngine);
             }
 
             string errorTransmission = "";
@@ -222,7 +224,7 @@ namespace Lab4
             }
             if (errorTransmission != "")
             {
-                this.serviceTransmission(d,errorEngine);
+                this.serviceTransmission(d, errorEngine);
             }
 
             string errorTires = "";
@@ -244,7 +246,8 @@ namespace Lab4
         private TypeTruck typeTruck;
 
         public TypeTruck TypeTruck { get => typeTruck; set => typeTruck = value; }
-        public Truck() {
+        public Truck()
+        {
             Console.WriteLine(" Constuctor New Truck not Parameter");
             this.name = "";
             this.branch = "";
@@ -361,7 +364,7 @@ namespace Lab4
         protected string name;
 
         public string Name { get => name; set => name = value; }
-       public string Password { get => password; set => password = value; }
+        public string Password { get => password; set => password = value; }
         public string Email { get => email; set => email = value; }
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public string Sex { get => sex; set => sex = value; }
@@ -372,9 +375,9 @@ namespace Lab4
         protected string phoneNumber;
         protected int age;
         protected string sex;
-       
-        
-        
+
+
+
     }
     class Custormer : Account
     {
@@ -408,7 +411,7 @@ namespace Lab4
             this.address = "";
             this.career = "";
         }
-        public Custormer(string name, string Password,int Age,string Sex,string Career)
+        public Custormer(string name, string Password, int Age, string Sex, string Career)
         {
             Console.WriteLine(" Constuctor New Custormer with 5 parameter");
             this.name = name;
@@ -418,9 +421,9 @@ namespace Lab4
             this.age = Age;
             this.sex = Sex;
             this.address = "";
-            this.career =Career;
+            this.career = Career;
         }
-        public Custormer(string name, string Password, string Email, string PhoneNumber, string Sex, int Age,string Address,string Career)
+        public Custormer(string name, string Password, string Email, string PhoneNumber, string Sex, int Age, string Address, string Career)
         {
             Console.WriteLine(" Constuctor New Custormer with 8 parameter");
             this.name = name;
@@ -439,7 +442,8 @@ namespace Lab4
         private string department;
         private int salary;
 
-       public Manager() {
+        public Manager()
+        {
             Console.WriteLine(" Constuctor New Manager not Parmater");
             this.name = "";
             this.password = "";
@@ -461,9 +465,9 @@ namespace Lab4
             this.sex = "male";
             this.department = "";
             this.salary = 0;
-            
+
         }
-        public Manager(string name, string Password, string Email, string PhoneNumber, string Sex, int Age,string Department,int Salary)
+        public Manager(string name, string Password, string Email, string PhoneNumber, string Sex, int Age, string Department, int Salary)
         {
             Console.WriteLine(" Constuctor New Mamager with 5 parameter");
             this.name = name;
@@ -498,7 +502,7 @@ namespace Lab4
             this.salary = 0;
 
         }
-        public Staff(string name, string Password, string Email, string PhoneNumber, string Sex, int Age, string Department,int Salary)
+        public Staff(string name, string Password, string Email, string PhoneNumber, string Sex, int Age, string Department, int Salary)
         {
             this.name = name;
             this.password = Password;
@@ -530,17 +534,18 @@ namespace Lab4
         private int dateStartRent;
         private int dateEndRent;
         private int totalCost;
-        
+
         private string description;
-        public RentContract() {
+        public RentContract()
+        {
             Console.WriteLine(" Constuctor New RentContract not Parameter");
-            this.custormerRentCar =null;
+            this.custormerRentCar = null;
             this.carRented = null;
             this.dateStartRent = 0;
             this.DateEndRent = 0;
             this.totalCost = 0;
         }
-        public RentContract(Custormer custormer,Car car)
+        public RentContract(Custormer custormer, Car car)
         {
             Console.WriteLine(" Constuctor New RentContract with 2 parameter: Custormer,Car");
             this.custormerRentCar = custormer;
@@ -551,7 +556,7 @@ namespace Lab4
 
             this.description = "";
         }
-        public RentContract(Custormer custormer,Car car,int DateStartRent,int DateEndRent,int TotalCost)
+        public RentContract(Custormer custormer, Car car, int DateStartRent, int DateEndRent, int TotalCost)
         {
             Console.WriteLine(" Constuctor New RentContract with 5 parameter: Custormer,Car,...");
             this.custormerRentCar = custormer;
@@ -561,7 +566,7 @@ namespace Lab4
             this.totalCost = TotalCost;
             this.description = "";
         }
-        public RentContract(Custormer custormer, Car car, int DateStartRent, int DateEndRent, int TotalCost,string description)
+        public RentContract(Custormer custormer, Car car, int DateStartRent, int DateEndRent, int TotalCost, string description)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Custormer,Car,...");
             this.custormerRentCar = custormer;
@@ -574,7 +579,7 @@ namespace Lab4
     }
     class Fleet
     {
-        private List<Vehicle> listVehicle;
+        public List<Vehicle> listVehicle;
         private int numberOfVehicle;
         private Manager manager;
         private List<Staff> listStaff;
@@ -602,17 +607,21 @@ namespace Lab4
             this.numberOfVehicle = 0;
             this.numberOfStaff = 0;
         }
+        public List<Vehicle> getListVehicle()
+        {
+            return this.listVehicle;
+        }
         public void AddVehicle(Vehicle vehicle)
         {
             Console.WriteLine(" this function addVehicle  with 1 parameter: vehicle");
-            listVehicle.Append(vehicle);
+            listVehicle.Add(vehicle);
             this.numberOfVehicle += 1;
         }
         public void AddVehicle(int numberOfVehicle, List<Vehicle> listVehicle)
         {
             Console.WriteLine(" this function addVehicle  with 2 parameter: numberOfVehicle and listVehicle");
             foreach (Vehicle vehicle in listVehicle)
-                this.listVehicle.Append(vehicle);
+                this.listVehicle.Add(vehicle);
             this.numberOfVehicle += numberOfVehicle;
 
         }
@@ -685,7 +694,36 @@ namespace Lab4
         {
             this.listRecord = lst;
         }
+        public ServiceHistory()
+        {
+            listRecord = new List<Record>();
+        }
 
     }
+    class CarRentalManagement
+    {
+        private List<Fleet> listFleet;
+        public CarRentalManagement()
+        {
+            listFleet = new List<Fleet>();
+        }
+        public void addFleet(Fleet fleet)
+        {
+            this.listFleet.Add(fleet);
+        }
+        public void serviceFleet()
+        {
+            foreach (Fleet fleet in listFleet)
+            {
+               ;
+                foreach (Vehicle vehicle in fleet.listVehicle)
+                {
+                    Console.WriteLine("asdfsaf");
+                    vehicle.checkVehicleCondition();
+                }
 
+            }
+        }
+
+    }
 }
