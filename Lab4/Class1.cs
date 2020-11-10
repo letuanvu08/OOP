@@ -5,6 +5,14 @@ using System.Linq;
 
 namespace Lab4
 {
+    static public class ConstValue
+    {
+        public const int MIN_VALUE_OIL = 10;
+        public const int MIN_VALUE_FLUID = 10;
+
+        public const int ERROR_CAR_KILOMETERS = 1000; 
+    }
+
     enum TypeVehicle
     {
         Car=0,
@@ -26,6 +34,14 @@ namespace Lab4
         Ben,
     }
 
+    enum TypeState
+    {
+        VeryBad,
+        Bad,
+        Good,
+        VeryGood,
+    }
+
     abstract class Vehicle 
     {
         protected  string name;
@@ -40,7 +56,45 @@ namespace Lab4
             get { return id; }
             set { id = value; }
         }
+        // this is oil and fluid in the vehicle ( now and size)
+        protected int numberOilNow;
+        public int NumberOilNow
+        {
+            get => numberOilNow;
+            set => numberOilNow = numberOilNow - value > 0 ? numberOilNow - value : 0;
+        }
+        protected int sizeOil;
+        public int SizeOil
+        {
+            get => sizeOil; set => sizeOil = value > ConstValue.MIN_VALUE_OIL ? value : ConstValue.MIN_VALUE_OIL;
+        }
 
+        protected int numberFluidNow;
+        public int NumberFuildNow
+        {
+            get => numberFluidNow;
+            set => numberFluidNow = numberFluidNow - value > 0 ? numberFluidNow - value : 0;
+        }
+
+        protected int sizeFluid;
+        public int SizeFluid
+        {
+            get => sizeFluid;
+            set => sizeFluid = value > ConstValue.MIN_VALUE_FLUID ? value : ConstValue.MIN_VALUE_FLUID;
+        }
+
+        protected double numberKilometers;
+        public double NumberKilometers
+        {
+            get => numberKilometers;
+            set => numberKilometers = value > 0 ? value : 0;
+        }
+
+        protected TypeState EngineState;
+        protected TypeState TransmissionState;
+        protected TypeState TiresState;
+        // ==================================================== //
+        // ================ END COMMENT ======================= //
         public string Branch { get => branch; set => branch = value; }
         protected string Description { get => description; set => description = value; }
         protected TypeVehicle Type { get => type; set => type = value; }
@@ -53,6 +107,19 @@ namespace Lab4
         protected TypeVehicle type;
         protected bool maintain;
         protected bool stateUsed;
+
+        protected ServiceHistory serviceHistory;
+
+
+        // ============== METHOD SERVICE ==================== 
+        abstract public void serviceEngine(DateTime d,string error);
+        abstract public void serviceTransmission(DateTime d,string error);
+        abstract public void serviceTires(DateTime d,string error);
+
+        abstract public void checkVehicleCondition();
+
+
+
     }
     class Car : Vehicle
     {
@@ -105,7 +172,71 @@ namespace Lab4
             this.maintain = maintain;
         }
         
+        override public void serviceEngine(DateTime date, string error)
+        { 
+            
+            EngineRecord record = new EngineRecord(this.id,date,this.numberKilometers,this.numberOilNow,error);
+            Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
+            this.serviceHistory.listRecord.Add(record);
+        }
 
+        override public void serviceTransmission(DateTime dateTime,string error)
+        {
+            TransmissionRecord record = new TransmissionRecord(this.id, dateTime,this.numberKilometers,this.numberFluidNow,error);
+            Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
+            this.serviceHistory.listRecord.Add(record);
+        }
+        override public void serviceTires(DateTime dateTime,string error)
+        {
+            TiresRecord record = new TiresRecord(this.id,dateTime,this.numberKilometers);
+            Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
+            this.serviceHistory.listRecord.Add(record);
+            
+        }
+        override public void checkVehicleCondition()
+        {
+            Console.WriteLine("Car is serviced : ....");
+            DateTime d = new DateTime();
+            string errorEngine = "";
+            if (this.EngineState == TypeState.Bad || this.EngineState == TypeState.VeryBad)
+            {
+                errorEngine += "...";
+            }
+            if (this.NumberOilNow == 0)
+            {
+                errorEngine += "Xin it xang";
+            }
+            if (errorEngine != "")
+            {
+                this.serviceEngine(d,errorEngine);
+            }
+
+            string errorTransmission = "";
+            if (this.TransmissionState == TypeState.Bad || this.TransmissionState == TypeState.VeryBad)
+            {
+                errorTransmission += "...";
+            }
+            if (this.NumberFuildNow == 0)
+            {
+                errorTransmission += "Xin it xang";
+            }
+            if (errorTransmission != "")
+            {
+                this.serviceTransmission(d,errorEngine);
+            }
+
+            string errorTires = "";
+            if (this.TiresState == TypeState.Bad || this.TiresState == TypeState.VeryBad)
+            {
+                errorTires += "...";
+            }
+            if (errorTires != "")
+            {
+                this.serviceTires(d, errorEngine);
+            }
+
+
+        }
 
     }
     class Truck : Vehicle
@@ -146,7 +277,7 @@ namespace Lab4
             this.maintain = false;
 
         }
-        public Truck(string NameTruck,string Branch, int idTruck,TypeTruck typeTruck,string Description,bool stateUse,bool maintain)
+        public Truck(string NameTruck, string Branch, int idTruck, TypeTruck typeTruck, string Description, bool stateUse, bool maintain)
         {
             this.name = NameTruck;
             this.Branch = Branch;
@@ -155,6 +286,74 @@ namespace Lab4
             this.description = Description;
             this.stateUsed = stateUse;
             this.maintain = maintain;
+        }
+
+        //===============================//
+
+        override public void serviceEngine(DateTime date, string error)
+        {
+
+            EngineRecord record = new EngineRecord(this.id, date, this.numberKilometers, this.numberOilNow, error);
+            Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
+            this.serviceHistory.listRecord.Add(record);
+        }
+
+        override public void serviceTransmission(DateTime dateTime, string error)
+        {
+            TransmissionRecord record = new TransmissionRecord(this.id, dateTime, this.numberKilometers, this.numberFluidNow, error);
+            Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
+            this.serviceHistory.listRecord.Add(record);
+        }
+        override public void serviceTires(DateTime dateTime, string error)
+        {
+            TiresRecord record = new TiresRecord(this.id, dateTime, this.numberKilometers);
+            Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
+            this.serviceHistory.listRecord.Add(record);
+
+        }
+        override public void checkVehicleCondition()
+        {
+            Console.WriteLine("Truck is serviced ....");
+            DateTime d = new DateTime();
+            string errorEngine = "";
+            if (this.EngineState == TypeState.Bad || this.EngineState == TypeState.VeryBad)
+            {
+                errorEngine += "...";
+            }
+            if (this.NumberOilNow == 0)
+            {
+                errorEngine += "Xin it xang";
+            }
+            if (errorEngine != "")
+            {
+                this.serviceEngine(d, errorEngine);
+            }
+
+            string errorTransmission = "";
+            if (this.TransmissionState == TypeState.Bad || this.TransmissionState == TypeState.VeryBad)
+            {
+                errorTransmission += "...";
+            }
+            if (this.NumberFuildNow == 0)
+            {
+                errorTransmission += "Xin it xang";
+            }
+            if (errorTransmission != "")
+            {
+                this.serviceTransmission(d, errorEngine);
+            }
+
+            string errorTires = "";
+            if (this.TiresState == TypeState.Bad || this.TiresState == TypeState.VeryBad)
+            {
+                errorTires += "...";
+            }
+            if (errorTires != "")
+            {
+                this.serviceTires(d, errorEngine);
+            }
+
+
         }
     }
     abstract class Account
@@ -429,6 +628,62 @@ namespace Lab4
             foreach (Staff staff in listStaff)
                 this.listStaff.Append(staff);
             this.numberOfStaff += numberOfStaff;
+        }
+
+    }
+    abstract class Record
+    {
+        protected int ID;
+        protected DateTime dateTime;
+        protected double numberKilometers;
+    }
+
+    class EngineRecord : Record
+    {
+        int numberOilChange;
+        string error;
+
+        public EngineRecord(int ID, DateTime dateTime, double numberKM, int numberOil, string error)
+        {
+            this.ID = ID;
+            this.dateTime = dateTime;
+            this.numberKilometers = numberKilometers;
+            this.numberOilChange = numberOil;
+            this.error = error;
+        }
+    }
+
+    class TransmissionRecord : Record
+    {
+        int numberFluidChange;
+        string error;
+        public TransmissionRecord(int ID, DateTime dateTime, double numberKM, int numberFluid, string error)
+        {
+            this.ID = ID;
+            this.dateTime = dateTime;
+            this.numberKilometers = numberKilometers;
+            this.numberFluidChange = numberFluid;
+            this.error = error;
+        }
+    }
+
+    class TiresRecord : Record
+    {
+        public TiresRecord(int ID, DateTime dateTime, double numberKM)
+        {
+            this.ID = ID;
+            this.dateTime = dateTime;
+            this.numberKilometers = numberKilometers;
+        }
+    }
+
+    class ServiceHistory
+    {
+        public List<Record> listRecord;
+
+        ServiceHistory(List<Record> lst)
+        {
+            this.listRecord = lst;
         }
 
     }

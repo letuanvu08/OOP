@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\oop\\Lab4\\Lab4\\Lab4.csproj": {}
+    "F:\\OOP\\Lab\\OOP\\Lab4\\Lab4.csproj": {}
   },
   "projects": {
-    "D:\\oop\\Lab4\\Lab4\\Lab4.csproj": {
+    "F:\\OOP\\Lab\\OOP\\Lab4\\Lab4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\oop\\Lab4\\Lab4\\Lab4.csproj",
+        "projectUniqueName": "F:\\OOP\\Lab\\OOP\\Lab4\\Lab4.csproj",
         "projectName": "Lab4",
-        "projectPath": "D:\\oop\\Lab4\\Lab4\\Lab4.csproj",
-        "packagesPath": "C:\\Users\\ren\\.nuget\\packages\\",
-        "outputPath": "D:\\oop\\Lab4\\Lab4\\obj\\",
+        "projectPath": "F:\\OOP\\Lab\\OOP\\Lab4\\Lab4.csproj",
+        "packagesPath": "C:\\Users\\trung\\.nuget\\packages\\",
+        "outputPath": "F:\\OOP\\Lab\\OOP\\Lab4\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ren\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\trung\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -56,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
