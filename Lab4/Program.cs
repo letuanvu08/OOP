@@ -23,7 +23,15 @@ namespace Lab4
             Fleet fleetCar = new Fleet();
             fleetCar.AddVehicle(car1);
             fleetCar.AddVehicle(2,listCar);
-            
+            car1.NumberKilometers = 1000;
+            car1.NumberOilNow = 0;
+            car1.NumberFuildNow = 0;
+
+            ////////////////////
+            CarRentalManagement manage = new CarRentalManagement();
+            manage.addFleet(fleetCar);
+            manage.serviceFleet();
+
         }
     }
 }

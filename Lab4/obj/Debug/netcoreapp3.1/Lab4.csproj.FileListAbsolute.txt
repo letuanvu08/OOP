@@ -22,3 +22,16 @@ F:\OOP\Lab\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.AssemblyInfoInputs.cache
 F:\OOP\Lab\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.AssemblyInfo.cs
 F:\OOP\Lab\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.dll
 F:\OOP\Lab\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.pdb
+D:\oop\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.csprojAssemblyReference.cache
+D:\oop\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.AssemblyInfoInputs.cache
+D:\oop\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.AssemblyInfo.cs
+D:\oop\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.csproj.CoreCompileInputs.cache
+D:\oop\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.dll
+D:\oop\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.pdb
+D:\oop\OOP\Lab4\bin\Debug\netcoreapp3.1\Lab4.exe
+D:\oop\OOP\Lab4\bin\Debug\netcoreapp3.1\Lab4.deps.json
+D:\oop\OOP\Lab4\bin\Debug\netcoreapp3.1\Lab4.runtimeconfig.json
+D:\oop\OOP\Lab4\bin\Debug\netcoreapp3.1\Lab4.runtimeconfig.dev.json
+D:\oop\OOP\Lab4\bin\Debug\netcoreapp3.1\Lab4.dll
+D:\oop\OOP\Lab4\bin\Debug\netcoreapp3.1\Lab4.pdb
+D:\oop\OOP\Lab4\obj\Debug\netcoreapp3.1\Lab4.genruntimeconfig.cache
