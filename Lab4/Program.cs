@@ -22,14 +22,20 @@ namespace Lab4
             RentContract rentContract3 = new RentContract(custormer2, car2,123,123,134);
             Fleet fleetCar = new Fleet();
             fleetCar.AddVehicle(car1);
-            fleetCar.AddVehicle(2,listCar);
+          //  fleetCar.AddVehicle(2,listCar);
             car1.NumberKilometers = 1000;
             car1.NumberOilNow = 0;
             car1.NumberFuildNow = 0;
-
+            Truck truck = new Truck();
+            truck.NumberKilometers = 100.2;
+            truck.NumberOilNow = 10;
+            truck.NumberFuildNow = 2000;
+            Fleet fleetTruck = new Fleet();
+            fleetTruck.AddVehicle(truck);
             ////////////////////
             CarRentalManagement manage = new CarRentalManagement();
             manage.addFleet(fleetCar);
+            manage.addFleet(fleetTruck);
             manage.serviceFleet();
 
         }

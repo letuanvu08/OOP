@@ -61,7 +61,8 @@ namespace Lab4
         public int NumberOilNow
         {
             get => numberOilNow;
-            set => numberOilNow = numberOilNow - value > 0 ? numberOilNow - value : 0;
+            set => numberOilNow = value;
+            //set => numberOilNow = numberOilNow - value > 0 ? numberOilNow - value : 0;
         }
         protected int sizeOil;
         public int SizeOil
@@ -73,7 +74,8 @@ namespace Lab4
         public int NumberFuildNow
         {
             get => numberFluidNow;
-            set => numberFluidNow = numberFluidNow - value > 0 ? numberFluidNow - value : 0;
+            set => numberFluidNow = value;
+            //set => numberFluidNow = numberFluidNow - value > 0 ? numberFluidNow - value : 0;
         }
 
         protected int sizeFluid;
@@ -202,11 +204,11 @@ namespace Lab4
             string errorEngine = "";
             if (this.EngineState == TypeState.Bad || this.EngineState == TypeState.VeryBad)
             {
-                errorEngine += "...";
+                errorEngine += "Hong may !!!";
             }
             if (this.NumberOilNow == 0)
             {
-                errorEngine += "Xin it xang";
+                errorEngine += "Het xang !!!";
             }
             if (errorEngine != "")
             {
@@ -216,25 +218,25 @@ namespace Lab4
             string errorTransmission = "";
             if (this.TransmissionState == TypeState.Bad || this.TransmissionState == TypeState.VeryBad)
             {
-                errorTransmission += "...";
+                errorTransmission += "Hong bo truyen dong !!!";
             }
             if (this.NumberFuildNow == 0)
             {
-                errorTransmission += "Xin it xang";
+                errorTransmission += "Het nhot !!!";
             }
             if (errorTransmission != "")
             {
-                this.serviceTransmission(d, errorEngine);
+                this.serviceTransmission(d, errorTransmission);
             }
 
             string errorTires = "";
             if (this.TiresState == TypeState.Bad || this.TiresState == TypeState.VeryBad)
             {
-                errorTires += "...";
+                errorTires += "Lung lop !!!";
             }
             if (errorTires != "")
             {
-                this.serviceTires(d, errorEngine);
+                this.serviceTires(d, errorTires);
             }
 
 
@@ -321,11 +323,11 @@ namespace Lab4
             string errorEngine = "";
             if (this.EngineState == TypeState.Bad || this.EngineState == TypeState.VeryBad)
             {
-                errorEngine += "...";
+                errorEngine += "Hong may !!!";
             }
             if (this.NumberOilNow == 0)
             {
-                errorEngine += "Xin it xang";
+                errorEngine += "Het xang !!!";
             }
             if (errorEngine != "")
             {
@@ -335,27 +337,26 @@ namespace Lab4
             string errorTransmission = "";
             if (this.TransmissionState == TypeState.Bad || this.TransmissionState == TypeState.VeryBad)
             {
-                errorTransmission += "...";
+                errorTransmission += "Hong bo truyen dong !!!";
             }
             if (this.NumberFuildNow == 0)
             {
-                errorTransmission += "Xin it xang";
+                errorTransmission += "Het nhot !!!";
             }
             if (errorTransmission != "")
             {
-                this.serviceTransmission(d, errorEngine);
+                this.serviceTransmission(d, errorTransmission);
             }
 
             string errorTires = "";
             if (this.TiresState == TypeState.Bad || this.TiresState == TypeState.VeryBad)
             {
-                errorTires += "...";
+                errorTires += "Lung lop !!!";
             }
             if (errorTires != "")
             {
-                this.serviceTires(d, errorEngine);
+                this.serviceTires(d, errorTires);
             }
-
 
         }
     }
@@ -715,10 +716,10 @@ namespace Lab4
         {
             foreach (Fleet fleet in listFleet)
             {
-               ;
+               
                 foreach (Vehicle vehicle in fleet.listVehicle)
                 {
-                    Console.WriteLine("asdfsaf");
+                    Console.WriteLine("...........");
                     vehicle.checkVehicleCondition();
                 }
 
