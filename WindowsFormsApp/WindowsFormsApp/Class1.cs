@@ -1,11 +1,12 @@
-﻿using Microsoft.CSharp.RuntimeBinder;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Xml.Serialization;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Lab4
+namespace WindowsFormsApp
 {
     static public class ConstValue
     {
@@ -23,17 +24,20 @@ namespace Lab4
     }
     enum TypeCar
     {
-        FourChairclassic,
-        SevenChairclassic,
-        Sport,
-        Luxury,
+        MICRO,
+        SEDAN,
+        CUV,
+        SUV,
+        HATCHBACK,
+        SUPERCAR,
+        ROADSTER
 
     }
     enum TypeTruck
     {
-        PartTruck,
-        Contener,
-        Ben,
+        NINITRUCK,
+        TRUCK,
+        BIGTRUCK
     }
 
     enum TypeState
@@ -47,7 +51,7 @@ namespace Lab4
     abstract class Vehicle
     {
         public int costperDay;
-        public int CostperDay { get =>costperDay; set=>costperDay=value; }
+        public int CostperDay { get => costperDay; set => costperDay = value; }
         protected string name;
         public string Name
         {
@@ -114,7 +118,7 @@ namespace Lab4
         protected bool maintain;
         protected bool stateUsed;
 
-        protected ServiceHistory serviceHistory=new ServiceHistory();
+        protected ServiceHistory serviceHistory = new ServiceHistory();
 
 
         // ============== METHOD SERVICE ==================== 
@@ -139,7 +143,7 @@ namespace Lab4
             this.name = "";
             this.branch = "";
             this.idVehicle = 0;
-            this.typeCar = TypeCar.FourChairclassic;
+            this.typeCar = 0;
             this.description = "";
             this.stateUsed = false;
             this.maintain = false;
@@ -150,7 +154,7 @@ namespace Lab4
             this.name = NameCar;
             this.branch = Branch;
             this.idVehicle = idCar;
-            this.typeCar = TypeCar.FourChairclassic;
+            this.typeCar = 0;
             this.description = "";
             this.stateUsed = false;
             this.maintain = false;
@@ -258,7 +262,7 @@ namespace Lab4
             this.name = "";
             this.branch = "";
             this.idVehicle = 0;
-            this.typeTruck = TypeTruck.Ben;
+            this.typeTruck = 0;
             this.description = "";
             this.stateUsed = false;
             this.maintain = false;
@@ -269,7 +273,7 @@ namespace Lab4
             this.name = NameCar;
             this.branch = Branch;
             this.idVehicle = idCar;
-            this.typeTruck = TypeTruck.Ben;
+            this.typeTruck =0;
             this.description = "";
             this.stateUsed = false;
             this.maintain = false;
@@ -661,7 +665,7 @@ namespace Lab4
         {
             this.ID = ID;
             this.dateTime = dateTime;
-            this.numberKilometers = numberKilometers;
+            this.numberKilometers = numberKM;
             this.numberOilChange = numberOil;
             this.error = error;
         }
@@ -675,7 +679,7 @@ namespace Lab4
         {
             this.ID = ID;
             this.dateTime = dateTime;
-            this.numberKilometers = numberKilometers;
+            this.numberKilometers = numberKM;
             this.numberFluidChange = numberFluid;
             this.error = error;
         }
@@ -687,7 +691,7 @@ namespace Lab4
         {
             this.ID = ID;
             this.dateTime = dateTime;
-            this.numberKilometers = numberKilometers;
+            this.numberKilometers = numberKM;
         }
     }
 
@@ -707,33 +711,34 @@ namespace Lab4
     }
     interface BookAndRent
     {
-        List<Vehicle> FindCarAvailable(int type,string Branch);
-        
-     
-    class CarRentalManagement
-    {
-        private List<Fleet> listFleet;
-        public CarRentalManagement()
+        List<Vehicle> FindCarAvailable(int type, string Branch);
+
+            
+       public class CarRentalManagement
         {
-            listFleet = new List<Fleet>();
-        }
-        public void addFleet(Fleet fleet)
-        {
-            this.listFleet.Add(fleet);
-        }
-        public void serviceFleet()
-        {
-            foreach (Fleet fleet in listFleet)
+            private List<Fleet> listFleet;
+            public CarRentalManagement()
             {
-               
-                foreach (Vehicle vehicle in fleet.listVehicle)
-                {
-                    Console.WriteLine("...........");
-                    vehicle.checkVehicleCondition();
-                }
-
+                listFleet = new List<Fleet>();
             }
-        }
+            public void addFleet(Fleet fleet)
+            {
+                this.listFleet.Add(fleet);
+            }
+            public void serviceFleet()
+            {
+                foreach (Fleet fleet in listFleet)
+                {
 
+                    foreach (Vehicle vehicle in fleet.listVehicle)
+                    {
+                        Console.WriteLine("...........");
+                        vehicle.checkVehicleCondition();
+                    }
+
+                }
+            }
+
+        }
     }
 }
