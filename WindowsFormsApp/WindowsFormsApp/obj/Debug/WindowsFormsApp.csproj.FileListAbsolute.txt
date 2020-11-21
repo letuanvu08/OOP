@@ -25,3 +25,5 @@ D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.Form1.resources
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormBookAndRent.resources
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormRentContract.resources
+D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormManage.resources
+D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormService.resources

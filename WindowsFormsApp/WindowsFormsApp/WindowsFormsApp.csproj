@@ -99,8 +99,14 @@
     <EmbeddedResource Include="FormBookAndRent.resx">
       <DependentUpon>FormBookAndRent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormManage.resx">
+      <DependentUpon>FormManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRentContract.resx">
       <DependentUpon>FormRentContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormService.resx">
+      <DependentUpon>FormService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
