@@ -66,16 +66,24 @@ namespace WindowsFormsApp
         {
             if (nameVehicleSelected == "")
             { MessageBox.Show("Please, Choose Vehicle Your want Rent."); }
+           
             else
             {
                 Vehicle vehicleSelected = manage.FindVehicle(this.nameVehicleSelected);
-                DateTime start = startRent.Value.Date;
-                DateTime end = EndRent.Value.Date;
-                double days = (end - start).TotalDays;
-                RentContract contract = new RentContract(vehicle: vehicleSelected, DateStartRent:startRent.Value.Date,DateEndRent:EndRent.Value.Date,totalCost:(vehicleSelected.costperDay*(int)days));
-                FormRentContract formManage = new FormRentContract(contract);
-                var thread = new Thread(() => Program.start(formManage));
-                thread.Start();
+                if (vehicleSelected.StateUsed == true)
+                    MessageBox.Show("Vehicle not Available, please choose other vehicle.");
+                else if (vehicleSelected.Maintain == true)
+                    MessageBox.Show("Vehicle having repair, please choose other vehicle.");
+                else
+                {
+                    DateTime start = startRent.Value.Date;
+                    DateTime end = EndRent.Value.Date;
+                    double days = (end - start).TotalDays;
+                    RentContract contract = new RentContract(vehicle: vehicleSelected, DateStartRent: startRent.Value.Date, DateEndRent: EndRent.Value.Date, totalCost: (vehicleSelected.costperDay * (int)days));
+                    FormRentContract formManage = new FormRentContract(contract);
+                    var thread = new Thread(() => Program.start(formManage));
+                    thread.Start();
+                }
             }
 
             }
@@ -90,6 +98,7 @@ namespace WindowsFormsApp
 
         private void listResult_SelectedIndexChanged(object sender, EventArgs e)
         {
+            button1.Enabled = true;
             ListView lsv = sender as ListView;
             if (lsv.SelectedItems.Count > 0)
             {

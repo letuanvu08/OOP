@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -71,6 +72,36 @@ namespace WindowsFormsApp
         private void saveContract()
         {
 
+            MySqlConnection conn = Program.connectDatabase();
+           string sql= "select max(IDCONTRACT) from rentcontract;";
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = sql;
+
+            int maxid = 0;
+            using (MySqlDataReader d = cmd.ExecuteReader())
+            {
+                while (d.Read())
+                    maxid = (int)d[0];
+
+            }
+            contract.Id = maxid + 1;
+                string sqlcontract = "insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL,BIRTHDAY)"+
+                "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY);";
+            cmd = conn.CreateCommand();
+            cmd.CommandText = sqlcontract;
+            cmd.Parameters.Add("@ID", (MySqlDbType)SqlDbType.Int).Value=contract.Id;
+            cmd.Parameters.Add("@IDVEHICLE", (MySqlDbType)SqlDbType.Int).Value = contract.VehicleRented.idVehicle;
+            cmd.Parameters.AddWithValue("@NAME",contract.CustormerRentCar.Name);
+            cmd.Parameters.AddWithValue("@EMAIL",  contract.CustormerRentCar.Email);
+            cmd.Parameters.AddWithValue("@ADDRESS",  contract.CustormerRentCar.Address);
+            cmd.Parameters.AddWithValue("@STARTDATE", contract.DateStartRent.ToString());
+            cmd.Parameters.AddWithValue("@ENDDATE", contract.CustormerRentCar.Email);
+            cmd.Parameters.AddWithValue("@TOTALBILL",  contract.TotalCost);
+            cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustormerRentCar.Birthday.ToString());
+           
+            cmd.ExecuteNonQuery();
+           
         }
 
         private void startRent_ValueChanged(object sender, EventArgs e)
