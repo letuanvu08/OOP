@@ -105,14 +105,14 @@ namespace WindowsFormsApp
         // ================ END COMMENT ======================= //
         public string Branch { get => branch; set => branch = value; }
         protected string Description { get => description; set => description = value; }
-        protected TypeVehicle Type { get => type; set => type = value; }
+        public TypeVehicle Type { get => type; set => type = value; }
         public bool Maintain { get => maintain; set => maintain = value; }
         public bool StateUsed { get => stateUsed; set => stateUsed = value; }
 
         protected string branch;
         protected string description;
         protected string roleId;
-        protected TypeVehicle type;
+        public TypeVehicle type;
         protected bool maintain;
         protected bool stateUsed;
 
@@ -180,6 +180,8 @@ namespace WindowsFormsApp
             this.stateUsed = stateUse;
             this.maintain = maintain;
             this.costperDay = costperday;
+            //===================This next line make sure the rent contract is able to know what type of Vehicle is assigned when creating the contract=======
+            this.type = TypeVehicle.Car;
         }
 
         override public void serviceEngine(DateTime date, string error)
@@ -298,6 +300,7 @@ namespace WindowsFormsApp
             this.stateUsed = stateUse;
             this.maintain = maintain;
             this.costperDay = costperday;
+            this.type = TypeVehicle.Truck;
         }
 
         //===============================//
@@ -582,6 +585,16 @@ namespace WindowsFormsApp
             this.totalCost = totalCost;
             this.description = "";
         }
+        public RentContract(int id,Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent, int totalCost)
+        {
+            Console.WriteLine(" Constuctor New RentContract with 6 parameter: Custormer,Car,...");
+            this.id = id;
+            this.vehicleRented = vehicle;
+            this.dateStartRent = DateStartRent;
+            this.DateEndRent = DateEndRent;
+            this.totalCost = totalCost;
+            this.description = "";
+        }
     }
     class Fleet
     {
@@ -757,30 +770,32 @@ namespace WindowsFormsApp
         List<Vehicle> FindCarAvailable(TypeCar type, string Branch);
 
     }
-        class CarRentalManagement:BookAndRent
+    class CarRentalManagement:BookAndRent
+    {
+        private List<Fleet> listFleet;
+        private List<RentContract> listContract;
+        public CarRentalManagement()
         {
-            private List<Fleet> listFleet;
-            public CarRentalManagement()
+            listFleet = new List<Fleet>();
+            listContract = new List<RentContract>();
+        }
+        public void addFleet(Fleet fleet)
+        {
+            this.listFleet.Add(fleet);
+        }
+        public void serviceFleet()
+        {
+            foreach (Fleet fleet in listFleet)
             {
-                listFleet = new List<Fleet>();
-            }
-            public void addFleet(Fleet fleet)
-            {
-                this.listFleet.Add(fleet);
-            }
-            public void serviceFleet()
-            {
-                foreach (Fleet fleet in listFleet)
+
+                foreach (Vehicle vehicle in fleet.listVehicle)
                 {
-
-                    foreach (Vehicle vehicle in fleet.listVehicle)
-                    {
-                        Console.WriteLine("...........");
-                        vehicle.checkVehicleCondition();
-                    }
-
+                    Console.WriteLine("...........");
+                    vehicle.checkVehicleCondition();
                 }
+
             }
+        }
         public List<Vehicle> FindCarAvailable(TypeCar type, string Branch)
         {
             List<Vehicle> list = new List<Vehicle>();
@@ -829,6 +844,63 @@ namespace WindowsFormsApp
             }
             return null;
 
+        }
+        // -===============================Contract Supporting Function=======================
+        public void addContract(RentContract contract)
+        {
+            this.listContract.Add(contract);
+        }
+        public List<RentContract> getContracts()
+        {
+            return this.listContract;
+        }
+        public List<RentContract> FindContractsWithDateStart(DateTime date)
+        {
+            List<RentContract> returnContracts = new List<RentContract>();
+            foreach (RentContract contract in listContract)
+            {
+                if (contract.DateStartRent == date)
+                {
+                    returnContracts.Add(contract);
+                }
+            }
+            return returnContracts;
+        }
+        public List<RentContract> FindContractsWithDateEnd(DateTime date)
+        {
+            List<RentContract> returnContracts = new List<RentContract>();
+            foreach (RentContract contract in listContract)
+            {
+                if (contract.DateEndRent == date)
+                {
+                    returnContracts.Add(contract);
+                }
+            }
+            return returnContracts;
+        }
+        public List<RentContract> GetCarRelatedConTracts()
+        {
+            List<RentContract> returnContracts = new List<RentContract>();
+            foreach (RentContract contract in listContract)
+            {
+                if (contract.VehicleRented.type == TypeVehicle.Car)
+                {
+                    returnContracts.Add(contract);
+                }
+            }
+            return returnContracts;
+        }
+        public List<RentContract> GetTruckRelatedConTracts()
+        {
+            List<RentContract> returnContracts = new List<RentContract>();
+            foreach (RentContract contract in listContract)
+            {
+                if (contract.VehicleRented.type == TypeVehicle.Truck)
+                {
+                    returnContracts.Add(contract);
+                }
+            }
+            return returnContracts;
         }
     }
    

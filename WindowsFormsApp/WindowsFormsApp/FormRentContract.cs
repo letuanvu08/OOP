@@ -71,7 +71,7 @@ namespace WindowsFormsApp
         }
         private void saveContract()
         {
-
+            
             MySqlConnection conn = Program.connectDatabase();
            string sql= "select max(IDCONTRACT) from rentcontract;";
             MySqlCommand cmd = new MySqlCommand();
