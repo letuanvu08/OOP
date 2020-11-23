@@ -71,7 +71,7 @@ namespace WindowsFormsApp
         }
         private void saveContract()
         {
-
+            
             MySqlConnection conn = Program.connectDatabase();
            string sql= "select max(IDCONTRACT) from rentcontract;";
             MySqlCommand cmd = new MySqlCommand();
@@ -95,10 +95,10 @@ namespace WindowsFormsApp
             cmd.Parameters.AddWithValue("@NAME",contract.CustormerRentCar.Name);
             cmd.Parameters.AddWithValue("@EMAIL",  contract.CustormerRentCar.Email);
             cmd.Parameters.AddWithValue("@ADDRESS",  contract.CustormerRentCar.Address);
-            cmd.Parameters.AddWithValue("@STARTDATE", contract.DateStartRent.ToString());
-            cmd.Parameters.AddWithValue("@ENDDATE", contract.CustormerRentCar.Email);
-            cmd.Parameters.AddWithValue("@TOTALBILL",  contract.TotalCost);
-            cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustormerRentCar.Birthday.ToString());
+            cmd.Parameters.AddWithValue("@STARTDATE", contract.DateStartRent.Date.ToString());
+            cmd.Parameters.AddWithValue("@ENDDATE", contract.DateEndRent.Date.ToString());
+            cmd.Parameters.AddWithValue("@TOTALBILL",  contract.TotalCost.ToString());
+            cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustormerRentCar.Birthday.Date.ToString());
            
             cmd.ExecuteNonQuery();
            
