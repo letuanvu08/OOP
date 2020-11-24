@@ -48,5 +48,13 @@ namespace WindowsFormsApp
         {
             this.Close();
         }
+
+        private void ManageVehicle_Click(object sender, EventArgs e)
+        {
+            Form formManage = new FormManageVehicle(manage);
+            var thread = new Thread(() => Program.start(formManage));
+            thread.Start();
+            this.Close();
+        }
     }
 }

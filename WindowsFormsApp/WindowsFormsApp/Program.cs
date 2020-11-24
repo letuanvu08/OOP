@@ -80,8 +80,10 @@ namespace WindowsFormsApp
             // Fill the queried data into a table:
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
+            
             foreach (DataRow row in dataTable.Rows)
             {
+                
                 // Create a contract wit the Car
                 Car car = new Car(NameCar:row["Name"].ToString(),Branch:row["branch"].ToString(),idCar:Int32.Parse(row["ID"].ToString()),typecar:(TypeCar)Enum.Parse(typeof(TypeCar),row["TYPECAR"].ToString()),maintain:Boolean.Parse(row["maintain"].ToString()),costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
                 // Create the customer of the Contract:

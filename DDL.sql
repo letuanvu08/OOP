@@ -64,7 +64,6 @@
 #     constraint rentcontract_ibfk_1
 #         foreign key (IDVEHICLE) references systemmanagecar.vehicle (ID)
 # );
-use systemmanagecar;
 alter table rentcontract
 add IDINSURANCE int;
 create table insurance (
@@ -74,3 +73,6 @@ create table insurance (
 	FOREIGN KEY (IDCONTRACT) REFERENCES rentcontract(IDCONTRACT)
 );
 alter table insurance rename column ID to IID;
+use systemmanagecar;
+alter table rentcontract
+add column DRIVERLICENSE text;
