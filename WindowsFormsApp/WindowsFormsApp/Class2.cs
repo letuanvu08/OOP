@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp
+namespace Lab4
 {
     static public class ConstValue
     {
@@ -116,7 +116,8 @@ namespace WindowsFormsApp
         protected bool maintain;
         protected bool stateUsed;
 
-        protected ServiceHistory serviceHistory = new ServiceHistory();
+        protected ServiceHistory serviceHistory;
+        public ServiceHistory getServiceHistory { get => serviceHistory; }
 
 
         // ============== METHOD SERVICE ==================== 
@@ -136,7 +137,7 @@ namespace WindowsFormsApp
         public TypeCar TypeCar { get => typeCar; set => typeCar = value; }
         public Car()
         {
-
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car not Parameter");
             this.name = "";
             this.branch = "";
@@ -148,6 +149,7 @@ namespace WindowsFormsApp
         }
         public Car(string NameCar, string Branch, int idCar)
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with three paramter: NameCar, Branch, IdCar");
             this.name = NameCar;
             this.branch = Branch;
@@ -160,6 +162,7 @@ namespace WindowsFormsApp
         }
         public Car(string NameCar, string Branch, int idCar, TypeCar typeCar, string Description)
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 5 paramter: NameCar, Branch, IdCar, typeCar, Description");
             this.name = NameCar;
             this.branch = Branch;
@@ -169,8 +172,9 @@ namespace WindowsFormsApp
             this.stateUsed = false;
             this.maintain = false;
         }
-        public Car(string NameCar, string Branch, int idCar, TypeCar typecar, bool maintain, bool stateUse,int costperday)
+        public Car(string NameCar, string Branch, int idCar, TypeCar typecar, bool maintain, bool stateUse, int costperday)
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 7 paramter: NameCar, Branch, IdCar, typeCar, Description,maintain,stateUse");
             this.name = NameCar;
             this.branch = Branch;
@@ -189,20 +193,20 @@ namespace WindowsFormsApp
 
             EngineRecord record = new EngineRecord(this.id, date, this.numberKilometers, this.numberOilNow, error);
             Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
         }
 
         override public void serviceTransmission(DateTime dateTime, string error)
         {
             TransmissionRecord record = new TransmissionRecord(this.id, dateTime, this.numberKilometers, this.numberFluidNow, error);
             Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
         }
         override public void serviceTires(DateTime dateTime, string error)
         {
             TiresRecord record = new TiresRecord(this.id, dateTime, this.numberKilometers);
             Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
 
         }
         override public void checkVehicleCondition()
@@ -258,6 +262,7 @@ namespace WindowsFormsApp
         public TypeTruck TypeTruck { get => typeTruck; set => typeTruck = value; }
         public Truck()
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Truck not Parameter");
             this.name = "";
             this.branch = "";
@@ -269,6 +274,7 @@ namespace WindowsFormsApp
         }
         public Truck(string NameCar, string Branch, int idCar)
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Truck Parameter with three paramter: NameTruck, Branch, IdTruck");
             this.name = NameCar;
             this.branch = Branch;
@@ -281,6 +287,7 @@ namespace WindowsFormsApp
         }
         public Truck(string NameTruck, string Branch, int idTruck, TypeTruck typeTruck, string Description)
         {
+            serviceHistory = new ServiceHistory();
             this.name = NameTruck;
             this.branch = Branch;
             this.idVehicle = idTruck;
@@ -290,8 +297,9 @@ namespace WindowsFormsApp
             this.maintain = false;
 
         }
-        public Truck(string NameTruck, string Branch, int idTruck, TypeTruck typeTruck, bool stateUse, bool maintain,int costperday)
+        public Truck(string NameTruck, string Branch, int idTruck, TypeTruck typeTruck, bool stateUse, bool maintain, int costperday)
         {
+            serviceHistory = new ServiceHistory();
             this.name = NameTruck;
             this.Branch = Branch;
             this.idVehicle = idTruck;
@@ -310,20 +318,20 @@ namespace WindowsFormsApp
 
             EngineRecord record = new EngineRecord(this.id, date, this.numberKilometers, this.numberOilNow, error);
             Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
         }
 
         override public void serviceTransmission(DateTime dateTime, string error)
         {
             TransmissionRecord record = new TransmissionRecord(this.id, dateTime, this.numberKilometers, this.numberFluidNow, error);
             Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
         }
         override public void serviceTires(DateTime dateTime, string error)
         {
             TiresRecord record = new TiresRecord(this.id, dateTime, this.numberKilometers);
             Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
 
         }
         override public void checkVehicleCondition()
@@ -552,7 +560,7 @@ namespace WindowsFormsApp
             Console.WriteLine(" Constuctor New RentContract not Parameter");
             this.custormerRentCar = null;
             this.vehicleRented = null;
-            
+
             this.totalCost = 0;
         }
         public RentContract(Custormer custormer, Vehicle vehicle)
@@ -560,7 +568,7 @@ namespace WindowsFormsApp
             Console.WriteLine(" Constuctor New RentContract with 2 parameter: Custormer,Car");
             this.custormerRentCar = custormer;
             this.vehicleRented = vehicle;
-            
+
             this.totalCost = 0;
 
             this.description = "";
@@ -568,7 +576,7 @@ namespace WindowsFormsApp
         public RentContract(Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent)
         {
             Console.WriteLine(" Constuctor New RentContract with 5 parameter: Custormer,Car,...");
-            
+
             this.vehicleRented = vehicle;
             this.dateStartRent = DateStartRent;
             this.DateEndRent = DateEndRent;
@@ -578,14 +586,14 @@ namespace WindowsFormsApp
         public RentContract(Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent, int totalCost)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Custormer,Car,...");
-            
+
             this.vehicleRented = vehicle;
             this.dateStartRent = DateStartRent;
             this.DateEndRent = DateEndRent;
             this.totalCost = totalCost;
             this.description = "";
         }
-        public RentContract(int id,Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent, int totalCost)
+        public RentContract(int id, Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent, int totalCost)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Custormer,Car,...");
             this.id = id;
@@ -674,7 +682,8 @@ namespace WindowsFormsApp
             List<string> list = new List<string>();
             foreach (Vehicle vehicle in listVehicle)
             {
-                if (vehicle.GetType() == typeof(Car)) {
+                if (vehicle.GetType() == typeof(Car))
+                {
                     Car car = (vehicle as Car);
                     if (!list.Contains(car.TypeCar.ToString()))
                     {
@@ -694,7 +703,7 @@ namespace WindowsFormsApp
         }
         public Vehicle FindVehicle(string Name)
         {
-            foreach(var vehicle in listVehicle)
+            foreach (var vehicle in listVehicle)
             {
                 if (vehicle.Name == Name)
                     return vehicle;
@@ -709,29 +718,31 @@ namespace WindowsFormsApp
     {
         protected int ID;
         protected int idVehicle;
-        public int IDVehicle { get=>idVehicle; set=> ID=value; }
+        public int IDVehicle { get => idVehicle; set => ID = value; }
         protected DateTime dateTime;
         protected double numberKilometers;
-
-        public static double operator-(Record A,Record B)
+        public double NumberKilometers { get => numberKilometers; set => numberKilometers = value; }
+        public static double operator -(Record A, Record B)
         {
             if (A.IDVehicle != B.IDVehicle)
             {
                 throw new InvalidCastException();
 
             }
+            Console.WriteLine("A:" + A.NumberKilometers);
+            Console.WriteLine("B:" + B.NumberKilometers);
             return A.numberKilometers - B.numberKilometers;
         }
-        public static bool operator > (Record A, Record B)
+        public static bool operator >(Record A, Record B)
         {
             if (A.IDVehicle != B.IDVehicle)
             {
                 throw new InvalidCastException();
 
             }
-            return ((A.dateTime.Date- B.dateTime.Date).TotalDays)>0;
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) > 0;
         }
-        public static bool operator < (Record A, Record B)
+        public static bool operator <(Record A, Record B)
         {
             if (A.IDVehicle != B.IDVehicle)
             {
@@ -783,9 +794,10 @@ namespace WindowsFormsApp
         int numberOilChange;
         string error;
 
-        public EngineRecord(int ID, DateTime dateTime, double numberKM, int numberOil, string error)
+        public EngineRecord(int IdVehicle, DateTime dateTime, double numberKM, int numberOil, string error)
         {
-            this.ID = ID;
+            this.idVehicle = IdVehicle;
+
             this.dateTime = dateTime;
             this.numberKilometers = numberKM;
             this.numberOilChange = numberOil;
@@ -797,9 +809,10 @@ namespace WindowsFormsApp
     {
         int numberFluidChange;
         string error;
-        public TransmissionRecord(int ID, DateTime dateTime, double numberKM, int numberFluid, string error)
+        public TransmissionRecord(int IdVehicle, DateTime dateTime, double numberKM, int numberFluid, string error)
         {
-            this.ID = ID;
+            this.idVehicle = IdVehicle;
+
             this.dateTime = dateTime;
             this.numberKilometers = numberKM;
             this.numberFluidChange = numberFluid;
@@ -809,9 +822,10 @@ namespace WindowsFormsApp
 
     class TiresRecord : Record
     {
-        public TiresRecord(int ID, DateTime dateTime, double numberKM)
+        public TiresRecord(int IdVehicle, DateTime dateTime, double numberKM)
         {
-            this.ID = ID;
+            this.idVehicle = IdVehicle;
+
             this.dateTime = dateTime;
             this.numberKilometers = numberKM;
         }
@@ -819,7 +833,7 @@ namespace WindowsFormsApp
 
     class ServiceHistory
     {
-        public List<Record> listRecord;
+        private List<Record> listRecord;
 
         ServiceHistory(List<Record> lst)
         {
@@ -829,6 +843,16 @@ namespace WindowsFormsApp
         {
             listRecord = new List<Record>();
         }
+        public List<Record> getListRecord()
+        {
+            return listRecord;
+        }
+        public void AddRecord(Record record)
+        {
+            listRecord.Add(record);
+            Console.WriteLine(listRecord[listRecord.Count() - 1]);
+            Console.WriteLine("count: " + listRecord.Count());
+        }
 
     }
     interface BookAndRent
@@ -836,7 +860,7 @@ namespace WindowsFormsApp
         List<Vehicle> FindCarAvailable(TypeCar type, string Branch);
 
     }
-    class CarRentalManagement:BookAndRent
+    class CarRentalManagement : BookAndRent
     {
         private List<Fleet> listFleet;
         private List<RentContract> listContract;
@@ -878,7 +902,8 @@ namespace WindowsFormsApp
             }
             return list;
         }
-        public List<string> getlistType(string type) {
+        public List<string> getlistType(string type)
+        {
             if (type == "car")
             {
                 return listFleet[0].listtype();
@@ -887,7 +912,7 @@ namespace WindowsFormsApp
             {
                 return listFleet[1].listtype();
             }
-                
+
         }
         public List<string> getlistBranch(string type)
         {
@@ -969,5 +994,5 @@ namespace WindowsFormsApp
             return returnContracts;
         }
     }
-   
+
 }
