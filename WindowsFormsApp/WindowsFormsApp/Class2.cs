@@ -46,6 +46,14 @@ namespace WindowsFormsApp
         VeryGood,
     }
 
+    enum TypeInsurance
+    {
+        Wood,
+        Iron,
+        Silver,
+        Gold,
+        Diamon
+    }
     abstract class Vehicle
     {
         public int costperDay;
@@ -445,7 +453,6 @@ namespace WindowsFormsApp
             this.sex = Sex;
             this.address = Address;
             this.career = Career;
-
         }
     }
     class Manager : Account
@@ -528,10 +535,21 @@ namespace WindowsFormsApp
 
         public string Department { get => department; set => department = value; }
     }
+    class Insurance
+    {
+        private int insuranceID;
+        private TypeInsurance type;
+        public int InsuranceID { get => insuranceID; set => insuranceID = value; }
+        public TypeInsurance Type { get => type; set=>type = value;}
+        public Insurance(int id, TypeInsurance type)
+        {
+            this.type = type;
+            this.insuranceID = id;
+        }
+    }
     class RentContract
     {
-        private int id;
-
+       
         public int Id { get => id; set => id = value; }
         public Custormer CustormerRentCar { get => custormerRentCar; set => custormerRentCar = value; }
         public Vehicle VehicleRented { get => vehicleRented; set => vehicleRented = value; }
@@ -540,12 +558,13 @@ namespace WindowsFormsApp
         public int TotalCost { get => totalCost; set => totalCost = value; }
         public string Description { get => description; set => description = value; }
 
+        private int id;
         private Custormer custormerRentCar;
         private Vehicle vehicleRented;
+        private Insurance insuranceChoice;
         private DateTime dateStartRent;
         private DateTime dateEndRent;
-        private int totalCost;
-
+        private int totalCost;        
         private string description;
         public RentContract()
         {
@@ -595,6 +614,20 @@ namespace WindowsFormsApp
             this.totalCost = totalCost;
             this.description = "";
         }
+        // This is the fully initialized constructor to insert a complete record into the database
+        public RentContract(int id, Vehicle vehicle,Insurance insurance,Custormer custormer,DateTime DateStartRent, DateTime DateEndRent, int totalCost, string description)
+        {
+            Console.WriteLine(" Constuctor New RentContract with 6 parameter: Custormer,Car,...");
+            this.id = id;
+            this.vehicleRented = vehicle;
+            this.dateStartRent = DateStartRent;
+            this.DateEndRent = DateEndRent;
+            this.totalCost = totalCost;
+            this.description = description;
+            this.insuranceChoice = insurance;
+            this.custormerRentCar = custormer;
+        }
+
     }
     class Fleet
     {

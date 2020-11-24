@@ -84,6 +84,10 @@ namespace WindowsFormsApp
             {
                 // Create a contract wit the Car
                 Car car = new Car(NameCar:row["Name"].ToString(),Branch:row["branch"].ToString(),idCar:Int32.Parse(row["ID"].ToString()),typecar:(TypeCar)Enum.Parse(typeof(TypeCar),row["TYPECAR"].ToString()),maintain:Boolean.Parse(row["maintain"].ToString()),costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
+                // Create the customer of the Contract:
+                Custormer custormer = new Custormer(name: row["NAMECUSTORMER"].ToString(), Password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString());
+                // Creat a Insurance with the contract: 
+                Insurance insurance = new Insurance(id: (int)row["IID"], type: (TypeInsurance)Enum.Parse(typeof(TypeInsurance), row["TYPEINSURANCE"].ToString()));
                 int id = int.Parse(row["IDCONTRACT"].ToString());
                 //DateTime dateStartRent = DateTime.ParseExact(row["STARTDATE"].ToString(), CultureInfo.InvariantCulture);
                 //DateTime dateEndRent = DateTime.ParseExact(row["ENDDATE"].ToString(), CultureInfo.InvariantCulture);
@@ -104,8 +108,13 @@ namespace WindowsFormsApp
                 
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
+<<<<<<< Updated upstream
                 
                 RentContract rentContract = new RentContract(id,car,dateStartRent,dateEndRent,totalBill);
+=======
+                string description = row["DESCRIPTION"].ToString();
+                RentContract rentContract = new RentContract(id,car,insurance,custormer,dateStartRent,dateEndRent,totalBill,description);
+>>>>>>> Stashed changes
                 manage.addContract(rentContract);
                 
             }

@@ -81,13 +81,13 @@ namespace WindowsFormsApp
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            RemoveItems();
+            ContractList.Items.Clear();
             DisplayCarContracts();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {   
-            RemoveItems();
+        {
+            ContractList.Items.Clear();
             DisplayTruckContracts();
         }
 
