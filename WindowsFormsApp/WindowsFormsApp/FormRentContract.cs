@@ -86,8 +86,8 @@ namespace WindowsFormsApp
 
             }
             contract.Id = maxid + 1;
-                string sqlcontract = "insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL,BIRTHDAY, DESCRIPTION)"+
-                "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY,@DESCRIPTION);";
+                string sqlcontract = "insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL,BIRTHDAY, DESCRIPTION,DRIVERLICENSE,APPROVED,IDINSURANCE)" +
+                "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY,@DESCRIPTION,);";
             cmd = conn.CreateCommand();
             cmd.CommandText = sqlcontract;
             cmd.Parameters.Add("@ID", (MySqlDbType)SqlDbType.Int).Value=contract.Id;
@@ -100,6 +100,7 @@ namespace WindowsFormsApp
             cmd.Parameters.AddWithValue("@TOTALBILL",  contract.TotalCost.ToString());
             cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustormerRentCar.Birthday.Date.ToString());
             cmd.Parameters.AddWithValue("@DESCRIPTION", contract.Description);
+            /*cmd.Par*//*//**ameters.AddWithValue("@DRIVERLICENSE", contract.CustormerRentCar.);*/
             cmd.ExecuteNonQuery();
            
         }
@@ -156,9 +157,6 @@ namespace WindowsFormsApp
             custormerRent.Email = Email.Text;
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
 }

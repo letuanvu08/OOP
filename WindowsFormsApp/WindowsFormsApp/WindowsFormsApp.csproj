@@ -79,6 +79,12 @@
     <Compile Include="FormManage.Designer.cs">
       <DependentUpon>FormManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormManageVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormManageVehicle.Designer.cs">
+      <DependentUpon>FormManageVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRentContract.cs">
       <SubType>Form</SubType>
     </Compile>
