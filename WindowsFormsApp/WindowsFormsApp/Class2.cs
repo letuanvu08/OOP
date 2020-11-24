@@ -411,9 +411,10 @@ namespace WindowsFormsApp
 
         private string address;
         private string career;
-
+        private string driver_license;
         public string Address { get => address; set => address = value; }
         public string Career { get => career; set => career = value; }
+        public string Driver_license { get => driver_license; set => driver_license = value; }
         public Custormer()
         {
             Console.WriteLine(" Constuctor New Custormer not parameter");
@@ -450,7 +451,7 @@ namespace WindowsFormsApp
             this.address = "";
             this.career = Career;
         }
-        public Custormer(string name, string Password, string Email, string PhoneNumber, string Sex, int Age, string Address, string Career)
+        public Custormer(string name, string Password, string Email, string PhoneNumber, string Sex, int Age, string Address, string Career,string license)
         {
             Console.WriteLine(" Constuctor New Custormer with 8 parameter");
             this.name = name;
@@ -461,6 +462,7 @@ namespace WindowsFormsApp
             this.sex = Sex;
             this.address = Address;
             this.career = Career;
+            this.driver_license = license;
         }
     }
     class Manager : Account
