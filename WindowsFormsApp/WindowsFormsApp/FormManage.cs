@@ -37,14 +37,7 @@ namespace WindowsFormsApp
             DisplayTruckContracts();
             
         }
-        private void RemoveItems()
-        {
-            for (int i = 0; i < ContractList.Items.Count; i++)
-            {
-               
-                ContractList.Items[i].Remove(); 
-            }
-        }
+
         private void DisplayCarContracts()
         {
             foreach (RentContract contract in listCarContracts)
