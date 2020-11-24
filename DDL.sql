@@ -75,4 +75,4 @@ create table insurance (
 alter table insurance rename column ID to IID;
 use systemmanagecar;
 alter table rentcontract
-add APPROVED BOOL;
+add column DRIVERLICENSE text;

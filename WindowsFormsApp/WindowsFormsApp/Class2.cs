@@ -119,7 +119,7 @@ namespace WindowsFormsApp
 
         protected string branch;
         protected string description;
-        protected string roleId;
+        
         public TypeVehicle type;
         protected bool maintain;
         protected bool stateUsed;

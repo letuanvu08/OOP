@@ -156,9 +156,6 @@ namespace WindowsFormsApp
             custormerRent.Email = Email.Text;
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
 }
