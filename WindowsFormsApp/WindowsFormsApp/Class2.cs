@@ -1027,5 +1027,5 @@ namespace Lab4
             return returnContracts;
         }
     }
-
+/*wrtgerhfdgeyrgfr*/
 }
