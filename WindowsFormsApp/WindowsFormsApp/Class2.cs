@@ -565,7 +565,7 @@ namespace WindowsFormsApp
         public DateTime DateEndRent { get => dateEndRent; set => dateEndRent = value; }
         public int TotalCost { get => totalCost; set => totalCost = value; }
         public string Description { get => description; set => description = value; }
-
+        public bool IsApproved { get => isApproved; set => isApproved = value; }
         private int id;
         private Custormer custormerRentCar;
         private Vehicle vehicleRented;
@@ -574,6 +574,7 @@ namespace WindowsFormsApp
         private DateTime dateEndRent;
         private int totalCost;        
         private string description;
+        private bool isApproved;
         public RentContract()
         {
             Console.WriteLine(" Constuctor New RentContract not Parameter");
@@ -623,7 +624,7 @@ namespace WindowsFormsApp
             this.description = "";
         }
         // This is the fully initialized constructor to insert a complete record into the database
-        public RentContract(int id, Vehicle vehicle,Insurance insurance,Custormer custormer,DateTime DateStartRent, DateTime DateEndRent, int totalCost, string description)
+        public RentContract(int id, Vehicle vehicle,Insurance insurance,Custormer custormer,DateTime DateStartRent, DateTime DateEndRent, int totalCost, string description,bool approval)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Custormer,Car,...");
             this.id = id;
@@ -634,6 +635,7 @@ namespace WindowsFormsApp
             this.description = description;
             this.insuranceChoice = insurance;
             this.custormerRentCar = custormer;
+            this.isApproved = approval;
         }
 
     }

@@ -110,8 +110,10 @@ namespace WindowsFormsApp
                 
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
+                string description = row["DESCRIPTION"].ToString();
+                bool is_approved = (bool)row["APPROVED"];
                 
-                RentContract rentContract = new RentContract(id,car,dateStartRent,dateEndRent,totalBill);
+                RentContract rentContract = new RentContract(id,car,insurance,custormer,dateStartRent,dateEndRent,totalBill,description,is_approved);
                 manage.addContract(rentContract);
                 
             }

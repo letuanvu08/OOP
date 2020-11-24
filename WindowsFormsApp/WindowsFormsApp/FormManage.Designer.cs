@@ -34,11 +34,11 @@
             this.ManageTruckRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ContractList = new System.Windows.Forms.ListView();
+            this.ContractIDColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.VehicleIDColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.ContractIDColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.VehicleIDColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +110,16 @@
             this.ContractList.View = System.Windows.Forms.View.Details;
             this.ContractList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // ContractIDColumn
+            // 
+            this.ContractIDColumn.Text = "Contract ID:";
+            this.ContractIDColumn.Width = 290;
+            // 
+            // VehicleIDColumn
+            // 
+            this.VehicleIDColumn.Text = "VehicleID:";
+            this.VehicleIDColumn.Width = 373;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -127,20 +137,10 @@
             this.label2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(618, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 27);
+            this.label2.Size = new System.Drawing.Size(265, 27);
             this.label2.TabIndex = 6;
-            this.label2.Text = "List Of Vehicle:";
+            this.label2.Text = "List Of Approved Contracts:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // ContractIDColumn
-            // 
-            this.ContractIDColumn.Text = "Contract ID:";
-            this.ContractIDColumn.Width = 290;
-            // 
-            // VehicleIDColumn
-            // 
-            this.VehicleIDColumn.Text = "VehicleID:";
-            this.VehicleIDColumn.Width = 373;
             // 
             // FormManage
             // 
