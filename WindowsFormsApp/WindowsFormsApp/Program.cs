@@ -74,7 +74,7 @@ namespace WindowsFormsApp
             manage.addFleet(fleettruck);
 
             //====================== Fetch the car-related-contract information from datbase================
-            string query = "select * from rentcontract RC, vehicle V, car C where RC.IDVEHICLE = V.ID and V.ID = C.ID;";
+            string query = "select * from rentcontract RC join insurance I on RC.IDINSURANCE = I.IID, vehicle V, car C where RC.IDVEHICLE = V.ID and V.ID = C.ID;";
             // This adapter connect to the database and execute the query
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
             // Fill the queried data into a table:
@@ -108,8 +108,10 @@ namespace WindowsFormsApp
                 
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
+                string description = row["DESCRIPTION"].ToString();
+                bool is_approved = (bool)row["APPROVED"];
                 
-                RentContract rentContract = new RentContract(id,car,dateStartRent,dateEndRent,totalBill);
+                RentContract rentContract = new RentContract(id,car,insurance,custormer,dateStartRent,dateEndRent,totalBill,description,is_approved);
                 manage.addContract(rentContract);
                 
             }
