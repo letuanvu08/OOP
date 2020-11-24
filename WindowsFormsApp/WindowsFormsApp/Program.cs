@@ -74,14 +74,16 @@ namespace WindowsFormsApp
             manage.addFleet(fleettruck);
 
             //====================== Fetch the car-related-contract information from datbase================
-            string query = "select * from rentcontract RC left join insurance I on RC.IDINSURANCE = I.IID, vehicle V, car C where RC.IDVEHICLE = V.ID and V.ID = C.ID;";
+            string query = "select * from rentcontract RC join insurance I on RC.IDINSURANCE = I.IID, vehicle V, car C where RC.IDVEHICLE = V.ID and V.ID = C.ID;";
             // This adapter connect to the database and execute the query
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
             // Fill the queried data into a table:
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
+            
             foreach (DataRow row in dataTable.Rows)
             {
+                
                 // Create a contract wit the Car
                 Car car = new Car(NameCar:row["Name"].ToString(),Branch:row["branch"].ToString(),idCar:Int32.Parse(row["ID"].ToString()),typecar:(TypeCar)Enum.Parse(typeof(TypeCar),row["TYPECAR"].ToString()),maintain:Boolean.Parse(row["maintain"].ToString()),costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
                 // Create the customer of the Contract:
