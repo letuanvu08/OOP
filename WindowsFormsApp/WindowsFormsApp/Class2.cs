@@ -1030,4 +1030,5 @@ namespace Lab4
 /*wrtgerhfdgeyrgfr*/
 /*
  sàgsdfsgfdtgregtryhgkjfdshcdskjghejrf*/
+/*ăerfgerygfdgreh*/
 }
