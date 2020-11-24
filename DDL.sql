@@ -66,4 +66,11 @@
 # );
 use systemmanagecar;
 alter table rentcontract
-add DESCRIPTION TEXT;
+add IDINSURANCE int;
+create table insurance (
+	ID int,
+    TYPEINSURANCE enum('WOOD','IRON','SILVER','GOLD','DIAMOND'),
+    IDCONTRACT int not null,
+	FOREIGN KEY (IDCONTRACT) REFERENCES rentcontract(IDCONTRACT)
+);
+alter table insurance rename column ID to IID;
