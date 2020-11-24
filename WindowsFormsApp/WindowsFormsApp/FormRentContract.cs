@@ -86,15 +86,8 @@ namespace WindowsFormsApp
 
             }
             contract.Id = maxid + 1;
-<<<<<<< Updated upstream
                 string sqlcontract = "insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL,BIRTHDAY, DESCRIPTION)"+
                 "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY,@DESCRIPTION);";
-=======
-
-            // REMEMBER TO ADD NEW FIELDS: IDINSURANCE,DESCRIPTION AND INSERT A NEW INSURANCE RECORD WITH EACH RENTCONTRACT (TO GET THE INSURANCE TYPE (ENUM))
-                string sqlcontract = "insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL,BIRTHDAY)"+
-                "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY);";
->>>>>>> Stashed changes
             cmd = conn.CreateCommand();
             cmd.CommandText = sqlcontract;
             cmd.Parameters.Add("@ID", (MySqlDbType)SqlDbType.Int).Value=contract.Id;

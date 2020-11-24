@@ -108,13 +108,8 @@ namespace WindowsFormsApp
                 
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
-<<<<<<< Updated upstream
                 
                 RentContract rentContract = new RentContract(id,car,dateStartRent,dateEndRent,totalBill);
-=======
-                string description = row["DESCRIPTION"].ToString();
-                RentContract rentContract = new RentContract(id,car,insurance,custormer,dateStartRent,dateEndRent,totalBill,description);
->>>>>>> Stashed changes
                 manage.addContract(rentContract);
                 
             }
