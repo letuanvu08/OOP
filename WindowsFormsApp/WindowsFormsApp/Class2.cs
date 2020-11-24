@@ -708,8 +708,74 @@ namespace WindowsFormsApp
     abstract class Record
     {
         protected int ID;
+        protected int idVehicle;
+        public int IDVehicle { get=>idVehicle; set=> ID=value; }
         protected DateTime dateTime;
         protected double numberKilometers;
+
+        public static double operator-(Record A,Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return A.numberKilometers - B.numberKilometers;
+        }
+        public static bool operator > (Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date- B.dateTime.Date).TotalDays)>0;
+        }
+        public static bool operator < (Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) < 0;
+        }
+        public static bool operator >=(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) >= 0;
+        }
+        public static bool operator <=(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) <= 0;
+        }
+        public static bool operator ==(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) == 0;
+        }
+        public static bool operator !=(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) != 0;
+        }
     }
 
     class EngineRecord : Record

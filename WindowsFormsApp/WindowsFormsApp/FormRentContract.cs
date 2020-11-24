@@ -86,8 +86,8 @@ namespace WindowsFormsApp
 
             }
             contract.Id = maxid + 1;
-                string sqlcontract = "insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL,BIRTHDAY)"+
-                "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY);";
+                string sqlcontract = "insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL,BIRTHDAY, DESCRIPTION)"+
+                "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY,@DESCRIPTION);";
             cmd = conn.CreateCommand();
             cmd.CommandText = sqlcontract;
             cmd.Parameters.Add("@ID", (MySqlDbType)SqlDbType.Int).Value=contract.Id;
@@ -99,7 +99,7 @@ namespace WindowsFormsApp
             cmd.Parameters.AddWithValue("@ENDDATE", contract.DateEndRent.Date.ToString());
             cmd.Parameters.AddWithValue("@TOTALBILL",  contract.TotalCost.ToString());
             cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustormerRentCar.Birthday.Date.ToString());
-           
+            cmd.Parameters.AddWithValue("@DESCRIPTION", contract.Description);
             cmd.ExecuteNonQuery();
            
         }

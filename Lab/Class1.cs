@@ -1,9 +1,8 @@
-﻿using Microsoft.CSharp.RuntimeBinder;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Xml.Serialization;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Lab4
 {
@@ -23,17 +22,20 @@ namespace Lab4
     }
     enum TypeCar
     {
-        FourChairclassic,
-        SevenChairclassic,
-        Sport,
-        Luxury,
+        MICRO,
+        SEDAN,
+        CUV,
+        SUV,
+        HATCHBACK,
+        SUPERCAR,
+        ROADSTER
 
     }
     enum TypeTruck
     {
-        PartTruck,
-        Contener,
-        Ben,
+        NINITRUCK,
+        TRUCK,
+        BIGTRUCK
     }
 
     enum TypeState
@@ -47,7 +49,7 @@ namespace Lab4
     abstract class Vehicle
     {
         public int costperDay;
-        public int CostperDay { get =>costperDay; set=>costperDay=value; }
+        public int CostperDay { get => costperDay; set => costperDay = value; }
         protected string name;
         public string Name
         {
@@ -103,18 +105,19 @@ namespace Lab4
         // ================ END COMMENT ======================= //
         public string Branch { get => branch; set => branch = value; }
         protected string Description { get => description; set => description = value; }
-        protected TypeVehicle Type { get => type; set => type = value; }
+        public TypeVehicle Type { get => type; set => type = value; }
         public bool Maintain { get => maintain; set => maintain = value; }
         public bool StateUsed { get => stateUsed; set => stateUsed = value; }
 
         protected string branch;
         protected string description;
         protected string roleId;
-        protected TypeVehicle type;
+        public TypeVehicle type;
         protected bool maintain;
         protected bool stateUsed;
 
-        protected ServiceHistory serviceHistory=new ServiceHistory();
+        protected ServiceHistory serviceHistory;
+        public ServiceHistory getServiceHistory { get=>serviceHistory; }
 
 
         // ============== METHOD SERVICE ==================== 
@@ -134,23 +137,24 @@ namespace Lab4
         public TypeCar TypeCar { get => typeCar; set => typeCar = value; }
         public Car()
         {
-
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car not Parameter");
             this.name = "";
             this.branch = "";
             this.idVehicle = 0;
-            this.typeCar = TypeCar.FourChairclassic;
+            this.typeCar = 0;
             this.description = "";
             this.stateUsed = false;
             this.maintain = false;
         }
         public Car(string NameCar, string Branch, int idCar)
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with three paramter: NameCar, Branch, IdCar");
             this.name = NameCar;
             this.branch = Branch;
             this.idVehicle = idCar;
-            this.typeCar = TypeCar.FourChairclassic;
+            this.typeCar = 0;
             this.description = "";
             this.stateUsed = false;
             this.maintain = false;
@@ -158,6 +162,7 @@ namespace Lab4
         }
         public Car(string NameCar, string Branch, int idCar, TypeCar typeCar, string Description)
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 5 paramter: NameCar, Branch, IdCar, typeCar, Description");
             this.name = NameCar;
             this.branch = Branch;
@@ -166,18 +171,21 @@ namespace Lab4
             this.description = Description;
             this.stateUsed = false;
             this.maintain = false;
-
         }
-        public Car(string NameCar, string Branch, int idCar, TypeCar typecar, string Description, bool maintain, bool stateUse)
+        public Car(string NameCar, string Branch, int idCar, TypeCar typecar, bool maintain, bool stateUse, int costperday)
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 7 paramter: NameCar, Branch, IdCar, typeCar, Description,maintain,stateUse");
             this.name = NameCar;
             this.branch = Branch;
             this.idVehicle = idCar;
             this.typeCar = typecar;
-            this.description = Description;
+            this.description = "";
             this.stateUsed = stateUse;
             this.maintain = maintain;
+            this.costperDay = costperday;
+            //===================This next line make sure the rent contract is able to know what type of Vehicle is assigned when creating the contract=======
+            this.type = TypeVehicle.Car;
         }
 
         override public void serviceEngine(DateTime date, string error)
@@ -185,20 +193,20 @@ namespace Lab4
 
             EngineRecord record = new EngineRecord(this.id, date, this.numberKilometers, this.numberOilNow, error);
             Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
         }
 
         override public void serviceTransmission(DateTime dateTime, string error)
         {
             TransmissionRecord record = new TransmissionRecord(this.id, dateTime, this.numberKilometers, this.numberFluidNow, error);
             Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
         }
         override public void serviceTires(DateTime dateTime, string error)
         {
             TiresRecord record = new TiresRecord(this.id, dateTime, this.numberKilometers);
             Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
 
         }
         override public void checkVehicleCondition()
@@ -254,22 +262,24 @@ namespace Lab4
         public TypeTruck TypeTruck { get => typeTruck; set => typeTruck = value; }
         public Truck()
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Truck not Parameter");
             this.name = "";
             this.branch = "";
             this.idVehicle = 0;
-            this.typeTruck = TypeTruck.Ben;
+            this.typeTruck = 0;
             this.description = "";
             this.stateUsed = false;
             this.maintain = false;
         }
         public Truck(string NameCar, string Branch, int idCar)
         {
+            serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Truck Parameter with three paramter: NameTruck, Branch, IdTruck");
             this.name = NameCar;
             this.branch = Branch;
             this.idVehicle = idCar;
-            this.typeTruck = TypeTruck.Ben;
+            this.typeTruck = 0;
             this.description = "";
             this.stateUsed = false;
             this.maintain = false;
@@ -277,6 +287,7 @@ namespace Lab4
         }
         public Truck(string NameTruck, string Branch, int idTruck, TypeTruck typeTruck, string Description)
         {
+            serviceHistory = new ServiceHistory();
             this.name = NameTruck;
             this.branch = Branch;
             this.idVehicle = idTruck;
@@ -286,15 +297,18 @@ namespace Lab4
             this.maintain = false;
 
         }
-        public Truck(string NameTruck, string Branch, int idTruck, TypeTruck typeTruck, string Description, bool stateUse, bool maintain)
+        public Truck(string NameTruck, string Branch, int idTruck, TypeTruck typeTruck, bool stateUse, bool maintain, int costperday)
         {
+            serviceHistory = new ServiceHistory();
             this.name = NameTruck;
             this.Branch = Branch;
             this.idVehicle = idTruck;
             this.typeTruck = typeTruck;
-            this.description = Description;
+            this.description = "";
             this.stateUsed = stateUse;
             this.maintain = maintain;
+            this.costperDay = costperday;
+            this.type = TypeVehicle.Truck;
         }
 
         //===============================//
@@ -304,20 +318,20 @@ namespace Lab4
 
             EngineRecord record = new EngineRecord(this.id, date, this.numberKilometers, this.numberOilNow, error);
             Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
         }
 
         override public void serviceTransmission(DateTime dateTime, string error)
         {
             TransmissionRecord record = new TransmissionRecord(this.id, dateTime, this.numberKilometers, this.numberFluidNow, error);
             Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
         }
         override public void serviceTires(DateTime dateTime, string error)
         {
             TiresRecord record = new TiresRecord(this.id, dateTime, this.numberKilometers);
             Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.listRecord.Add(record);
+            this.serviceHistory.AddRecord(record);
 
         }
         override public void checkVehicleCondition()
@@ -374,7 +388,7 @@ namespace Lab4
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public string Sex { get => sex; set => sex = value; }
         public int Age { get => age; set => age = value; }
-
+        public DateTime Birthday;
         protected string password;
         protected string email;
         protected string phoneNumber;
@@ -529,15 +543,15 @@ namespace Lab4
         public int Id { get => id; set => id = value; }
         public Custormer CustormerRentCar { get => custormerRentCar; set => custormerRentCar = value; }
         public Vehicle VehicleRented { get => vehicleRented; set => vehicleRented = value; }
-        public int DateStartRent { get => dateStartRent; set => dateStartRent = value; }
-        public int DateEndRent { get => dateEndRent; set => dateEndRent = value; }
+        public DateTime DateStartRent { get => dateStartRent; set => dateStartRent = value; }
+        public DateTime DateEndRent { get => dateEndRent; set => dateEndRent = value; }
         public int TotalCost { get => totalCost; set => totalCost = value; }
         public string Description { get => description; set => description = value; }
 
         private Custormer custormerRentCar;
         private Vehicle vehicleRented;
-        private int dateStartRent;
-        private int dateEndRent;
+        private DateTime dateStartRent;
+        private DateTime dateEndRent;
         private int totalCost;
 
         private string description;
@@ -546,8 +560,7 @@ namespace Lab4
             Console.WriteLine(" Constuctor New RentContract not Parameter");
             this.custormerRentCar = null;
             this.vehicleRented = null;
-            this.dateStartRent = 0;
-            this.DateEndRent = 0;
+
             this.totalCost = 0;
         }
         public RentContract(Custormer custormer, Vehicle vehicle)
@@ -555,31 +568,40 @@ namespace Lab4
             Console.WriteLine(" Constuctor New RentContract with 2 parameter: Custormer,Car");
             this.custormerRentCar = custormer;
             this.vehicleRented = vehicle;
-            this.dateStartRent = 0;
-            this.DateEndRent = 0;
+
             this.totalCost = 0;
 
             this.description = "";
         }
-        public RentContract(Custormer custormer, Car car, int DateStartRent, int DateEndRent, int TotalCost)
+        public RentContract(Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent)
         {
             Console.WriteLine(" Constuctor New RentContract with 5 parameter: Custormer,Car,...");
-            this.custormerRentCar = custormer;
-            this.vehicleRented = car;
+
+            this.vehicleRented = vehicle;
             this.dateStartRent = DateStartRent;
             this.DateEndRent = DateEndRent;
-            this.totalCost = TotalCost;
+
             this.description = "";
         }
-        public RentContract(Custormer custormer, Car car, int DateStartRent, int DateEndRent, int TotalCost, string description)
+        public RentContract(Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent, int totalCost)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Custormer,Car,...");
-            this.custormerRentCar = custormer;
-            this.vehicleRented = car;
+
+            this.vehicleRented = vehicle;
             this.dateStartRent = DateStartRent;
             this.DateEndRent = DateEndRent;
-            this.totalCost = TotalCost;
-            this.description = description;
+            this.totalCost = totalCost;
+            this.description = "";
+        }
+        public RentContract(int id, Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent, int totalCost)
+        {
+            Console.WriteLine(" Constuctor New RentContract with 6 parameter: Custormer,Car,...");
+            this.id = id;
+            this.vehicleRented = vehicle;
+            this.dateStartRent = DateStartRent;
+            this.DateEndRent = DateEndRent;
+            this.totalCost = totalCost;
+            this.description = "";
         }
     }
     class Fleet
@@ -643,13 +665,128 @@ namespace Lab4
                 this.listStaff.Append(staff);
             this.numberOfStaff += numberOfStaff;
         }
+        public List<string> listBranch()
+        {
+            List<string> list = new List<string>();
+            foreach (Vehicle vehicle in listVehicle)
+            {
+                if (!list.Contains(vehicle.Branch))
+                {
+                    list.Add(vehicle.Branch);
+                }
+            }
+            return list;
+        }
+        public List<string> listtype()
+        {
+            List<string> list = new List<string>();
+            foreach (Vehicle vehicle in listVehicle)
+            {
+                if (vehicle.GetType() == typeof(Car))
+                {
+                    Car car = (vehicle as Car);
+                    if (!list.Contains(car.TypeCar.ToString()))
+                    {
+                        list.Add(car.TypeCar.ToString());
+                    }
+                }
+                else
+                {
+                    Truck car = (vehicle as Truck);
+                    if (!list.Contains(car.TypeTruck.ToString()))
+                    {
+                        list.Add(car.TypeTruck.ToString());
+                    }
+                }
+            }
+            return list;
+        }
+        public Vehicle FindVehicle(string Name)
+        {
+            foreach (var vehicle in listVehicle)
+            {
+                if (vehicle.Name == Name)
+                    return vehicle;
+            }
+            return null;
+
+        }
+
 
     }
     abstract class Record
     {
         protected int ID;
+        protected int idVehicle;
+        public int IDVehicle { get => idVehicle; set => ID = value; }
         protected DateTime dateTime;
         protected double numberKilometers;
+        public double NumberKilometers { get => numberKilometers; set => numberKilometers=value; }
+        public static double operator -(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            Console.WriteLine("A:" + A.NumberKilometers);
+            Console.WriteLine("B:" + B.NumberKilometers);
+            return A.numberKilometers - B.numberKilometers;
+        }
+        public static bool operator >(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) > 0;
+        }
+        public static bool operator <(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) < 0;
+        }
+        public static bool operator >=(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) >= 0;
+        }
+        public static bool operator <=(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) <= 0;
+        }
+        public static bool operator ==(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) == 0;
+        }
+        public static bool operator !=(Record A, Record B)
+        {
+            if (A.IDVehicle != B.IDVehicle)
+            {
+                throw new InvalidCastException();
+
+            }
+            return ((A.dateTime.Date - B.dateTime.Date).TotalDays) != 0;
+        }
     }
 
     class EngineRecord : Record
@@ -657,11 +794,12 @@ namespace Lab4
         int numberOilChange;
         string error;
 
-        public EngineRecord(int ID, DateTime dateTime, double numberKM, int numberOil, string error)
+        public EngineRecord(int IdVehicle, DateTime dateTime, double numberKM, int numberOil, string error)
         {
-            this.ID = ID;
+            this.idVehicle = IdVehicle;
+            
             this.dateTime = dateTime;
-            this.numberKilometers = numberKilometers;
+            this.numberKilometers = numberKM;
             this.numberOilChange = numberOil;
             this.error = error;
         }
@@ -671,11 +809,12 @@ namespace Lab4
     {
         int numberFluidChange;
         string error;
-        public TransmissionRecord(int ID, DateTime dateTime, double numberKM, int numberFluid, string error)
+        public TransmissionRecord(int IdVehicle, DateTime dateTime, double numberKM, int numberFluid, string error)
         {
-            this.ID = ID;
+            this.idVehicle = IdVehicle;
+            
             this.dateTime = dateTime;
-            this.numberKilometers = numberKilometers;
+            this.numberKilometers = numberKM;
             this.numberFluidChange = numberFluid;
             this.error = error;
         }
@@ -683,17 +822,18 @@ namespace Lab4
 
     class TiresRecord : Record
     {
-        public TiresRecord(int ID, DateTime dateTime, double numberKM)
+        public TiresRecord( int IdVehicle, DateTime dateTime, double numberKM)
         {
-            this.ID = ID;
+            this.idVehicle =IdVehicle;
+            
             this.dateTime = dateTime;
-            this.numberKilometers = numberKilometers;
+            this.numberKilometers = numberKM;
         }
     }
 
     class ServiceHistory
     {
-        public List<Record> listRecord;
+        private List<Record> listRecord;
 
         ServiceHistory(List<Record> lst)
         {
@@ -703,19 +843,30 @@ namespace Lab4
         {
             listRecord = new List<Record>();
         }
+        public List<Record>  getListRecord() {
+            return listRecord;
+        }
+        public void AddRecord(Record record)
+        {
+            listRecord.Add(record);
+            Console.WriteLine(listRecord[listRecord.Count() - 1]);
+            Console.WriteLine("count: " + listRecord.Count());
+        }
 
     }
     interface BookAndRent
     {
-        List<Vehicle> FindCarAvailable(int type,string Branch);
-        
-     
-    class CarRentalManagement
+        List<Vehicle> FindCarAvailable(TypeCar type, string Branch);
+
+    }
+    class CarRentalManagement : BookAndRent
     {
         private List<Fleet> listFleet;
+        private List<RentContract> listContract;
         public CarRentalManagement()
         {
             listFleet = new List<Fleet>();
+            listContract = new List<RentContract>();
         }
         public void addFleet(Fleet fleet)
         {
@@ -725,7 +876,7 @@ namespace Lab4
         {
             foreach (Fleet fleet in listFleet)
             {
-               
+
                 foreach (Vehicle vehicle in fleet.listVehicle)
                 {
                     Console.WriteLine("...........");
@@ -734,6 +885,113 @@ namespace Lab4
 
             }
         }
+        public List<Vehicle> FindCarAvailable(TypeCar type, string Branch)
+        {
+            List<Vehicle> list = new List<Vehicle>();
+            foreach (Fleet fleet in listFleet)
+            {
 
+                foreach (Vehicle vehicle in fleet.listVehicle)
+                {
+                    Car car = vehicle as Car;
+                    if (car.TypeCar == type && car.Branch == Branch)
+                        list.Add(car);
+                }
+
+            }
+            return list;
+        }
+        public List<string> getlistType(string type)
+        {
+            if (type == "car")
+            {
+                return listFleet[0].listtype();
+            }
+            else
+            {
+                return listFleet[1].listtype();
+            }
+
+        }
+        public List<string> getlistBranch(string type)
+        {
+            if (type == "car")
+            {
+                return listFleet[0].listBranch();
+            }
+            else
+            {
+                return listFleet[1].listBranch();
+            }
+
+        }
+        public Vehicle FindVehicle(string Name)
+        {
+            foreach (Fleet fleet in listFleet)
+            {
+                if (fleet.FindVehicle(Name) != null)
+                    return fleet.FindVehicle(Name);
+            }
+            return null;
+
+        }
+        // -===============================Contract Supporting Function=======================
+        public void addContract(RentContract contract)
+        {
+            this.listContract.Add(contract);
+        }
+        public List<RentContract> getContracts()
+        {
+            return this.listContract;
+        }
+        public List<RentContract> FindContractsWithDateStart(DateTime date)
+        {
+            List<RentContract> returnContracts = new List<RentContract>();
+            foreach (RentContract contract in listContract)
+            {
+                if (contract.DateStartRent == date)
+                {
+                    returnContracts.Add(contract);
+                }
+            }
+            return returnContracts;
+        }
+        public List<RentContract> FindContractsWithDateEnd(DateTime date)
+        {
+            List<RentContract> returnContracts = new List<RentContract>();
+            foreach (RentContract contract in listContract)
+            {
+                if (contract.DateEndRent == date)
+                {
+                    returnContracts.Add(contract);
+                }
+            }
+            return returnContracts;
+        }
+        public List<RentContract> GetCarRelatedConTracts()
+        {
+            List<RentContract> returnContracts = new List<RentContract>();
+            foreach (RentContract contract in listContract)
+            {
+                if (contract.VehicleRented.type == TypeVehicle.Car)
+                {
+                    returnContracts.Add(contract);
+                }
+            }
+            return returnContracts;
+        }
+        public List<RentContract> GetTruckRelatedConTracts()
+        {
+            List<RentContract> returnContracts = new List<RentContract>();
+            foreach (RentContract contract in listContract)
+            {
+                if (contract.VehicleRented.type == TypeVehicle.Truck)
+                {
+                    returnContracts.Add(contract);
+                }
+            }
+            return returnContracts;
+        }
     }
+
 }

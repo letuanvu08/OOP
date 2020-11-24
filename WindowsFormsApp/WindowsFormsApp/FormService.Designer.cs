@@ -33,7 +33,7 @@
             // 
             // Home
             // 
-            this.Home.Location = new System.Drawing.Point(358, 372);
+            this.Home.Location = new System.Drawing.Point(336, 377);
             this.Home.Name = "Home";
             this.Home.Size = new System.Drawing.Size(75, 23);
             this.Home.TabIndex = 0;

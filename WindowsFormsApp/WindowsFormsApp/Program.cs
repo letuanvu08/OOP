@@ -101,17 +101,20 @@ namespace WindowsFormsApp
                     endDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
                 }
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
+                
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
-              
+                
                 RentContract rentContract = new RentContract(id,car,dateStartRent,dateEndRent,totalBill);
                 manage.addContract(rentContract);
+                
             }
             
             conn.Close();
             return manage;
             
          }
+
         public static void start(Form form)
         {
             Application.Run(form);

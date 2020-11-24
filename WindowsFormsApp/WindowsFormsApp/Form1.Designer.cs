@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.ManageReport = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // ManageReport
             // 
-            this.button1.Location = new System.Drawing.Point(57, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 63);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Manage Report";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ManageReport.Location = new System.Drawing.Point(60, 145);
+            this.ManageReport.Name = "ManageReport";
+            this.ManageReport.Size = new System.Drawing.Size(157, 63);
+            this.ManageReport.TabIndex = 0;
+            this.ManageReport.Text = "Manage Report";
+            this.ManageReport.UseVisualStyleBackColor = true;
+            this.ManageReport.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(272, 100);
+            this.button2.Location = new System.Drawing.Point(315, 145);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(146, 63);
             this.button2.TabIndex = 1;
@@ -82,7 +82,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ManageReport);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -91,7 +91,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ManageReport;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
