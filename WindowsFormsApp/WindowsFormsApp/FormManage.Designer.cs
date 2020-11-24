@@ -39,6 +39,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.CustomerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DriverLicense = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.InsuranceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,11 +103,15 @@
             this.ContractList.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ContractList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ContractIDColumn,
-            this.VehicleIDColumn});
+            this.VehicleIDColumn,
+            this.CustomerName,
+            this.DriverLicense,
+            this.InsuranceType});
+            this.ContractList.GridLines = true;
             this.ContractList.HideSelection = false;
             this.ContractList.Location = new System.Drawing.Point(24, 123);
             this.ContractList.Name = "ContractList";
-            this.ContractList.Size = new System.Drawing.Size(578, 420);
+            this.ContractList.Size = new System.Drawing.Size(593, 420);
             this.ContractList.TabIndex = 4;
             this.ContractList.UseCompatibleStateImageBehavior = false;
             this.ContractList.View = System.Windows.Forms.View.Details;
@@ -112,13 +119,13 @@
             // 
             // ContractIDColumn
             // 
-            this.ContractIDColumn.Text = "Contract ID:";
-            this.ContractIDColumn.Width = 290;
+            this.ContractIDColumn.Text = "ID:";
+            this.ContractIDColumn.Width = 50;
             // 
             // VehicleIDColumn
             // 
             this.VehicleIDColumn.Text = "VehicleID:";
-            this.VehicleIDColumn.Width = 373;
+            this.VehicleIDColumn.Width = 100;
             // 
             // label1
             // 
@@ -142,6 +149,21 @@
             this.label2.Text = "List Of Approved Contracts:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // CustomerName
+            // 
+            this.CustomerName.Text = "Customer Name:";
+            this.CustomerName.Width = 200;
+            // 
+            // DriverLicense
+            // 
+            this.DriverLicense.Text = "DriverLicense";
+            this.DriverLicense.Width = 200;
+            // 
+            // InsuranceType
+            // 
+            this.InsuranceType.Text = "Insurance Type:";
+            this.InsuranceType.Width = 100;
+            // 
             // FormManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -156,6 +178,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormManage";
             this.Text = "FormManage";
+            this.Load += new System.EventHandler(this.FormManage_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -176,5 +199,8 @@
         private System.Windows.Forms.ColumnHeader ContractIDColumn;
         private System.Windows.Forms.ColumnHeader VehicleIDColumn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ColumnHeader CustomerName;
+        private System.Windows.Forms.ColumnHeader DriverLicense;
+        private System.Windows.Forms.ColumnHeader InsuranceType;
     }
 }
