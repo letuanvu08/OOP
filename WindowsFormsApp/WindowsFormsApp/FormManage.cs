@@ -108,5 +108,10 @@ namespace WindowsFormsApp
         {
 
         }
+
+        private void FormManage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

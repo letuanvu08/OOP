@@ -72,22 +72,30 @@ namespace WindowsFormsApp
                 }
             }
             manage.addFleet(fleettruck);
-
+            loadCarDataFromDatabase(manage);
+            
+            
+            conn.Close();
+            return manage;
+            
+        }
+        public static void loadCarDataFromDatabase(CarRentalManagement manager)
+        {
+            MySqlConnection conn = connectDatabase();
             //====================== Fetch the car-related-contract information from datbase================
             string query = "select * from rentcontract RC join insurance I on RC.IDINSURANCE = I.IID, vehicle V, car C where RC.IDVEHICLE = V.ID and V.ID = C.ID;";
             // This adapter connect to the database and execute the query
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
             // Fill the queried data into a table:
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            
-            foreach (DataRow row in dataTable.Rows)
+            DataTable carDataTable = new DataTable();
+            adapter.Fill(carDataTable);
+            foreach (DataRow row in carDataTable.Rows)
             {
                 
                 // Create a contract wit the Car
-                Car car = new Car(NameCar:row["Name"].ToString(),Branch:row["branch"].ToString(),idCar:Int32.Parse(row["ID"].ToString()),typecar:(TypeCar)Enum.Parse(typeof(TypeCar),row["TYPECAR"].ToString()),maintain:Boolean.Parse(row["maintain"].ToString()),costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
+                Car car = new Car(NameCar: row["Name"].ToString(), Branch: row["branch"].ToString(), idCar: Int32.Parse(row["ID"].ToString()), typecar: (TypeCar)Enum.Parse(typeof(TypeCar), row["TYPECAR"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
                 // Create the customer of the Contract:
-                Custormer custormer = new Custormer(name: row["NAMECUSTORMER"].ToString(), Password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString());
+                Custormer custormer = new Custormer(name: row["NAMECUSTORMER"].ToString(), Password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
                 // Creat a Insurance with the contract: 
                 Insurance insurance = new Insurance(id: (int)row["IID"], type: (TypeInsurance)Enum.Parse(typeof(TypeInsurance), row["TYPEINSURANCE"].ToString()));
                 int id = int.Parse(row["IDCONTRACT"].ToString());
@@ -100,28 +108,68 @@ namespace WindowsFormsApp
                 CultureInfo provider = CultureInfo.InvariantCulture;
                 if (startDateString.Length > 10)
                 {
-                    startDateTimeFormat ="MM/dd/yyyy hh:mm:ss tt";
+                    startDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
                 }
                 if (startDateString.ToString().Length > 10)
                 {
                     endDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
                 }
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
-                
+
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
                 string description = row["DESCRIPTION"].ToString();
                 bool is_approved = (bool)row["APPROVED"];
-                
-                RentContract rentContract = new RentContract(id,car,insurance,custormer,dateStartRent,dateEndRent,totalBill,description,is_approved);
-                manage.addContract(rentContract);
-                
+
+                RentContract rentContract = new RentContract(id, car, insurance, custormer, dateStartRent, dateEndRent, totalBill, description, is_approved);
+                manager.addContract(rentContract);
             }
-            
-            conn.Close();
-            return manage;
-            
-         }
+        }
+        public static void loadTruckDataFromDatabase(CarRentalManagement manager)
+        {
+            MySqlConnection conn = connectDatabase();
+            //====================== Fetch the car-related-contract information from datbase================
+            string query = "select * from rentcontract RC join insurance I on RC.IDINSURANCE = I.IID, vehicle V, truck T where RC.IDVEHICLE = V.ID and V.ID = T.ID;";
+            // This adapter connect to the database and execute the query
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+            // Fill the queried data into a table:
+            DataTable carDataTable = new DataTable();
+            adapter.Fill(carDataTable);
+            foreach (DataRow row in carDataTable.Rows)
+            {
+                // Create a contract wit the Car
+                Truck truck = new Truck(NameTruck: row["Name"].ToString(), Branch: row["branch"].ToString(), idTruck: Int32.Parse(row["ID"].ToString()), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeTruck), row["TYPETRUCK"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
+                // Create the customer of the Contract:
+                Custormer custormer = new Custormer(name: row["NAMECUSTORMER"].ToString(), Password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
+                // Creat a Insurance with the contract: 
+                Insurance insurance = new Insurance(id: (int)row["IID"], type: (TypeInsurance)Enum.Parse(typeof(TypeInsurance), row["TYPEINSURANCE"].ToString()));
+                int id = int.Parse(row["IDCONTRACT"].ToString());
+                //DateTime dateStartRent = DateTime.ParseExact(row["STARTDATE"].ToString(), CultureInfo.InvariantCulture);
+                //DateTime dateEndRent = DateTime.ParseExact(row["ENDDATE"].ToString(), CultureInfo.InvariantCulture);
+                string startDateTimeFormat = "dd/MM/yyyy";
+                string startDateString = row["STARTDATE"].ToString();
+                string endDateTimeFormat = "dd/MM/yyyy";
+                string endDateString = row["ENDDATE"].ToString();
+                CultureInfo provider = CultureInfo.InvariantCulture;
+                if (startDateString.Length > 10)
+                {
+                    startDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
+                }
+                if (startDateString.ToString().Length > 10)
+                {
+                    endDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
+                }
+                DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
+
+                DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
+                int totalBill = (int)row["TOTALBILL"];
+                string description = row["DESCRIPTION"].ToString();
+                bool is_approved = (bool)row["APPROVED"];
+
+                RentContract rentContract = new RentContract(id, truck, insurance, custormer, dateStartRent, dateEndRent, totalBill, description, is_approved);
+                manager.addContract(rentContract);
+            }
+        }
 
         public static void start(Form form)
         {
