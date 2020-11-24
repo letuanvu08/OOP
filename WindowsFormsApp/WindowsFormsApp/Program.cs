@@ -87,16 +87,9 @@ namespace WindowsFormsApp
             // This adapter connect to the database and execute the query
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
             // Fill the queried data into a table:
-<<<<<<< HEAD
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            
-            foreach (DataRow row in dataTable.Rows)
-=======
             DataTable carDataTable = new DataTable();
             adapter.Fill(carDataTable);
             foreach (DataRow row in carDataTable.Rows)
->>>>>>> 5dcaa9b23eb72401ea452b8df85f501c575acf5d
             {
                 
                 // Create a contract wit the Car

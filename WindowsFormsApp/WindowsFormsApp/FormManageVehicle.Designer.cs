@@ -530,8 +530,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Home);
-            this.Name = "FormManageVehicle";
-            this.Text = "FormManageVehicle";
+            
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

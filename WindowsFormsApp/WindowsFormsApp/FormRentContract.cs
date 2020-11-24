@@ -100,7 +100,7 @@ namespace WindowsFormsApp
             cmd.Parameters.AddWithValue("@TOTALBILL",  contract.TotalCost.ToString());
             cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustormerRentCar.Birthday.Date.ToString());
             cmd.Parameters.AddWithValue("@DESCRIPTION", contract.Description);
-            cmd.Parameters.AddWithValue("@DRIVERLICENSE", contract.CustormerRentCar.);
+            /*cmd.Par*//*//**ameters.AddWithValue("@DRIVERLICENSE", contract.CustormerRentCar.);*/
             cmd.ExecuteNonQuery();
            
         }
