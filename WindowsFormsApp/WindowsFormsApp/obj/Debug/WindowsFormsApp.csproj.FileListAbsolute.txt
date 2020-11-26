@@ -57,3 +57,4 @@ C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsF
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\MySql.Data.dll
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\System.Numerics.Vectors.dll
+D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormManageVehicle.resources

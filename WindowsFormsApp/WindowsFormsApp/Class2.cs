@@ -1030,6 +1030,13 @@ namespace WindowsFormsApp
             }
             return returnContracts;
         }
+
+        public List<Vehicle> GetListVehicle(string type)
+        {
+            if (type == "car")
+                return listFleet[0].getListVehicle();
+            else return listFleet[1].getListVehicle();
+        }
     }
 /*wrtgerhfdgeyrgfr*/
 /*
