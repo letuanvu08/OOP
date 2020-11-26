@@ -117,6 +117,9 @@
     <EmbeddedResource Include="FormManage.resx">
       <DependentUpon>FormManage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormManageVehicle.resx">
+      <DependentUpon>FormManageVehicle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRentContract.resx">
       <DependentUpon>FormRentContract.cs</DependentUpon>
     </EmbeddedResource>
