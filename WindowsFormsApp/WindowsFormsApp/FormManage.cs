@@ -85,12 +85,14 @@ namespace WindowsFormsApp
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             ContractList.Items.Clear();
+            ApprovedContractList.Items.Clear();
             DisplayCarContracts();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             ContractList.Items.Clear();
+            ApprovedContractList.Items.Clear();
             DisplayTruckContracts();
         }
         /*       private void Listview1_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -199,15 +201,16 @@ namespace WindowsFormsApp
             if (ClickedItem != null)
             {
                 int contractID = int.Parse(ClickedItem.SubItems[0].Text);
-                RentContract contract_to_show;
+                RentContract contract_to_show = manage.getContracts()[0];
                 foreach (RentContract contract in manage.getContracts())
                 {
                     if (contract.Id == contractID)
                     {
                         contract_to_show = contract;
+                        break;
                     }
                 }
-                ContractDetailForm contractDetailForm = new ContractDetailForm(contractID);
+                ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage,contract_to_show);
                 var thread = new Thread(() => Program.start(contractDetailForm));
                 thread.Start();
                 this.Close();

@@ -11,14 +11,16 @@ using System.Threading;
 
 namespace WindowsFormsApp
 {
-    public partial class ContractDetailForm : Form
+    partial class ContractDetailForm : Form
     {
-        int contract_id;
-         public ContractDetailForm(int _contract_ID)
+        CarRentalManagement manage;
+        RentContract contract;
+         public ContractDetailForm(CarRentalManagement manage,RentContract contract_to_show)
         {
             InitializeComponent();
-            this.contract_id = _contract_ID;
-
+            this.manage = manage;
+            this.contract = contract_to_show;
+            
         }
 
         private void ContractDetailForm_Load(object sender, EventArgs e)
@@ -76,13 +78,13 @@ namespace WindowsFormsApp
 
         }
 
-        //private void button2_Click(object sender, EventArgs e)
-        //{
+        private void button2_Click(object sender, EventArgs e)
+        {
 
-        //    Form formManage = new FormManage(this.manage);
-        //    var thread = new Thread(() => Program.start(formManage));
-        //    thread.Start();
-        //    this.Close();
-        //}
+            Form formManage = new FormManage(this.manage);
+            var thread = new Thread(() => Program.start(formManage));
+            thread.Start();
+            this.Close();
+        }
     }
 }
