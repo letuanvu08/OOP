@@ -48,6 +48,7 @@ namespace WindowsFormsApp
                 (briefContractInfo[0], briefContractInfo[1], briefContractInfo[2], briefContractInfo[3], briefContractInfo[4],briefContractInfo[5]) = getContractInfomation(contract);
                 if (!contract.IsApproved) ContractList.Items.Add(new ListViewItem(briefContractInfo));
                 else ApprovedContractList.Items.Add(new ListViewItem(briefContractInfo));
+                
             }
        
         }
@@ -200,7 +201,7 @@ namespace WindowsFormsApp
             ListViewItem ClickedItem = listViewHitTestInfo.Item;
             if (ClickedItem != null)
             {
-                int contractID = int.Parse(ClickedItem.SubItems[0].Text);
+                int contractID = int.Parse(ClickedItem.SubItems[1].Text);
                 RentContract contract_to_show = manage.getContracts()[0];
                 foreach (RentContract contract in manage.getContracts())
                 {
@@ -217,6 +218,29 @@ namespace WindowsFormsApp
             }
         }
         private void approvedContractList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo listViewHitTestInfo = ApprovedContractList.HitTest(e.X, e.Y);
+            ListViewItem ClickedItem = listViewHitTestInfo.Item;
+            if (ClickedItem != null)
+            {
+                int contractID = int.Parse(ClickedItem.SubItems[1].Text);
+                RentContract contract_to_show = manage.getContracts()[0];
+                foreach (RentContract contract in manage.getContracts())
+                {
+                    if (contract.Id == contractID)
+                    {
+                        contract_to_show = contract;
+                        break;
+                    }
+                }
+                ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage, contract_to_show);
+                var thread = new Thread(() => Program.start(contractDetailForm));
+                thread.Start();
+                this.Close();
+            }
+        }
+
+        private void ApprovedContractList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

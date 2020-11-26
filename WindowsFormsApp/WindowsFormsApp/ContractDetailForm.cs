@@ -20,7 +20,19 @@ namespace WindowsFormsApp
             InitializeComponent();
             this.manage = manage;
             this.contract = contract_to_show;
-            
+            this.DateCreated.Text = DateTime.Now.ToString();
+            this.contractNumber.Text = this.manage.getContracts().Count().ToString();
+            this.CustomerName.Text = this.contract.CustormerRentCar.Name;
+            this.DriverLicense.Text = this.contract.CustormerRentCar.Driver_license;
+            this.Address.Text = this.contract.CustormerRentCar.Address;
+            this.PhoneNum.Text = this.contract.CustormerRentCar.PhoneNumber;
+            this.RegistrationNum.Text = this.contract.VehicleRented.idVehicle.ToString();
+            this.OilCap.Text = this.contract.VehicleRented.SizeOil.ToString();
+            this.FluidStatus.Text = this.contract.VehicleRented.SizeFluid.ToString();
+            this.KilometerRun.Text = this.contract.VehicleRented.NumberKilometers.ToString();
+            this.CostPerDay.Text = this.contract.VehicleRented.costperDay.ToString();
+            this.FromStartToEnd.Text = $"from {this.contract.DateStartRent.ToString()} to {this.contract.DateEndRent.ToString()}";
+            this.TotalCost.Text = this.contract.TotalCost.ToString();
         }
 
         private void ContractDetailForm_Load(object sender, EventArgs e)
@@ -79,6 +91,11 @@ namespace WindowsFormsApp
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
 
             Form formManage = new FormManage(this.manage);

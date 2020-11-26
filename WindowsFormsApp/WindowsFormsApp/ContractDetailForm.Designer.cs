@@ -59,12 +59,16 @@ namespace WindowsFormsApp
             this.label13 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.CustomerSign = new System.Windows.Forms.Label();
-            this.CostPerDay = new System.Windows.Forms.Label();
             this.KilometerRun = new System.Windows.Forms.Label();
             this.FluidStatus = new System.Windows.Forms.Label();
             this.OilCap = new System.Windows.Forms.Label();
             this.RegistrationNum = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.TotalCost = new System.Windows.Forms.Label();
+            this.FromStartToEnd = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.CostPerDay = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -95,9 +99,9 @@ namespace WindowsFormsApp
             this.DateCreated.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateCreated.Location = new System.Drawing.Point(141, 78);
             this.DateCreated.Name = "DateCreated";
-            this.DateCreated.Size = new System.Drawing.Size(61, 24);
+            this.DateCreated.Size = new System.Drawing.Size(115, 24);
             this.DateCreated.TabIndex = 2;
-            this.DateCreated.Text = "label3";
+            this.DateCreated.Text = "DateCreated";
             this.DateCreated.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
@@ -369,22 +373,11 @@ namespace WindowsFormsApp
             // 
             this.CustomerSign.AutoSize = true;
             this.CustomerSign.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerSign.Location = new System.Drawing.Point(597, 635);
+            this.CustomerSign.Location = new System.Drawing.Point(643, 747);
             this.CustomerSign.Name = "CustomerSign";
             this.CustomerSign.Size = new System.Drawing.Size(148, 24);
             this.CustomerSign.TabIndex = 31;
             this.CustomerSign.Text = "Client Signature:";
-            // 
-            // CostPerDay
-            // 
-            this.CostPerDay.AutoSize = true;
-            this.CostPerDay.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CostPerDay.Location = new System.Drawing.Point(643, 537);
-            this.CostPerDay.Name = "CostPerDay";
-            this.CostPerDay.Size = new System.Drawing.Size(64, 24);
-            this.CostPerDay.TabIndex = 32;
-            this.CostPerDay.Text = "Name:";
-            this.CostPerDay.Click += new System.EventHandler(this.label24_Click);
             // 
             // KilometerRun
             // 
@@ -428,24 +421,80 @@ namespace WindowsFormsApp
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(90, 635);
+            this.button2.Location = new System.Drawing.Point(90, 747);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 48);
             this.button2.TabIndex = 38;
             this.button2.Text = "Go Back";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(86, 683);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(416, 24);
+            this.label23.TabIndex = 39;
+            this.label23.Text = "Which in total, Cost the customer an amount of:";
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.AutoSize = true;
+            this.TotalCost.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalCost.Location = new System.Drawing.Point(511, 683);
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.Size = new System.Drawing.Size(0, 24);
+            this.TotalCost.TabIndex = 40;
+            // 
+            // FromStartToEnd
+            // 
+            this.FromStartToEnd.AutoSize = true;
+            this.FromStartToEnd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FromStartToEnd.Location = new System.Drawing.Point(392, 640);
+            this.FromStartToEnd.Name = "FromStartToEnd";
+            this.FromStartToEnd.Size = new System.Drawing.Size(64, 24);
+            this.FromStartToEnd.TabIndex = 41;
+            this.FromStartToEnd.Text = "Name:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(86, 640);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(290, 24);
+            this.label26.TabIndex = 42;
+            this.label26.Text = "This vehicle is rented for a period";
+            // 
+            // CostPerDay
+            // 
+            this.CostPerDay.AutoSize = true;
+            this.CostPerDay.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CostPerDay.Location = new System.Drawing.Point(643, 537);
+            this.CostPerDay.Name = "CostPerDay";
+            this.CostPerDay.Size = new System.Drawing.Size(64, 24);
+            this.CostPerDay.TabIndex = 43;
+            this.CostPerDay.Text = "Name:";
             // 
             // ContractDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 706);
+            this.AutoScroll = true;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ClientSize = new System.Drawing.Size(900, 852);
+            this.Controls.Add(this.CostPerDay);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.FromStartToEnd);
+            this.Controls.Add(this.TotalCost);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.RegistrationNum);
             this.Controls.Add(this.OilCap);
             this.Controls.Add(this.FluidStatus);
             this.Controls.Add(this.KilometerRun);
-            this.Controls.Add(this.CostPerDay);
             this.Controls.Add(this.CustomerSign);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label13);
@@ -516,11 +565,15 @@ namespace WindowsFormsApp
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label CustomerSign;
-        private System.Windows.Forms.Label CostPerDay;
         private System.Windows.Forms.Label KilometerRun;
         private System.Windows.Forms.Label FluidStatus;
         private System.Windows.Forms.Label OilCap;
         private System.Windows.Forms.Label RegistrationNum;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label TotalCost;
+        private System.Windows.Forms.Label FromStartToEnd;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label CostPerDay;
     }
 }
