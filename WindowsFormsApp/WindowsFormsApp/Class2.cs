@@ -112,7 +112,7 @@ namespace WindowsFormsApp
         // ==================================================== //
         // ================ END COMMENT ======================= //
         public string Branch { get => branch; set => branch = value; }
-        protected string Description { get => description; set => description = value; }
+        public string Description { get => description; set => description = value; }
         public TypeVehicle Type { get => type; set => type = value; }
         public bool Maintain { get => maintain; set => maintain = value; }
         public bool StateUsed { get => stateUsed; set => stateUsed = value; }
@@ -749,6 +749,16 @@ namespace WindowsFormsApp
             return null;
 
         }
+        public Vehicle FindVehicleById(int id)
+        {
+            foreach (var vehicle in listVehicle)
+            {
+                if (vehicle.idVehicle == id)
+                    return vehicle;
+            }
+            return null;
+
+        }
 
 
     }
@@ -895,8 +905,8 @@ namespace WindowsFormsApp
     }
     interface BookAndRent
     {
-        List<Vehicle> FindCarAvailable(TypeCar type, string Branch);
 
+        List<Vehicle> FindCarAvailable(string type, string Branch);
     }
     class CarRentalManagement : BookAndRent
     {
@@ -924,22 +934,33 @@ namespace WindowsFormsApp
 
             }
         }
-        public List<Vehicle> FindCarAvailable(TypeCar type, string Branch)
+        public List<Vehicle> FindCarAvailable(string type, string Branch)
         {
             List<Vehicle> list = new List<Vehicle>();
-            foreach (Fleet fleet in listFleet)
+            if(Enum.IsDefined(typeof(TypeCar),type))
+            
             {
 
-                foreach (Vehicle vehicle in fleet.listVehicle)
+                foreach (Vehicle vehicle in listFleet[0].listVehicle)
                 {
                     Car car = vehicle as Car;
-                    if (car.TypeCar == type && car.Branch == Branch)
+                    if (car.TypeCar == (TypeCar)Enum.Parse(typeof(TypeCar),type) && car.Branch == Branch)
                         list.Add(car);
                 }
 
             }
+            else
+            {
+                foreach (Vehicle vehicle in listFleet[1].listVehicle)
+                {
+                    Truck car = vehicle as Truck;
+                    if (car.TypeTruck == (TypeTruck)Enum.Parse(typeof(TypeTruck), type) && car.Branch == Branch)
+                        list.Add(car);
+                }
+            }
             return list;
         }
+        
         public List<string> getlistType(string type)
         {
             if (type == "car")
@@ -1037,6 +1058,16 @@ namespace WindowsFormsApp
             if (type == "car")
                 return listFleet[0].getListVehicle();
             else return listFleet[1].getListVehicle();
+        }
+        public Vehicle FindVehiclebyId(int Id)
+        {
+            foreach (Fleet fleet in listFleet)
+            {
+                if (fleet.FindVehicleById(Id)!= null)
+                    return fleet.FindVehicleById(Id);
+            }
+            return null;
+
         }
     }
 /*wrtgerhfdgeyrgfr*/

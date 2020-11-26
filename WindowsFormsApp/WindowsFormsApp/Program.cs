@@ -61,14 +61,14 @@ namespace WindowsFormsApp
                 }
             }
             manage.addFleet(fleetcar);
-            sqlcar = "select V.Name, V.ID, V.branch, V.costperday, V.stateUsed, V.maintain, t.TYPETRUCK from vehicle V, TRUCK T where v.id = T.id; ";
+            sqlcar = "select T.TYPETRUCK, V.Name, V.ID, V.branch, V.costperday, V.stateUsed, V.maintain, t.TYPETRUCK from vehicle V, TRUCK T where v.id = T.id; ";
             cmd = new MySqlCommand(sqlcar, conn);
             using (MySqlDataReader d = cmd.ExecuteReader())
             {
                 while (d.Read())
                 {
 
-                    fleettruck.AddVehicle(new Truck(NameTruck: d.GetString(1), Branch: d.GetString(3), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeCar), d.GetString(0)), stateUse: d.GetBoolean(5), idTruck: d.GetInt32(2), costperday: d.GetInt32(4), maintain: d.GetBoolean(6)));
+                    fleettruck.AddVehicle(new Truck(NameTruck: d.GetString(1), Branch: d.GetString(3), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeTruck), d.GetString(0)), stateUse: d.GetBoolean(5), idTruck: d.GetInt32(2), costperday: d.GetInt32(4), maintain: d.GetBoolean(6)));
                 }
             }
             manage.addFleet(fleettruck);

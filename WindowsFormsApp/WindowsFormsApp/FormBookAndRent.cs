@@ -37,8 +37,12 @@ namespace WindowsFormsApp
                 panel2.Enabled = true;
                 listResult.Items.Clear();
                 string Branch = branchVehicle.SelectedItem.ToString();
-                TypeCar type = (TypeCar)Enum.Parse(typeof(TypeCar), typeVehicle.SelectedItem.ToString());
-                List<Vehicle> listcar = manage.FindCarAvailable(type, Branch);
+            
+                   string type =  typeVehicle.SelectedItem.ToString();
+                    List<Vehicle> listcar = manage.FindCarAvailable(type, Branch);
+               
+           
+
                 DateTime start = startRent.Value.Date;
                 DateTime end = EndRent.Value.Date;
                 double days=(end-start).TotalDays;

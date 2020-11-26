@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.Home = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panellistvehilce = new System.Windows.Forms.Panel();
             this.listResult = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Branch = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
@@ -45,22 +45,22 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.descriptiontext = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panelstatusview = new System.Windows.Forms.Panel();
+            this.maintainvehicleview = new System.Windows.Forms.CheckBox();
+            this.statusvehicleview = new System.Windows.Forms.CheckBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.Kilometer = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.registration = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.paneltypevehicle = new System.Windows.Forms.Panel();
+            this.typeVehicledetail = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BranchVehicle = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.paneltypevehicleview = new System.Windows.Forms.Panel();
             this.RadioCarDetail = new System.Windows.Forms.RadioButton();
             this.RadioTruckDetail = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -68,21 +68,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.BtDetail = new System.Windows.Forms.Button();
             this.BtChange = new System.Windows.Forms.Button();
-            this.BtAddVehicle = new System.Windows.Forms.Button();
-            this.BtSave = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.btAddVehicle = new System.Windows.Forms.Button();
+            this.btSave = new System.Windows.Forms.Button();
+            this.Cancelview = new System.Windows.Forms.Button();
+            this.panellistvehilce.SuspendLayout();
             this.panel3.SuspendLayout();
             this.PanelDetail.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.panelstatusview.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.paneltypevehicle.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.paneltypevehicleview.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,21 +97,21 @@
             this.Home.UseVisualStyleBackColor = true;
             this.Home.Click += new System.EventHandler(this.Home_Click);
             // 
-            // panel1
+            // panellistvehilce
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.listResult);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(12, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(389, 392);
-            this.panel1.TabIndex = 1;
+            this.panellistvehilce.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panellistvehilce.Controls.Add(this.listResult);
+            this.panellistvehilce.Controls.Add(this.panel3);
+            this.panellistvehilce.Location = new System.Drawing.Point(12, 70);
+            this.panellistvehilce.Name = "panellistvehilce";
+            this.panellistvehilce.Size = new System.Drawing.Size(389, 392);
+            this.panellistvehilce.TabIndex = 1;
             // 
             // listResult
             // 
             this.listResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
-            this.Name,
+            this.NameColumn,
             this.Branch,
             this.type});
             this.listResult.GridLines = true;
@@ -122,16 +122,17 @@
             this.listResult.TabIndex = 5;
             this.listResult.UseCompatibleStateImageBehavior = false;
             this.listResult.View = System.Windows.Forms.View.Details;
+            this.listResult.SelectedIndexChanged += new System.EventHandler(this.listResult_SelectedIndexChanged);
             // 
             // ID
             // 
             this.ID.Text = "ID";
             this.ID.Width = 73;
             // 
-            // Name
+            // NameColumn
             // 
-            this.Name.Text = "Name";
-            this.Name.Width = 116;
+            this.NameColumn.Text = "Name";
+            this.NameColumn.Width = 116;
             // 
             // Branch
             // 
@@ -184,12 +185,12 @@
             this.PanelDetail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelDetail.Controls.Add(this.panel12);
             this.PanelDetail.Controls.Add(this.panel11);
-            this.PanelDetail.Controls.Add(this.panel10);
+            this.PanelDetail.Controls.Add(this.panelstatusview);
             this.PanelDetail.Controls.Add(this.panel9);
             this.PanelDetail.Controls.Add(this.panel8);
-            this.PanelDetail.Controls.Add(this.panel7);
+            this.PanelDetail.Controls.Add(this.paneltypevehicle);
             this.PanelDetail.Controls.Add(this.panel6);
-            this.PanelDetail.Controls.Add(this.panel5);
+            this.PanelDetail.Controls.Add(this.paneltypevehicleview);
             this.PanelDetail.Controls.Add(this.panel4);
             this.PanelDetail.Location = new System.Drawing.Point(441, 70);
             this.PanelDetail.Name = "PanelDetail";
@@ -208,8 +209,10 @@
             // 
             // costperdatetext
             // 
+            this.costperdatetext.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.costperdatetext.Location = new System.Drawing.Point(12, 30);
             this.costperdatetext.Name = "costperdatetext";
+            this.costperdatetext.ReadOnly = true;
             this.costperdatetext.Size = new System.Drawing.Size(372, 20);
             this.costperdatetext.TabIndex = 10;
             // 
@@ -236,8 +239,10 @@
             // 
             // descriptiontext
             // 
+            this.descriptiontext.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.descriptiontext.Location = new System.Drawing.Point(12, 30);
             this.descriptiontext.Name = "descriptiontext";
+            this.descriptiontext.ReadOnly = true;
             this.descriptiontext.Size = new System.Drawing.Size(372, 20);
             this.descriptiontext.TabIndex = 10;
             // 
@@ -252,36 +257,37 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Description Vehicle";
             // 
-            // panel10
+            // panelstatusview
             // 
-            this.panel10.Controls.Add(this.checkBox2);
-            this.panel10.Controls.Add(this.checkBox1);
-            this.panel10.Location = new System.Drawing.Point(296, 197);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(111, 57);
-            this.panel10.TabIndex = 14;
+            this.panelstatusview.Controls.Add(this.maintainvehicleview);
+            this.panelstatusview.Controls.Add(this.statusvehicleview);
+            this.panelstatusview.Enabled = false;
+            this.panelstatusview.Location = new System.Drawing.Point(296, 197);
+            this.panelstatusview.Name = "panelstatusview";
+            this.panelstatusview.Size = new System.Drawing.Size(111, 57);
+            this.panelstatusview.TabIndex = 14;
             // 
-            // checkBox2
+            // maintainvehicleview
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(11, 31);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(77, 20);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Maintain";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.maintainvehicleview.AutoSize = true;
+            this.maintainvehicleview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maintainvehicleview.Location = new System.Drawing.Point(11, 31);
+            this.maintainvehicleview.Name = "maintainvehicleview";
+            this.maintainvehicleview.Size = new System.Drawing.Size(77, 20);
+            this.maintainvehicleview.TabIndex = 1;
+            this.maintainvehicleview.Text = "Maintain";
+            this.maintainvehicleview.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // statusvehicleview
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(11, 7);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(97, 20);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "StatusUsed";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.statusvehicleview.AutoSize = true;
+            this.statusvehicleview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusvehicleview.Location = new System.Drawing.Point(11, 7);
+            this.statusvehicleview.Name = "statusvehicleview";
+            this.statusvehicleview.Size = new System.Drawing.Size(97, 20);
+            this.statusvehicleview.TabIndex = 0;
+            this.statusvehicleview.Text = "StatusUsed";
+            this.statusvehicleview.UseVisualStyleBackColor = true;
             // 
             // panel9
             // 
@@ -295,8 +301,10 @@
             // 
             // Kilometer
             // 
+            this.Kilometer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Kilometer.Location = new System.Drawing.Point(12, 30);
             this.Kilometer.Name = "Kilometer";
+            this.Kilometer.ReadOnly = true;
             this.Kilometer.Size = new System.Drawing.Size(372, 20);
             this.Kilometer.TabIndex = 10;
             // 
@@ -323,8 +331,10 @@
             // 
             // registration
             // 
+            this.registration.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.registration.Location = new System.Drawing.Point(12, 30);
             this.registration.Name = "registration";
+            this.registration.ReadOnly = true;
             this.registration.Size = new System.Drawing.Size(360, 20);
             this.registration.TabIndex = 10;
             // 
@@ -339,23 +349,24 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "car registration number";
             // 
-            // panel7
+            // paneltypevehicle
             // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.comboBox1);
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Location = new System.Drawing.Point(249, 71);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(158, 57);
-            this.panel7.TabIndex = 12;
+            this.paneltypevehicle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paneltypevehicle.Controls.Add(this.typeVehicledetail);
+            this.paneltypevehicle.Controls.Add(this.label5);
+            this.paneltypevehicle.Enabled = false;
+            this.paneltypevehicle.Location = new System.Drawing.Point(249, 71);
+            this.paneltypevehicle.Name = "paneltypevehicle";
+            this.paneltypevehicle.Size = new System.Drawing.Size(158, 57);
+            this.paneltypevehicle.TabIndex = 12;
             // 
-            // comboBox1
+            // typeVehicledetail
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(139, 21);
-            this.comboBox1.TabIndex = 10;
+            this.typeVehicledetail.FormattingEnabled = true;
+            this.typeVehicledetail.Location = new System.Drawing.Point(12, 29);
+            this.typeVehicledetail.Name = "typeVehicledetail";
+            this.typeVehicledetail.Size = new System.Drawing.Size(139, 21);
+            this.typeVehicledetail.TabIndex = 10;
             // 
             // label5
             // 
@@ -380,8 +391,10 @@
             // 
             // BranchVehicle
             // 
+            this.BranchVehicle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BranchVehicle.Location = new System.Drawing.Point(12, 30);
             this.BranchVehicle.Name = "BranchVehicle";
+            this.BranchVehicle.ReadOnly = true;
             this.BranchVehicle.Size = new System.Drawing.Size(185, 20);
             this.BranchVehicle.TabIndex = 10;
             // 
@@ -396,37 +409,40 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Branch Vehicle";
             // 
-            // panel5
+            // paneltypevehicleview
             // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.RadioCarDetail);
-            this.panel5.Controls.Add(this.RadioTruckDetail);
-            this.panel5.Location = new System.Drawing.Point(322, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(85, 54);
-            this.panel5.TabIndex = 3;
+            this.paneltypevehicleview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paneltypevehicleview.Controls.Add(this.RadioCarDetail);
+            this.paneltypevehicleview.Controls.Add(this.RadioTruckDetail);
+            this.paneltypevehicleview.Enabled = false;
+            this.paneltypevehicleview.Location = new System.Drawing.Point(322, 4);
+            this.paneltypevehicleview.Name = "paneltypevehicleview";
+            this.paneltypevehicleview.Size = new System.Drawing.Size(85, 54);
+            this.paneltypevehicleview.TabIndex = 3;
             // 
             // RadioCarDetail
             // 
             this.RadioCarDetail.AutoSize = true;
             this.RadioCarDetail.Location = new System.Drawing.Point(25, 3);
             this.RadioCarDetail.Name = "RadioCarDetail";
-            this.RadioCarDetail.Size = new System.Drawing.Size(53, 17);
+            this.RadioCarDetail.Size = new System.Drawing.Size(41, 17);
             this.RadioCarDetail.TabIndex = 1;
-            this.RadioCarDetail.TabStop = true;
-            this.RadioCarDetail.Text = "Truck";
+            this.RadioCarDetail.Text = "Car";
             this.RadioCarDetail.UseVisualStyleBackColor = true;
+            this.RadioCarDetail.CheckedChanged += new System.EventHandler(this.RadioCarDetail_CheckedChanged);
             // 
             // RadioTruckDetail
             // 
             this.RadioTruckDetail.AutoSize = true;
+            this.RadioTruckDetail.Checked = true;
             this.RadioTruckDetail.Location = new System.Drawing.Point(25, 26);
             this.RadioTruckDetail.Name = "RadioTruckDetail";
-            this.RadioTruckDetail.Size = new System.Drawing.Size(41, 17);
+            this.RadioTruckDetail.Size = new System.Drawing.Size(53, 17);
             this.RadioTruckDetail.TabIndex = 0;
             this.RadioTruckDetail.TabStop = true;
-            this.RadioTruckDetail.Text = "Car";
+            this.RadioTruckDetail.Text = "Truck";
             this.RadioTruckDetail.UseVisualStyleBackColor = true;
+            this.RadioTruckDetail.CheckedChanged += new System.EventHandler(this.RadioTruckDetail_CheckedChanged);
             // 
             // panel4
             // 
@@ -440,8 +456,10 @@
             // 
             // NameVehicle
             // 
+            this.NameVehicle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.NameVehicle.Location = new System.Drawing.Point(12, 30);
             this.NameVehicle.Name = "NameVehicle";
+            this.NameVehicle.ReadOnly = true;
             this.NameVehicle.Size = new System.Drawing.Size(285, 20);
             this.NameVehicle.TabIndex = 10;
             // 
@@ -478,63 +496,68 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Vehicle Detail";
             // 
-            // BtDetail
-            // 
-            this.BtDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtDetail.Location = new System.Drawing.Point(131, 465);
-            this.BtDetail.Name = "BtDetail";
-            this.BtDetail.Size = new System.Drawing.Size(88, 31);
-            this.BtDetail.TabIndex = 5;
-            this.BtDetail.Text = "Detail Vehicle";
-            this.BtDetail.UseVisualStyleBackColor = true;
-            // 
             // BtChange
             // 
+            this.BtChange.Enabled = false;
             this.BtChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtChange.Location = new System.Drawing.Point(629, 465);
+            this.BtChange.Location = new System.Drawing.Point(572, 468);
             this.BtChange.Name = "BtChange";
             this.BtChange.Size = new System.Drawing.Size(96, 31);
             this.BtChange.TabIndex = 6;
             this.BtChange.Text = "Change";
             this.BtChange.UseVisualStyleBackColor = true;
+            this.BtChange.Click += new System.EventHandler(this.BtChange_Click);
             // 
-            // BtAddVehicle
+            // btAddVehicle
             // 
-            this.BtAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtAddVehicle.Location = new System.Drawing.Point(471, 465);
-            this.BtAddVehicle.Name = "BtAddVehicle";
-            this.BtAddVehicle.Size = new System.Drawing.Size(126, 32);
-            this.BtAddVehicle.TabIndex = 7;
-            this.BtAddVehicle.Text = "Add new Vehicle";
-            this.BtAddVehicle.UseVisualStyleBackColor = true;
+            this.btAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddVehicle.Location = new System.Drawing.Point(439, 468);
+            this.btAddVehicle.Name = "btAddVehicle";
+            this.btAddVehicle.Size = new System.Drawing.Size(127, 31);
+            this.btAddVehicle.TabIndex = 7;
+            this.btAddVehicle.Text = "Add New Vehicle";
+            this.btAddVehicle.UseVisualStyleBackColor = true;
+            this.btAddVehicle.Click += new System.EventHandler(this.btAddVehicle_Click);
             // 
-            // BtSave
+            // btSave
             // 
-            this.BtSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtSave.Location = new System.Drawing.Point(749, 465);
-            this.BtSave.Name = "BtSave";
-            this.BtSave.Size = new System.Drawing.Size(92, 31);
-            this.BtSave.TabIndex = 8;
-            this.BtSave.Text = "Save";
-            this.BtSave.UseVisualStyleBackColor = true;
+            this.btSave.Enabled = false;
+            this.btSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSave.Location = new System.Drawing.Point(674, 468);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(96, 31);
+            this.btSave.TabIndex = 8;
+            this.btSave.Text = "Save";
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // Cancelview
+            // 
+            this.Cancelview.Location = new System.Drawing.Point(781, 468);
+            this.Cancelview.Name = "Cancelview";
+            this.Cancelview.Size = new System.Drawing.Size(75, 31);
+            this.Cancelview.TabIndex = 9;
+            this.Cancelview.Text = "Cancel";
+            this.Cancelview.UseVisualStyleBackColor = true;
+            this.Cancelview.Click += new System.EventHandler(this.Cancelview_Click);
             // 
             // FormManageVehicle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 554);
-            this.Controls.Add(this.BtSave);
-            this.Controls.Add(this.BtAddVehicle);
+            this.Controls.Add(this.Cancelview);
+            this.Controls.Add(this.btSave);
+            this.Controls.Add(this.btAddVehicle);
             this.Controls.Add(this.BtChange);
-            this.Controls.Add(this.BtDetail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PanelDetail);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panellistvehilce);
             this.Controls.Add(this.Home);
-            
+            this.Name = "FormManageVehicle";
             this.Text = "FormManageVehicle";
-            this.panel1.ResumeLayout(false);
+            this.panellistvehilce.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.PanelDetail.ResumeLayout(false);
@@ -542,18 +565,18 @@
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
+            this.panelstatusview.ResumeLayout(false);
+            this.panelstatusview.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.paneltypevehicle.ResumeLayout(false);
+            this.paneltypevehicle.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.paneltypevehicleview.ResumeLayout(false);
+            this.paneltypevehicleview.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -564,32 +587,29 @@
         #endregion
 
         private System.Windows.Forms.Button Home;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panellistvehilce;
         private System.Windows.Forms.Panel PanelDetail;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton RadioTruckview;
         private System.Windows.Forms.RadioButton RadioCarview;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button BtDetail;
         private System.Windows.Forms.Button BtChange;
-        private System.Windows.Forms.Button BtAddVehicle;
-        private System.Windows.Forms.Button BtSave;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox registration;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel paneltypevehicle;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox BranchVehicle;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel paneltypevehicleview;
         private System.Windows.Forms.RadioButton RadioCarDetail;
         private System.Windows.Forms.RadioButton RadioTruckDetail;
         private System.Windows.Forms.TextBox NameVehicle;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox typeVehicledetail;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TextBox Kilometer;
         private System.Windows.Forms.Label label7;
@@ -599,13 +619,16 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox descriptiontext;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panelstatusview;
+        private System.Windows.Forms.CheckBox maintainvehicleview;
+        private System.Windows.Forms.CheckBox statusvehicleview;
         private System.Windows.Forms.ListView listResult;
         private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.ColumnHeader Name;
+        private System.Windows.Forms.ColumnHeader NameColumn;
         private System.Windows.Forms.ColumnHeader Branch;
         private System.Windows.Forms.ColumnHeader type;
+        private System.Windows.Forms.Button btAddVehicle;
+        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Button Cancelview;
     }
 }
