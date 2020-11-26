@@ -74,6 +74,10 @@ create table insurance (
 );
 alter table insurance rename column ID to IID;
 use systemmanagecar;
-# alter table rentcontract
-# add column DRIVERLICENSE text;
-alter table rentcontract drop column IDINSURANCE;
+alter table vehicle
+add column Description  text default  null;
+
+Update vehicle set Name=@Name,branch=@Branch,costperday=@costperday,numberKilometers=@kilometer,vehicle.Description=@Descripton,stateUsed=@statususe,
+                   ,maintain=@maintain
+where ID=@ID;
+select T.TYPETRUCK V.Name, V.ID, V.branch, V.costperday, V.stateUsed, V.maintain, t.TYPETRUCK from vehicle V, TRUCK T where v.id = T.id;
