@@ -74,5 +74,6 @@ create table insurance (
 );
 alter table insurance rename column ID to IID;
 use systemmanagecar;
-alter table rentcontract
-add column DRIVERLICENSE text;
+# alter table rentcontract
+# add column DRIVERLICENSE text;
+alter table rentcontract drop column IDINSURANCE;

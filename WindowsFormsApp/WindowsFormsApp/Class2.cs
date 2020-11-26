@@ -48,11 +48,11 @@ namespace WindowsFormsApp
 
     enum TypeInsurance
     {
-        Wood,
-        Iron,
-        Silver,
-        Gold,
-        Diamon
+        WOOD,
+        IRON,
+        SILVER,
+        GOLD,
+        DIAMOND
     }
     abstract class Vehicle
     {
@@ -563,6 +563,7 @@ namespace WindowsFormsApp
         public int Id { get => id; set => id = value; }
         public Custormer CustormerRentCar { get => custormerRentCar; set => custormerRentCar = value; }
         public Vehicle VehicleRented { get => vehicleRented; set => vehicleRented = value; }
+        public Insurance InsuranceUsed { get => insuranceChoice; set => insuranceChoice = value; }
         public DateTime DateStartRent { get => dateStartRent; set => dateStartRent = value; }
         public DateTime DateEndRent { get => dateEndRent; set => dateEndRent = value; }
         public int TotalCost { get => totalCost; set => totalCost = value; }
@@ -1029,6 +1030,13 @@ namespace WindowsFormsApp
                 }
             }
             return returnContracts;
+        }
+
+        public List<Vehicle> GetListVehicle(string type)
+        {
+            if (type == "car")
+                return listFleet[0].getListVehicle();
+            else return listFleet[1].getListVehicle();
         }
     }
 /*wrtgerhfdgeyrgfr*/
