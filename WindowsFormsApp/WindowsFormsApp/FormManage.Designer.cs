@@ -32,16 +32,23 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ManageCarRadioButton = new System.Windows.Forms.RadioButton();
             this.ManageTruckRadioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ContractList = new System.Windows.Forms.ListView();
+            this.approvalCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ContractIDColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.VehicleIDColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.CustomerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DriverLicense = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.InsuranceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.ApproveButton = new System.Windows.Forms.Button();
+            this.ApprovedContractList = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,19 +96,12 @@
             this.ManageTruckRadioButton.UseVisualStyleBackColor = true;
             this.ManageTruckRadioButton.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(623, 123);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(565, 420);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "List Of Vehicle";
-            // 
             // ContractList
             // 
             this.ContractList.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ContractList.CheckBoxes = true;
             this.ContractList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.approvalCheckBox,
             this.ContractIDColumn,
             this.VehicleIDColumn,
             this.CustomerName,
@@ -109,23 +109,43 @@
             this.InsuranceType});
             this.ContractList.GridLines = true;
             this.ContractList.HideSelection = false;
-            this.ContractList.Location = new System.Drawing.Point(24, 123);
+            this.ContractList.Location = new System.Drawing.Point(12, 123);
             this.ContractList.Name = "ContractList";
-            this.ContractList.Size = new System.Drawing.Size(593, 420);
+            this.ContractList.Size = new System.Drawing.Size(579, 420);
             this.ContractList.TabIndex = 4;
             this.ContractList.UseCompatibleStateImageBehavior = false;
             this.ContractList.View = System.Windows.Forms.View.Details;
             this.ContractList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // approvalCheckBox
+            // 
+            this.approvalCheckBox.Text = "Approve";
+            this.approvalCheckBox.Width = 30;
+            // 
             // ContractIDColumn
             // 
             this.ContractIDColumn.Text = "ID:";
-            this.ContractIDColumn.Width = 50;
+            this.ContractIDColumn.Width = 40;
             // 
             // VehicleIDColumn
             // 
             this.VehicleIDColumn.Text = "VehicleID:";
             this.VehicleIDColumn.Width = 100;
+            // 
+            // CustomerName
+            // 
+            this.CustomerName.Text = "Customer Name:";
+            this.CustomerName.Width = 140;
+            // 
+            // DriverLicense
+            // 
+            this.DriverLicense.Text = "DriverLicense";
+            this.DriverLicense.Width = 100;
+            // 
+            // InsuranceType
+            // 
+            this.InsuranceType.Text = "Insurance Type:";
+            this.InsuranceType.Width = 100;
             // 
             // label1
             // 
@@ -149,30 +169,69 @@
             this.label2.Text = "List Of Approved Contracts:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // CustomerName
+            // ApproveButton
             // 
-            this.CustomerName.Text = "Customer Name:";
-            this.CustomerName.Width = 200;
+            this.ApproveButton.Location = new System.Drawing.Point(204, 85);
+            this.ApproveButton.Name = "ApproveButton";
+            this.ApproveButton.Size = new System.Drawing.Size(108, 35);
+            this.ApproveButton.TabIndex = 7;
+            this.ApproveButton.Text = "Approve Selected Item";
+            this.ApproveButton.UseVisualStyleBackColor = true;
+            this.ApproveButton.Click += new System.EventHandler(this.ApproveButton_Click);
             // 
-            // DriverLicense
+            // ApprovedContractList
             // 
-            this.DriverLicense.Text = "DriverLicense";
-            this.DriverLicense.Width = 200;
+            this.ApprovedContractList.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ApprovedContractList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.ApprovedContractList.GridLines = true;
+            this.ApprovedContractList.HideSelection = false;
+            this.ApprovedContractList.Location = new System.Drawing.Point(623, 123);
+            this.ApprovedContractList.Name = "ApprovedContractList";
+            this.ApprovedContractList.Size = new System.Drawing.Size(579, 420);
+            this.ApprovedContractList.TabIndex = 8;
+            this.ApprovedContractList.UseCompatibleStateImageBehavior = false;
+            this.ApprovedContractList.View = System.Windows.Forms.View.Details;
             // 
-            // InsuranceType
+            // columnHeader2
             // 
-            this.InsuranceType.Text = "Insurance Type:";
-            this.InsuranceType.Width = 100;
+            this.columnHeader2.Text = "ID:";
+            this.columnHeader2.Width = 40;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "VehicleID:";
+            this.columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Customer Name:";
+            this.columnHeader4.Width = 140;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "DriverLicense";
+            this.columnHeader5.Width = 100;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Insurance Type:";
+            this.columnHeader6.Width = 100;
             // 
             // FormManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.ApprovedContractList);
+            this.Controls.Add(this.ApproveButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ContractList);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Home);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -192,7 +251,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.RadioButton ManageCarRadioButton;
         private System.Windows.Forms.RadioButton ManageTruckRadioButton;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListView ContractList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -202,5 +260,13 @@
         private System.Windows.Forms.ColumnHeader CustomerName;
         private System.Windows.Forms.ColumnHeader DriverLicense;
         private System.Windows.Forms.ColumnHeader InsuranceType;
+        private System.Windows.Forms.ColumnHeader approvalCheckBox;
+        private System.Windows.Forms.Button ApproveButton;
+        private System.Windows.Forms.ListView ApprovedContractList;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
