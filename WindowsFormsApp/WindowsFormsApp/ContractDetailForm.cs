@@ -31,8 +31,9 @@ namespace WindowsFormsApp
             this.FluidStatus.Text = this.contract.VehicleRented.SizeFluid.ToString();
             this.KilometerRun.Text = this.contract.VehicleRented.NumberKilometers.ToString();
             this.CostPerDay.Text = this.contract.VehicleRented.costperDay.ToString();
-            this.FromStartToEnd.Text = $"from {this.contract.DateStartRent.ToString()} to {this.contract.DateEndRent.ToString()}";
-            this.TotalCost.Text = this.contract.TotalCost.ToString();
+            this.FromStartToEnd.Text = this.FromStartToEnd.Text + $"from {this.contract.DateStartRent.ToString()} to {this.contract.DateEndRent.ToString()}";
+            this.Model.Text = this.contract.VehicleRented.Branch.ToString();
+            this.TotalCost.Text = this.TotalCost.Text + this.contract.TotalCost.ToString();
         }
 
         private void ContractDetailForm_Load(object sender, EventArgs e)
@@ -102,6 +103,16 @@ namespace WindowsFormsApp
             var thread = new Thread(() => Program.start(formManage));
             thread.Start();
             this.Close();
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

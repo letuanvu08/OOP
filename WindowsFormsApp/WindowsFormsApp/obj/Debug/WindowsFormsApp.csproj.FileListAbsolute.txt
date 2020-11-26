@@ -63,3 +63,4 @@ D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormManageV
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ContractDetailForm.resources
 >>>>>>> 0b77fe12f30f6d5c9d307365d2a2d13bb81e4331
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ContractDetailForm.resources
+C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormManageVehicle.resources
