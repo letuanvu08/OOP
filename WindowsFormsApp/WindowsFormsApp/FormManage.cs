@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 namespace WindowsFormsApp
 {
      partial class FormManage : Form
@@ -22,6 +22,8 @@ namespace WindowsFormsApp
             this.manage = manage;
             this.listCarContracts= manage.GetCarRelatedConTracts();
             this.listTruckContracts= manage.GetTruckRelatedConTracts();
+            ContractList.MouseDoubleClick += new MouseEventHandler(contractList_MouseDoubleClick);
+            ApprovedContractList.MouseDoubleClick += new MouseEventHandler(approvedContractList_MouseDoubleClick);
             setUpGUI();
         }
         // This will populate the box with all the Contracts when the form is first opened
@@ -42,27 +44,35 @@ namespace WindowsFormsApp
         {
             foreach (RentContract contract in listCarContracts)
             {
-                // Creat a group box to add to list View 
-                //string[] briefContract = { contract.Id.ToString(), contract.VehicleRented.idVehicle.ToString() };
-                //var briefContractItem = new ListViewItem(briefContract);
-                //ContractList.Items.Add(briefContractItem);
-
-                ListViewItem briefContractItem = new ListViewItem(contract.Id.ToString());
-                ListViewItem.ListViewSubItem carId = new ListViewItem.ListViewSubItem(briefContractItem, contract.VehicleRented.idVehicle.ToString());
-                briefContractItem.SubItems.Add(carId);
-                ContractList.Items.Add(briefContractItem);
+                string[] briefContractInfo = new string[6];
+                (briefContractInfo[0], briefContractInfo[1], briefContractInfo[2], briefContractInfo[3], briefContractInfo[4],briefContractInfo[5]) = getContractInfomation(contract);
+                if (!contract.IsApproved) ContractList.Items.Add(new ListViewItem(briefContractInfo));
+                else ApprovedContractList.Items.Add(new ListViewItem(briefContractInfo));
             }
+       
         }
+
         private void DisplayTruckContracts()
         {
             foreach (RentContract contract in listTruckContracts)
             {
-                // Creat a group box to add to list View 
-                ListViewItem briefContractItem = new ListViewItem(contract.Id.ToString());
-                ListViewItem.ListViewSubItem truckId = new ListViewItem.ListViewSubItem(briefContractItem, contract.VehicleRented.idVehicle.ToString());
-                briefContractItem.SubItems.Add(truckId);
-                ContractList.Items.Add(briefContractItem);
+                string[] briefContractInfo = new string[6];
+                (briefContractInfo[0], briefContractInfo[1], briefContractInfo[2], briefContractInfo[3], briefContractInfo[4],briefContractInfo[5]) = getContractInfomation(contract);
+                ContractList.Items.Add(new ListViewItem(briefContractInfo));
+                if (!contract.IsApproved) ContractList.Items.Add(new ListViewItem(briefContractInfo));
+                else ApprovedContractList.Items.Add(new ListViewItem(briefContractInfo));
             }
+        }
+        // This function find needed information of a contract and return its infomation in a tuple of string: 
+        private (string empty,string contract_id, string vehicle_id, string customer_name, string customer_license, string insurance_type) getContractInfomation(RentContract contract)
+        {
+            string empty = "";   
+            string contractID = contract.Id.ToString();
+            string vehicleID = contract.VehicleRented.idVehicle.ToString();
+            string customerName = contract.CustormerRentCar.Name;
+            string customerLicense = contract.CustormerRentCar.Driver_license;
+            string insuranceType = contract.InsuranceUsed.Type.ToString();
+            return (empty,contractID, vehicleID, customerName, customerLicense, insuranceType);
         }
         private void Home_Click(object sender, EventArgs e)
         {
@@ -83,7 +93,27 @@ namespace WindowsFormsApp
             ContractList.Items.Clear();
             DisplayTruckContracts();
         }
+        /*       private void Listview1_ItemChecked(object sender, ItemCheckedEventArgs e)
+               {
+                   foreach (ListViewItem Item in ListView1.Items)
+                   {
+                       if (Item != null)
+                       {
+                           if (Item.Checked == true) N++;
+                       }
+                   }
+                   Textbox1.Text = N.ToString();
+               }
 
+
+               ListView.CheckedListViewItemCollection checkedItems = 
+                   ListView1.CheckedItems;
+
+               foreach ( ListViewItem item in checkedItems )
+               {
+                   value = item.SubItems[1].Text;
+               }
+        */
         private void groupBox1_Enter(object sender, EventArgs e)
         {
             
@@ -110,6 +140,80 @@ namespace WindowsFormsApp
         }
 
         private void FormManage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ApproveButton_Click(object sender, EventArgs e)
+        {
+            // Get selected row
+            ListView.CheckedListViewItemCollection checkedItems = ContractList.CheckedItems;
+            foreach(ListViewItem item in checkedItems)
+            {
+                ListViewItem.ListViewSubItemCollection listSubItem = item.SubItems;
+                listSubItem.RemoveAt(0);
+                int contractID = int.Parse(listSubItem[0].Text);
+                updateApprovalStatusInDatabase(contractID);
+                ListViewItem approvedItem = new ListViewItem();
+                foreach (ListViewItem.ListViewSubItem subItem in listSubItem)
+                {
+                    approvedItem.SubItems.Add(subItem);
+                }
+
+                // remove it from the left listview
+                ContractList.Items.Remove(item);
+
+                // Add it to the right listview
+                ApprovedContractList.Items.Add(item);
+
+                // Get the removed item id and change the APPROVED to TRUE in the database:    
+            }
+            
+        }
+        private void updateApprovalStatusInDatabase(int contractID)
+        {
+            try
+            {
+                MySqlConnection conn = Program.connectDatabase();
+                string Query = $"update rentcontract set approved = TRUE where idcontract ={contractID};";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = Query;
+                cmd.ExecuteNonQuery();                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        // The nexxt 2 method open the correspoding Contract Detail Form for user to view the full contract again.
+        private void contractList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo listViewHitTestInfo = ContractList.HitTest(e.X, e.Y);
+            ListViewItem ClickedItem = listViewHitTestInfo.Item;
+            if (ClickedItem != null)
+            {
+                int contractID = int.Parse(ClickedItem.SubItems[0].Text);
+                RentContract contract_to_show;
+                foreach (RentContract contract in manage.getContracts())
+                {
+                    if (contract.Id == contractID)
+                    {
+                        contract_to_show = contract;
+                    }
+                }
+                ContractDetailForm contractDetailForm = new ContractDetailForm(contractID);
+                var thread = new Thread(() => Program.start(contractDetailForm));
+                thread.Start();
+                this.Close();
+            }
+        }
+        private void approvedContractList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
         }
