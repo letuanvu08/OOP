@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\dell\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\dell\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_WindowsFormsApp.1426202248.00" t="ExcludeRecursive" />
+    <e p="C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Solution Items" t="Include" />
+      <e p="WindowsFormsApp" t="IncludeRecursive">
+        <e p="Account.cs" t="Include" />
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="CarRentalManagement.cs" t="Include" />
+        <e p="Class2.cs" t="Include" />
+        <e p="ContractDetailForm.cs" t="Include" />
+        <e p="ContractDetailForm.Designer.cs" t="Include" />
+        <e p="ContractDetailForm.resx" t="Include" />
+        <e p="DBMySqlUnit.cs" t="Include" />
+        <e p="DBUnit.cs" t="Include" />
+        <e p="Fleet.cs" t="Include" />
+        <e p="Form1.cs" t="Include" />
+        <e p="Form1.Designer.cs" t="Include" />
+        <e p="Form1.resx" t="Include" />
+        <e p="FormBookAndRent.cs" t="Include" />
+        <e p="FormBookAndRent.Designer.cs" t="Include" />
+        <e p="FormBookAndRent.resx" t="Include" />
+        <e p="FormManage.cs" t="Include" />
+        <e p="FormManage.Designer.cs" t="Include" />
+        <e p="FormManage.resx" t="Include" />
+        <e p="FormManageVehicle.cs" t="Include" />
+        <e p="FormManageVehicle.Designer.cs" t="Include" />
+        <e p="FormManageVehicle.resx" t="Include" />
+        <e p="FormRentContract.cs" t="Include" />
+        <e p="FormRentContract.Designer.cs" t="Include" />
+        <e p="FormRentContract.resx" t="Include" />
+        <e p="FormService.cs" t="Include" />
+        <e p="FormService.Designer.cs" t="Include" />
+        <e p="FormService.resx" t="Include" />
+        <e p="Insurance.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="Record.cs" t="Include" />
+        <e p="RentContract.cs" t="Include" />
+        <e p="ServiceHistory.cs" t="Include" />
+        <e p="Vehicle.cs" t="Include" />
+        <e p="WindowsFormsApp.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WindowsFormsApp.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

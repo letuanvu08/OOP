@@ -21,13 +21,13 @@ namespace WindowsFormsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            CarRentalManagement manage = loaddata();
+            CarRentalManagement manage = LoadData();
 
 
 
             Application.Run(new Form1(manage));
         }
-        static public MySqlConnection connectDatabase()
+        static public MySqlConnection ConnectDatabase()
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
             try
@@ -40,9 +40,9 @@ namespace WindowsFormsApp
             }
             return conn;
         }
-        static public CarRentalManagement loaddata()
+        static public CarRentalManagement LoadData()
         {
-            MySqlConnection conn = connectDatabase();
+            MySqlConnection conn = ConnectDatabase();
             string sqlcar = "(select c.TYPECAR, V.Name, V.ID,V.branch,V.costperday,V.stateUsed,V.maintain from vehicle V, car c where v.id=c.id); ";
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -60,7 +60,7 @@ namespace WindowsFormsApp
 
                 }
             }
-            manage.addFleet(fleetcar);
+            manage.AddFleet(fleetcar);
             sqlcar = "select T.TYPETRUCK, V.Name, V.ID, V.branch, V.costperday, V.stateUsed, V.maintain, t.TYPETRUCK from vehicle V, TRUCK T where v.id = T.id; ";
             cmd = new MySqlCommand(sqlcar, conn);
             using (MySqlDataReader d = cmd.ExecuteReader())
@@ -68,20 +68,20 @@ namespace WindowsFormsApp
                 while (d.Read())
                 {
 
-                    fleettruck.AddVehicle(new Truck(NameTruck: d.GetString(1), Branch: d.GetString(3), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeTruck), d.GetString(0)), stateUse: d.GetBoolean(5), idTruck: d.GetInt32(2), costperday: d.GetInt32(4), maintain: d.GetBoolean(6)));
+                    fleettruck.AddVehicle(new Truck(nameTruck: d.GetString(1), branch: d.GetString(3), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeTruck), d.GetString(0)), stateUse: d.GetBoolean(5), idTruck: d.GetInt32(2), costperday: d.GetInt32(4), maintain: d.GetBoolean(6)));
                 }
             }
-            manage.addFleet(fleettruck);
-            loadCarDataFromDatabase(manage);
+            manage.AddFleet(fleettruck);
+            LoadCarDataFromDatabase(manage);
             
             
             conn.Close();
             return manage;
             
         }
-        public static void loadCarDataFromDatabase(CarRentalManagement manager)
+        public static void LoadCarDataFromDatabase(CarRentalManagement manager)
         {
-            MySqlConnection conn = connectDatabase();
+            MySqlConnection conn = ConnectDatabase();
             //====================== Fetch the car-related-contract information from datbase================
             string query = "select * from rentcontract RC join insurance I on RC.IDCONTRACT = I.IDCONTRACT, vehicle V, car C where RC.IDVEHICLE = V.ID and V.ID = C.ID;";
             // This adapter connect to the database and execute the query
@@ -95,7 +95,7 @@ namespace WindowsFormsApp
                 // Create a contract wit the Car
                 Car car = new Car(NameCar: row["Name"].ToString(), Branch: row["branch"].ToString(), idCar: Int32.Parse(row["ID"].ToString()), typecar: (TypeCar)Enum.Parse(typeof(TypeCar), row["TYPECAR"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
                 // Create the customer of the Contract:
-                Custormer custormer = new Custormer(name: row["NAMECUSTORMER"].ToString(), Password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
+                Customer customer = new Customer(name: row["NAMECUSTORMER"].ToString(), password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
                 // Creat a Insurance with the contract: 
                 Insurance insurance = new Insurance(id: (int)row["IID"], type: (TypeInsurance)Enum.Parse(typeof(TypeInsurance), row["TYPEINSURANCE"].ToString()));
                 int id = int.Parse(row["IDCONTRACT"].ToString());
@@ -116,18 +116,18 @@ namespace WindowsFormsApp
                 }
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
 
-                DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
+                DateTime dateEndRent = DateTime.ParseExact(startDateString, endDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
                 string description = row["DESCRIPTION"].ToString();
                 bool is_approved = (bool)row["APPROVED"];
 
-                RentContract rentContract = new RentContract(id, car, insurance, custormer, dateStartRent, dateEndRent, totalBill, description, is_approved);
-                manager.addContract(rentContract);
+                RentContract rentContract = new RentContract(id, car, insurance, customer, dateStartRent, dateEndRent, totalBill, description, is_approved);
+                manager.AddContract(rentContract);
             }
         }
-        public static void loadTruckDataFromDatabase(CarRentalManagement manager)
+        public static void LoadTruckDataFromDatabase(CarRentalManagement manager)
         {
-            MySqlConnection conn = connectDatabase();
+            MySqlConnection conn = ConnectDatabase();
             //====================== Fetch the car-related-contract information from datbase================
             string query = "select * from rentcontract RC join insurance I on RC.IDINSURANCE = I.IID, vehicle V, truck T where RC.IDVEHICLE = V.ID and V.ID = T.ID;";
             // This adapter connect to the database and execute the query
@@ -138,9 +138,9 @@ namespace WindowsFormsApp
             foreach (DataRow row in carDataTable.Rows)
             {
                 // Create a contract wit the Car
-                Truck truck = new Truck(NameTruck: row["Name"].ToString(), Branch: row["branch"].ToString(), idTruck: Int32.Parse(row["ID"].ToString()), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeTruck), row["TYPETRUCK"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
+                Truck truck = new Truck(nameTruck: row["Name"].ToString(), branch: row["branch"].ToString(), idTruck: Int32.Parse(row["ID"].ToString()), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeTruck), row["TYPETRUCK"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
                 // Create the customer of the Contract:
-                Custormer custormer = new Custormer(name: row["NAMECUSTORMER"].ToString(), Password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
+                Customer customer = new Customer(name: row["NAMECUSTORMER"].ToString(), password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
                 // Creat a Insurance with the contract: 
                 Insurance insurance = new Insurance(id: (int)row["IID"], type: (TypeInsurance)Enum.Parse(typeof(TypeInsurance), row["TYPEINSURANCE"].ToString()));
                 int id = int.Parse(row["IDCONTRACT"].ToString());
@@ -161,17 +161,17 @@ namespace WindowsFormsApp
                 }
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
 
-                DateTime dateEndRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
+                DateTime dateEndRent = DateTime.ParseExact(startDateString, endDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
                 string description = row["DESCRIPTION"].ToString();
-                bool is_approved = (bool)row["APPROVED"];
+                bool isApproved = (bool)row["APPROVED"];
 
-                RentContract rentContract = new RentContract(id, truck, insurance, custormer, dateStartRent, dateEndRent, totalBill, description, is_approved);
-                manager.addContract(rentContract);
+                RentContract rentContract = new RentContract(id, truck, insurance, customer, dateStartRent, dateEndRent, totalBill, description, isApproved);
+                manager.AddContract(rentContract);
             }
         }
 
-        public static void start(Form form)
+        public static void Start(Form form)
         {
             Application.Run(form);
         }

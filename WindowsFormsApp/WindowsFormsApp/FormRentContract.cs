@@ -14,14 +14,14 @@ namespace WindowsFormsApp
     partial class FormRentContract : Form
     {
         RentContract contract;
-        Custormer custormerRent;
+        Customer customerRent;
         public FormRentContract(RentContract contract)
         {
             InitializeComponent();
             this.contract = contract;
-            custormerRent = new Custormer();
+            customerRent = new Customer();
             setup();
-            contract.CustormerRentCar = custormerRent;
+            contract.CustomerRentCar = customerRent;
           
         }
         private void setup()
@@ -72,7 +72,7 @@ namespace WindowsFormsApp
         private void saveContract()
         {
             
-            MySqlConnection conn = Program.connectDatabase();
+            MySqlConnection conn = Program.ConnectDatabase();
            string sql= "select max(IDCONTRACT) from rentcontract;";
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -91,16 +91,16 @@ namespace WindowsFormsApp
             cmd = conn.CreateCommand();
             cmd.CommandText = sqlcontract;
             cmd.Parameters.Add("@ID", (MySqlDbType)SqlDbType.Int).Value=contract.Id;
-            cmd.Parameters.Add("@IDVEHICLE", (MySqlDbType)SqlDbType.Int).Value = contract.VehicleRented.idVehicle;
-            cmd.Parameters.AddWithValue("@NAME",contract.CustormerRentCar.Name);
-            cmd.Parameters.AddWithValue("@EMAIL",  contract.CustormerRentCar.Email);
-            cmd.Parameters.AddWithValue("@ADDRESS",  contract.CustormerRentCar.Address);
+            cmd.Parameters.Add("@IDVEHICLE", (MySqlDbType)SqlDbType.Int).Value = contract.VehicleRented.IdVehicle;
+            cmd.Parameters.AddWithValue("@NAME",contract.CustomerRentCar.Name);
+            cmd.Parameters.AddWithValue("@EMAIL",  contract.CustomerRentCar.Email);
+            cmd.Parameters.AddWithValue("@ADDRESS",  contract.CustomerRentCar.Address);
             cmd.Parameters.AddWithValue("@STARTDATE", contract.DateStartRent.Date.ToString());
             cmd.Parameters.AddWithValue("@ENDDATE", contract.DateEndRent.Date.ToString());
             cmd.Parameters.AddWithValue("@TOTALBILL",  contract.TotalCost.ToString());
-            cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustormerRentCar.Birthday.Date.ToString());
+            cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustomerRentCar.birthday.Date.ToString());
             cmd.Parameters.AddWithValue("@DESCRIPTION", contract.Description);
-            /*cmd.Par*//*//**ameters.AddWithValue("@DRIVERLICENSE", contract.CustormerRentCar.);*/
+            /*cmd.Par*//*//**ameters.AddWithValue("@DRIVERLICENSE", contract.CustomerRentCar.);*/
             cmd.ExecuteNonQuery();
            
         }
@@ -109,7 +109,7 @@ namespace WindowsFormsApp
         {
             contract.DateStartRent = startRent.Value.Date;
             double days = (endRent.Value.Date - startRent.Value.Date).TotalDays;
-            contract.TotalCost = contract.VehicleRented.costperDay * (int)days;
+            contract.TotalCost = contract.VehicleRented.CostPerDay * (int)days;
             this.TotalBill.Text = contract.TotalCost.ToString();
 
         }
@@ -118,33 +118,33 @@ namespace WindowsFormsApp
         {
             contract.DateEndRent = endRent.Value.Date;
             double days = (endRent.Value.Date - startRent.Value.Date).TotalDays;
-            contract.TotalCost = contract.VehicleRented.costperDay * (int)days;
+            contract.TotalCost = contract.VehicleRented.CostPerDay * (int)days;
             this.TotalBill.Text = contract.TotalCost.ToString();
         }
 
         private void CostormerName_TextChanged(object sender, EventArgs e)
         {
-            this.custormerRent.Name = CustormerName.Text;
+            this.customerRent.Name = CustormerName.Text;
         }
 
         private void radioMale_CheckedChanged(object sender, EventArgs e)
         {
-            this.custormerRent.Sex = "Male";
+            this.customerRent.Sex = "Male";
         }
 
         private void radioFemale_CheckedChanged(object sender, EventArgs e)
         {
-            this.custormerRent.Sex = "Female";
+            this.customerRent.Sex = "Female";
         }
 
         private void BirthDay_ValueChanged(object sender, EventArgs e)
         {
-            this.custormerRent.Birthday = BirthDay.Value.Date;
+            this.customerRent.birthday = BirthDay.Value.Date;
         }
 
         private void Address_TextChanged(object sender, EventArgs e)
         {
-            this.custormerRent.Address = Address.Text;
+            this.customerRent.Address = Address.Text;
         }
 
         private void Description_TextChanged(object sender, EventArgs e)
@@ -154,7 +154,7 @@ namespace WindowsFormsApp
 
         private void Email_TextChanged(object sender, EventArgs e)
         {
-            custormerRent.Email = Email.Text;
+            customerRent.Email = Email.Text;
         }
 
         private void panel11_Paint(object sender, PaintEventArgs e)
@@ -163,6 +163,16 @@ namespace WindowsFormsApp
         }
 
         private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FormRentContract_Load(object sender, EventArgs e)
         {
 
         }
