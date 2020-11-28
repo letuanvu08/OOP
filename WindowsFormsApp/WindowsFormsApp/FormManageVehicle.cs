@@ -90,7 +90,7 @@ namespace WindowsFormsApp
             if (RadioCarview.Checked == true) {
                 
                   Car car=  (vehicleSelected as Car);
-                typeVehicledetail.Text = car.type.ToString();
+                typeVehicledetail.Text = car.TypeCar.ToString();
                 RadioCarDetail.Checked = true;
                     }
 
@@ -98,7 +98,7 @@ namespace WindowsFormsApp
             {
                 RadioTruckDetail.Checked = true;
                 Truck truck = (vehicleSelected as Truck);
-                typeVehicledetail.Text = truck.type.ToString();
+                typeVehicledetail.Text = truck.TypeTruck.ToString();
             }
             registration.Text = vehicleSelected.idVehicle.ToString();
             costperdatetext.Text = vehicleSelected.costperDay.ToString();

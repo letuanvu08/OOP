@@ -22,24 +22,28 @@ namespace WindowsFormsApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormBookAndRent formbook = new FormBookAndRent(manage);
-            var thread = new Thread(()=>Program.start( formbook));
+            Form form = new FormBookAndRent(manage);
+            var thread = new Thread(() => Program.start(form));
             thread.Start();
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormManage formManage = new FormManage(manage);
-            var thread = new Thread(() => Program.start(formManage));
+           
+            Form form = new FormManage(manage);
+            var thread = new Thread(() => Program.start(form));
             thread.Start();
             this.Close();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FormService formManage = new FormService(manage);
-            var thread = new Thread(() => Program.start(formManage));
+            
+
+            Form form = new FormService(manage);
+            var thread = new Thread(() => Program.start(form));
             thread.Start();
             this.Close();
         }
@@ -51,8 +55,10 @@ namespace WindowsFormsApp
 
         private void ManageVehicle_Click(object sender, EventArgs e)
         {
-            Form formManage = new FormManageVehicle(manage);
-            var thread = new Thread(() => Program.start(formManage));
+            
+
+            Form form = new FormManageVehicle(manage);
+            var thread = new Thread(() => Program.start(form));
             thread.Start();
             this.Close();
         }
