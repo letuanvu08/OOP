@@ -38,9 +38,10 @@
             // 
             // ManageRentContract
             // 
-            this.ManageRentContract.Location = new System.Drawing.Point(211, 109);
+            this.ManageRentContract.Location = new System.Drawing.Point(316, 168);
+            this.ManageRentContract.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ManageRentContract.Name = "ManageRentContract";
-            this.ManageRentContract.Size = new System.Drawing.Size(119, 63);
+            this.ManageRentContract.Size = new System.Drawing.Size(178, 97);
             this.ManageRentContract.TabIndex = 0;
             this.ManageRentContract.Text = "Manage RentContract";
             this.ManageRentContract.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(406, 109);
+            this.button2.Location = new System.Drawing.Point(609, 168);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 63);
+            this.button2.Size = new System.Drawing.Size(168, 97);
             this.button2.TabIndex = 1;
             this.button2.Text = "Book And Rent";
             this.button2.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(566, 109);
+            this.button3.Location = new System.Drawing.Point(849, 168);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 63);
+            this.button3.Size = new System.Drawing.Size(182, 97);
             this.button3.TabIndex = 2;
             this.button3.Text = "Check Service";
             this.button3.UseVisualStyleBackColor = true;
@@ -68,9 +71,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(288, 224);
+            this.button4.Location = new System.Drawing.Point(432, 345);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(116, 38);
+            this.button4.Size = new System.Drawing.Size(174, 58);
             this.button4.TabIndex = 3;
             this.button4.Text = "Exit";
             this.button4.UseVisualStyleBackColor = true;
@@ -78,9 +82,10 @@
             // 
             // ManageVehicle
             // 
-            this.ManageVehicle.Location = new System.Drawing.Point(24, 109);
+            this.ManageVehicle.Location = new System.Drawing.Point(36, 168);
+            this.ManageVehicle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ManageVehicle.Name = "ManageVehicle";
-            this.ManageVehicle.Size = new System.Drawing.Size(129, 63);
+            this.ManageVehicle.Size = new System.Drawing.Size(194, 97);
             this.ManageVehicle.TabIndex = 4;
             this.ManageVehicle.Text = "Manage Vehicle";
             this.ManageVehicle.UseVisualStyleBackColor = true;
@@ -90,25 +95,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(146, 29);
+            this.label1.Location = new System.Drawing.Point(219, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(455, 39);
+            this.label1.Size = new System.Drawing.Size(691, 61);
             this.label1.TabIndex = 5;
             this.label1.Text = "Rental Management System";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 292);
+            this.ClientSize = new System.Drawing.Size(1048, 449);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ManageVehicle);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.ManageRentContract);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

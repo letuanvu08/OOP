@@ -69,16 +69,16 @@ namespace WindowsFormsApp
         {
             string empty = "";   
             string contractID = contract.Id.ToString();
-            string vehicleID = contract.VehicleRented.idVehicle.ToString();
-            string customerName = contract.CustormerRentCar.Name;
-            string customerLicense = contract.CustormerRentCar.Driver_license;
+            string vehicleID = contract.VehicleRented.IdVehicle.ToString();
+            string customerName = contract.CustomerRentCar.Name;
+            string customerLicense = contract.CustomerRentCar.Driver_license;
             string insuranceType = contract.InsuranceUsed.Type.ToString();
             return (empty,contractID, vehicleID, customerName, customerLicense, insuranceType);
         }
         private void Home_Click(object sender, EventArgs e)
         {
             Form formManage = new Form1(this.manage);
-            var thread = new Thread(() => Program.start(formManage));
+            var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
         }
@@ -182,7 +182,7 @@ namespace WindowsFormsApp
         {
             try
             {
-                MySqlConnection conn = Program.connectDatabase();
+                MySqlConnection conn = Program.ConnectDatabase();
                 string Query = $"update rentcontract set approved = TRUE where idcontract ={contractID};";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
@@ -202,8 +202,8 @@ namespace WindowsFormsApp
             if (ClickedItem != null)
             {
                 int contractID = int.Parse(ClickedItem.SubItems[1].Text);
-                RentContract contract_to_show = manage.getContracts()[0];
-                foreach (RentContract contract in manage.getContracts())
+                RentContract contract_to_show = manage.GetContracts()[0];
+                foreach (RentContract contract in manage.GetContracts())
                 {
                     if (contract.Id == contractID)
                     {
@@ -212,7 +212,7 @@ namespace WindowsFormsApp
                     }
                 }
                 ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage,contract_to_show);
-                var thread = new Thread(() => Program.start(contractDetailForm));
+                var thread = new Thread(() => Program.Start(contractDetailForm));
                 thread.Start();
                 this.Close();
             }
@@ -224,8 +224,8 @@ namespace WindowsFormsApp
             if (ClickedItem != null)
             {
                 int contractID = int.Parse(ClickedItem.SubItems[1].Text);
-                RentContract contract_to_show = manage.getContracts()[0];
-                foreach (RentContract contract in manage.getContracts())
+                RentContract contract_to_show = manage.GetContracts()[0];
+                foreach (RentContract contract in manage.GetContracts())
                 {
                     if (contract.Id == contractID)
                     {
@@ -234,7 +234,7 @@ namespace WindowsFormsApp
                     }
                 }
                 ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage, contract_to_show);
-                var thread = new Thread(() => Program.start(contractDetailForm));
+                var thread = new Thread(() => Program.Start(contractDetailForm));
                 thread.Start();
                 this.Close();
             }

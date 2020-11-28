@@ -21,16 +21,16 @@ namespace WindowsFormsApp
             this.manage = manage;
             this.contract = contract_to_show;
             this.DateCreated.Text = DateTime.Now.ToString();
-            this.contractNumber.Text = this.manage.getContracts().Count().ToString();
-            this.CustomerName.Text = this.contract.CustormerRentCar.Name;
-            this.DriverLicense.Text = this.contract.CustormerRentCar.Driver_license;
-            this.Address.Text = this.contract.CustormerRentCar.Address;
-            this.PhoneNum.Text = this.contract.CustormerRentCar.PhoneNumber;
-            this.RegistrationNum.Text = this.contract.VehicleRented.idVehicle.ToString();
+            this.contractNumber.Text = this.manage.GetContracts().Count().ToString();
+            this.CustomerName.Text = this.contract.CustomerRentCar.Name;
+            this.DriverLicense.Text = this.contract.CustomerRentCar.Driver_license;
+            this.Address.Text = this.contract.CustomerRentCar.Address;
+            this.PhoneNum.Text = this.contract.CustomerRentCar.PhoneNumber;
+            this.RegistrationNum.Text = this.contract.VehicleRented.IdVehicle.ToString();
             this.OilCap.Text = this.contract.VehicleRented.SizeOil.ToString();
             this.FluidStatus.Text = this.contract.VehicleRented.SizeFluid.ToString();
             this.KilometerRun.Text = this.contract.VehicleRented.NumberKilometers.ToString();
-            this.CostPerDay.Text = this.contract.VehicleRented.costperDay.ToString();
+            this.CostPerDay.Text = this.contract.VehicleRented.CostPerDay.ToString();
             this.FromStartToEnd.Text = this.FromStartToEnd.Text + $"from {this.contract.DateStartRent.ToString()} to {this.contract.DateEndRent.ToString()}";
             this.Model.Text = this.contract.VehicleRented.Branch.ToString();
             this.TotalCost.Text = this.TotalCost.Text + this.contract.TotalCost.ToString();
@@ -100,7 +100,7 @@ namespace WindowsFormsApp
         {
 
             Form formManage = new FormManage(this.manage);
-            var thread = new Thread(() => Program.start(formManage));
+            var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
         }

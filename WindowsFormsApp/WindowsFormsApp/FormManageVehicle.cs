@@ -27,7 +27,7 @@ namespace WindowsFormsApp
         private void Home_Click(object sender, EventArgs e)
         {
             Form formManage = new Form1(this.manage);
-            var thread = new Thread(() => Program.start(formManage));
+            var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
         }
@@ -45,7 +45,7 @@ namespace WindowsFormsApp
             {
                 listResult.ResetText();
                 listitem.Add(new ListViewItem(vehicle.Name));
-                listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = vehicle.idVehicle.ToString() });
+                listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = vehicle.IdVehicle.ToString() });
                 listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = (vehicle.Name) });
                 listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = (vehicle.Branch) });
                 listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = (vehicle.TypeCar.ToString()) });
@@ -71,7 +71,7 @@ namespace WindowsFormsApp
             {
                 listResult.ResetText();
                 listitem.Add(new ListViewItem(vehicle.Name));
-                listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = vehicle.idVehicle.ToString() });
+                listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = vehicle.IdVehicle.ToString() });
                 listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = (vehicle.Name) });
                 listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = (vehicle.Branch) });
                 listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = (vehicle.TypeTruck.ToString()) });
@@ -100,8 +100,8 @@ namespace WindowsFormsApp
                 Truck truck = (vehicleSelected as Truck);
                 typeVehicledetail.Text = truck.TypeTruck.ToString();
             }
-            registration.Text = vehicleSelected.idVehicle.ToString();
-            costperdatetext.Text = vehicleSelected.costperDay.ToString();
+            registration.Text = vehicleSelected.IdVehicle.ToString();
+            costperdatetext.Text = vehicleSelected.CostPerDay.ToString();
             descriptiontext.Text = vehicleSelected.Description;
             Kilometer.Text = vehicleSelected.NumberKilometers.ToString();
             statusvehicleview.Checked = vehicleSelected.StateUsed;
@@ -178,7 +178,7 @@ namespace WindowsFormsApp
                     UpdateVehicle();
                     MessageBox.Show("Update successly!");
                     change = false;
-                    manage = Program.loaddata();
+                    manage = Program.LoadData();
                 }
                 else 
                 {
@@ -187,7 +187,7 @@ namespace WindowsFormsApp
                         InsertVehicle();
                         MessageBox.Show("Add Successly!");
                         addnew = false;
-                        manage = Program.loaddata();
+                        manage = Program.LoadData();
                     }
                 }
 
@@ -221,7 +221,7 @@ namespace WindowsFormsApp
        
         private void UpdateVehicle()
         {
-            MySqlConnection conn = Program.connectDatabase();
+            MySqlConnection conn = Program.ConnectDatabase();
             string sql = "Update vehicle set Name=@NAME,branch=@Branch,costperday=@costperday,numberKilometers=@kilometer,vehicle.Description=@Description,stateUsed=@statususe, maintain = @maintain where ID = @ID; ";
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -243,7 +243,7 @@ namespace WindowsFormsApp
         }
         private void InsertVehicle()
         {
-            MySqlConnection conn = Program.connectDatabase();
+            MySqlConnection conn = Program.ConnectDatabase();
             string sql = "INSERT INTO vehicle(Name, ID, branch, costperday, numberKilometers, stateUsed, maintain, Description)VALUES(@NAME, @ID, @branch, @costperday, @kilometer, @statususe, @maintain, @Description); ";
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
@@ -266,7 +266,7 @@ namespace WindowsFormsApp
         }
         private void InsertVehicletype()
         {
-            MySqlConnection conn = Program.connectDatabase();
+            MySqlConnection conn = Program.ConnectDatabase();
             string sql = "";
             if (RadioCarDetail.Checked)
                sql = "INSERT INTO Car(ID, TYPECAR) VALUES (@ID,@Type);";
@@ -343,6 +343,26 @@ namespace WindowsFormsApp
         private void RadioTruckDetail_CheckedChanged(object sender, EventArgs e)
         {
             settype("tr");
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panellistvehilce_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FormManageVehicle_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

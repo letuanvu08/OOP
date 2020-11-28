@@ -146,6 +146,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(736, 796);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel12
             // 
@@ -192,7 +193,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 52);
+            this.comboBox1.Location = new System.Drawing.Point(19, 61);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(180, 28);
@@ -564,7 +565,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Name Custormer";
+            this.label2.Text = "Name Customer";
             // 
             // FormRentContract
             // 
@@ -578,6 +579,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormRentContract";
             this.Text = "FormRentContract";
+            this.Load += new System.EventHandler(this.FormRentContract_Load);
             this.panel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();

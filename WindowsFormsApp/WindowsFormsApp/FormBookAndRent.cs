@@ -52,7 +52,7 @@ namespace WindowsFormsApp
                     listResult.ResetText();
                     listitem.Add(new ListViewItem(vehicle.Name));
                     listitem[listitem.Count-1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = vehicle.StateUsed.ToString() });
-                    listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = (vehicle.costperDay*days).ToString() });
+                    listitem[listitem.Count - 1].SubItems.Add(new ListViewItem.ListViewSubItem() { Text = (vehicle.CostPerDay*days).ToString() });
 
 
                     listResult.Items.Add(listitem[listitem.Count - 1]);
@@ -83,9 +83,9 @@ namespace WindowsFormsApp
                     DateTime start = startRent.Value.Date;
                     DateTime end = EndRent.Value.Date;
                     double days = (end - start).TotalDays;
-                    RentContract contract = new RentContract(vehicle: vehicleSelected, DateStartRent: startRent.Value.Date, DateEndRent: EndRent.Value.Date, totalCost: (vehicleSelected.costperDay * (int)days));
+                    RentContract contract = new RentContract(vehicle: vehicleSelected, DateStartRent: startRent.Value.Date, DateEndRent: EndRent.Value.Date, totalCost: (vehicleSelected.CostPerDay * (int)days));
                     FormRentContract formManage = new FormRentContract(contract);
-                    var thread = new Thread(() => Program.start(formManage));
+                    var thread = new Thread(() => Program.Start(formManage));
                     thread.Start();
                 }
             }
@@ -95,7 +95,7 @@ namespace WindowsFormsApp
         private void Home_Click(object sender, EventArgs e)
         {
             Form formManage = new Form1(this.manage);
-            var thread = new Thread(() => Program.start(formManage));
+            var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
         }
@@ -116,8 +116,8 @@ namespace WindowsFormsApp
         {
             branchVehicle.Items.Clear();
             typeVehicle.Items.Clear();
-            List<string> listbranch = manage.getlistBranch("car");
-            List<string> listtype = manage.getlistType("car");
+            List<string> listbranch = manage.GetlistBranch("car");
+            List<string> listtype = manage.GetlistType("car");
             foreach (var i in listbranch)
             {
                 branchVehicle.Items.Add(i);
@@ -132,8 +132,8 @@ namespace WindowsFormsApp
         {
             branchVehicle.Items.Clear();
             typeVehicle.Items.Clear();
-            List<string> listbranch = manage.getlistBranch("truck");
-            List<string> listtype = manage.getlistType("truck");
+            List<string> listbranch = manage.GetlistBranch("truck");
+            List<string> listtype = manage.GetlistType("truck");
             foreach (var i in listbranch)
             {
                 branchVehicle.Items.Add(i);

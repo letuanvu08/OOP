@@ -81,3 +81,11 @@ Update vehicle set Name=@Name,branch=@Branch,costperday=@costperday,numberKilome
                    ,maintain=@maintain
 where ID=@ID;
 select T.TYPETRUCK, V.Name, V.ID, V.branch, V.costperday, V.stateUsed, V.maintain, t.TYPETRUCK from vehicle V, TRUCK T where v.id = T.id;
+use systemmanagecar;
+select * from car;
+alter table car
+modify column TYPECAR enum('Micro','Sedan','Cuv','Suv','Hatchback','Supercar','Roadster');
+alter table truck
+modify column TYPETRUCK enum('Minitruck','Truck','Bigtruck');
+alter table insurance
+modify column TYPEINSURANCE enum('Wood','Iron','Silver','Gold','Diamond');
