@@ -52,23 +52,28 @@ namespace WindowsFormsApp
             this.Address = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.PhoneNum = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.CustomerSign = new System.Windows.Forms.Label();
-            this.KilometerRun = new System.Windows.Forms.Label();
-            this.FluidStatus = new System.Windows.Forms.Label();
-            this.OilCap = new System.Windows.Forms.Label();
-            this.RegistrationNum = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.FromStartToEnd = new System.Windows.Forms.Label();
-            this.CostPerDay = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.Model = new System.Windows.Forms.Label();
             this.TotalCost = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.Model = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.CostPerDay = new System.Windows.Forms.Label();
+            this.RegistrationNum = new System.Windows.Forms.Label();
+            this.OilCap = new System.Windows.Forms.Label();
+            this.FluidStatus = new System.Windows.Forms.Label();
+            this.KilometerRun = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.ContractDescription = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -313,120 +318,19 @@ namespace WindowsFormsApp
             this.PhoneNum.TabIndex = 24;
             this.PhoneNum.Text = "Contract #:";
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label22.Location = new System.Drawing.Point(413, 318);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(119, 27);
-            this.label22.TabIndex = 25;
-            this.label22.Text = "Vehicle Info";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(563, 424);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(123, 24);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Cost Per Day:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(563, 375);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(234, 24);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "Number Of Kilometer Run:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(96, 478);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(114, 24);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "Fluid Status:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(96, 424);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(160, 24);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Oil Tank Capacity:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(96, 375);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(132, 24);
-            this.label21.TabIndex = 30;
-            this.label21.Text = "Registration #:";
-            // 
             // CustomerSign
             // 
             this.CustomerSign.AutoSize = true;
             this.CustomerSign.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerSign.Location = new System.Drawing.Point(729, 693);
+            this.CustomerSign.Location = new System.Drawing.Point(740, 898);
             this.CustomerSign.Name = "CustomerSign";
             this.CustomerSign.Size = new System.Drawing.Size(148, 24);
             this.CustomerSign.TabIndex = 31;
             this.CustomerSign.Text = "Client Signature:";
             // 
-            // KilometerRun
-            // 
-            this.KilometerRun.AutoSize = true;
-            this.KilometerRun.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.KilometerRun.Location = new System.Drawing.Point(827, 375);
-            this.KilometerRun.Name = "KilometerRun";
-            this.KilometerRun.Size = new System.Drawing.Size(64, 24);
-            this.KilometerRun.TabIndex = 33;
-            this.KilometerRun.Text = "Name:";
-            // 
-            // FluidStatus
-            // 
-            this.FluidStatus.AutoSize = true;
-            this.FluidStatus.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FluidStatus.Location = new System.Drawing.Point(228, 478);
-            this.FluidStatus.Name = "FluidStatus";
-            this.FluidStatus.Size = new System.Drawing.Size(64, 24);
-            this.FluidStatus.TabIndex = 34;
-            this.FluidStatus.Text = "Name:";
-            // 
-            // OilCap
-            // 
-            this.OilCap.AutoSize = true;
-            this.OilCap.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OilCap.Location = new System.Drawing.Point(277, 424);
-            this.OilCap.Name = "OilCap";
-            this.OilCap.Size = new System.Drawing.Size(64, 24);
-            this.OilCap.TabIndex = 35;
-            this.OilCap.Text = "Name:";
-            // 
-            // RegistrationNum
-            // 
-            this.RegistrationNum.AutoSize = true;
-            this.RegistrationNum.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistrationNum.Location = new System.Drawing.Point(247, 375);
-            this.RegistrationNum.Name = "RegistrationNum";
-            this.RegistrationNum.Size = new System.Drawing.Size(64, 24);
-            this.RegistrationNum.TabIndex = 36;
-            this.RegistrationNum.Text = "Name:";
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(100, 676);
+            this.button2.Location = new System.Drawing.Point(99, 915);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(151, 58);
@@ -439,52 +343,203 @@ namespace WindowsFormsApp
             // 
             this.FromStartToEnd.AutoSize = true;
             this.FromStartToEnd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FromStartToEnd.Location = new System.Drawing.Point(96, 545);
+            this.FromStartToEnd.Location = new System.Drawing.Point(103, 807);
             this.FromStartToEnd.Name = "FromStartToEnd";
             this.FromStartToEnd.Size = new System.Drawing.Size(191, 24);
             this.FromStartToEnd.TabIndex = 42;
             this.FromStartToEnd.Text = "This vehicle is rented ";
-            // 
-            // CostPerDay
-            // 
-            this.CostPerDay.AutoSize = true;
-            this.CostPerDay.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CostPerDay.Location = new System.Drawing.Point(699, 424);
-            this.CostPerDay.Name = "CostPerDay";
-            this.CostPerDay.Size = new System.Drawing.Size(64, 24);
-            this.CostPerDay.TabIndex = 43;
-            this.CostPerDay.Text = "Name:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(568, 467);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(137, 24);
-            this.label25.TabIndex = 45;
-            this.label25.Text = "Branch/Model:";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
-            // 
-            // Model
-            // 
-            this.Model.AutoSize = true;
-            this.Model.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Model.Location = new System.Drawing.Point(714, 467);
-            this.Model.Name = "Model";
-            this.Model.Size = new System.Drawing.Size(71, 24);
-            this.Model.TabIndex = 46;
-            this.Model.Text = "label27";
+            this.FromStartToEnd.Click += new System.EventHandler(this.FromStartToEnd_Click);
             // 
             // TotalCost
             // 
             this.TotalCost.AutoSize = true;
             this.TotalCost.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalCost.Location = new System.Drawing.Point(96, 604);
+            this.TotalCost.Location = new System.Drawing.Point(95, 851);
             this.TotalCost.Name = "TotalCost";
             this.TotalCost.Size = new System.Drawing.Size(416, 24);
             this.TotalCost.TabIndex = 39;
             this.TotalCost.Text = "Which in total, Cost the customer an amount of:";
             this.TotalCost.Click += new System.EventHandler(this.label23_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.Model);
+            this.panel1.Controls.Add(this.label25);
+            this.panel1.Controls.Add(this.CostPerDay);
+            this.panel1.Controls.Add(this.RegistrationNum);
+            this.panel1.Controls.Add(this.OilCap);
+            this.panel1.Controls.Add(this.FluidStatus);
+            this.panel1.Controls.Add(this.KilometerRun);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Location = new System.Drawing.Point(33, 284);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(935, 374);
+            this.panel1.TabIndex = 48;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(70, 266);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(177, 24);
+            this.label23.TabIndex = 61;
+            this.label23.Text = "Vehicle Description:";
+            // 
+            // Model
+            // 
+            this.Model.AutoSize = true;
+            this.Model.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Model.Location = new System.Drawing.Point(688, 196);
+            this.Model.Name = "Model";
+            this.Model.Size = new System.Drawing.Size(71, 24);
+            this.Model.TabIndex = 60;
+            this.Model.Text = "label27";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(542, 196);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(137, 24);
+            this.label25.TabIndex = 59;
+            this.label25.Text = "Branch/Model:";
+            // 
+            // CostPerDay
+            // 
+            this.CostPerDay.AutoSize = true;
+            this.CostPerDay.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CostPerDay.Location = new System.Drawing.Point(673, 153);
+            this.CostPerDay.Name = "CostPerDay";
+            this.CostPerDay.Size = new System.Drawing.Size(64, 24);
+            this.CostPerDay.TabIndex = 58;
+            this.CostPerDay.Text = "Name:";
+            this.CostPerDay.Click += new System.EventHandler(this.CostPerDay_Click);
+            // 
+            // RegistrationNum
+            // 
+            this.RegistrationNum.AutoSize = true;
+            this.RegistrationNum.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistrationNum.Location = new System.Drawing.Point(221, 104);
+            this.RegistrationNum.Name = "RegistrationNum";
+            this.RegistrationNum.Size = new System.Drawing.Size(64, 24);
+            this.RegistrationNum.TabIndex = 57;
+            this.RegistrationNum.Text = "Name:";
+            // 
+            // OilCap
+            // 
+            this.OilCap.AutoSize = true;
+            this.OilCap.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OilCap.Location = new System.Drawing.Point(251, 153);
+            this.OilCap.Name = "OilCap";
+            this.OilCap.Size = new System.Drawing.Size(64, 24);
+            this.OilCap.TabIndex = 56;
+            this.OilCap.Text = "Name:";
+            // 
+            // FluidStatus
+            // 
+            this.FluidStatus.AutoSize = true;
+            this.FluidStatus.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FluidStatus.Location = new System.Drawing.Point(202, 207);
+            this.FluidStatus.Name = "FluidStatus";
+            this.FluidStatus.Size = new System.Drawing.Size(64, 24);
+            this.FluidStatus.TabIndex = 55;
+            this.FluidStatus.Text = "Name:";
+            // 
+            // KilometerRun
+            // 
+            this.KilometerRun.AutoSize = true;
+            this.KilometerRun.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KilometerRun.Location = new System.Drawing.Point(801, 104);
+            this.KilometerRun.Name = "KilometerRun";
+            this.KilometerRun.Size = new System.Drawing.Size(64, 24);
+            this.KilometerRun.TabIndex = 54;
+            this.KilometerRun.Text = "Name:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(70, 104);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(132, 24);
+            this.label21.TabIndex = 53;
+            this.label21.Text = "Registration #:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(70, 153);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(160, 24);
+            this.label13.TabIndex = 52;
+            this.label13.Text = "Oil Tank Capacity:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(70, 207);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(114, 24);
+            this.label12.TabIndex = 51;
+            this.label12.Text = "Fluid Status:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(537, 104);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(234, 24);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Number Of Kilometer Run:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(537, 153);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(123, 24);
+            this.label10.TabIndex = 49;
+            this.label10.Text = "Cost Per Day:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label22.Location = new System.Drawing.Point(387, 47);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(119, 27);
+            this.label22.TabIndex = 48;
+            this.label22.Text = "Vehicle Info";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(95, 674);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(205, 24);
+            this.label24.TabIndex = 49;
+            this.label24.Text = "Additional Description:";
+            // 
+            // ContractDescription
+            // 
+            this.ContractDescription.AutoSize = true;
+            this.ContractDescription.Location = new System.Drawing.Point(96, 713);
+            this.ContractDescription.Name = "ContractDescription";
+            this.ContractDescription.Size = new System.Drawing.Size(189, 24);
+            this.ContractDescription.TabIndex = 50;
+            this.ContractDescription.Text = "ContractDescriptipon";
             // 
             // ContractDetailForm
             // 
@@ -492,24 +547,14 @@ namespace WindowsFormsApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(994, 734);
-            this.Controls.Add(this.Model);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.CostPerDay);
+            this.ClientSize = new System.Drawing.Size(997, 933);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ContractDescription);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.FromStartToEnd);
             this.Controls.Add(this.TotalCost);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.RegistrationNum);
-            this.Controls.Add(this.OilCap);
-            this.Controls.Add(this.FluidStatus);
-            this.Controls.Add(this.KilometerRun);
             this.Controls.Add(this.CustomerSign);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label22);
             this.Controls.Add(this.PhoneNum);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.Address);
@@ -538,6 +583,8 @@ namespace WindowsFormsApp
             this.Name = "ContractDetailForm";
             this.Text = "ContractDetailForm";
             this.Load += new System.EventHandler(this.ContractDetailForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,22 +615,26 @@ namespace WindowsFormsApp
         private System.Windows.Forms.Label Address;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label PhoneNum;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label CustomerSign;
-        private System.Windows.Forms.Label KilometerRun;
-        private System.Windows.Forms.Label FluidStatus;
-        private System.Windows.Forms.Label OilCap;
-        private System.Windows.Forms.Label RegistrationNum;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label FromStartToEnd;
-        private System.Windows.Forms.Label CostPerDay;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label Model;
         private System.Windows.Forms.Label TotalCost;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label Model;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label CostPerDay;
+        private System.Windows.Forms.Label RegistrationNum;
+        private System.Windows.Forms.Label OilCap;
+        private System.Windows.Forms.Label FluidStatus;
+        private System.Windows.Forms.Label KilometerRun;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label ContractDescription;
     }
 }

@@ -389,6 +389,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(684, 80);
             this.panel4.TabIndex = 1;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // TypeVehicle
             // 
@@ -563,7 +564,7 @@
             this.label2.Location = new System.Drawing.Point(28, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
+            this.label2.Size = new System.Drawing.Size(124, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Name Customer";
             // 

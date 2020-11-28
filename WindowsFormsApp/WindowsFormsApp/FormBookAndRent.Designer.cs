@@ -69,9 +69,10 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Location = new System.Drawing.Point(30, 49);
+            this.panel1.Location = new System.Drawing.Point(45, 75);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(361, 281);
+            this.panel1.Size = new System.Drawing.Size(540, 431);
             this.panel1.TabIndex = 1;
             // 
             // panel7
@@ -79,17 +80,19 @@
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel7.Controls.Add(this.radioTruck);
             this.panel7.Controls.Add(this.radioCar);
-            this.panel7.Location = new System.Drawing.Point(118, 15);
+            this.panel7.Location = new System.Drawing.Point(177, 23);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(100, 50);
+            this.panel7.Size = new System.Drawing.Size(148, 75);
             this.panel7.TabIndex = 18;
             // 
             // radioTruck
             // 
             this.radioTruck.AutoSize = true;
-            this.radioTruck.Location = new System.Drawing.Point(8, 26);
+            this.radioTruck.Location = new System.Drawing.Point(12, 40);
+            this.radioTruck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radioTruck.Name = "radioTruck";
-            this.radioTruck.Size = new System.Drawing.Size(53, 17);
+            this.radioTruck.Size = new System.Drawing.Size(73, 24);
             this.radioTruck.TabIndex = 1;
             this.radioTruck.TabStop = true;
             this.radioTruck.Text = "Truck";
@@ -99,9 +102,10 @@
             // radioCar
             // 
             this.radioCar.AutoSize = true;
-            this.radioCar.Location = new System.Drawing.Point(8, 3);
+            this.radioCar.Location = new System.Drawing.Point(12, 5);
+            this.radioCar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radioCar.Name = "radioCar";
-            this.radioCar.Size = new System.Drawing.Size(41, 17);
+            this.radioCar.Size = new System.Drawing.Size(59, 24);
             this.radioCar.TabIndex = 0;
             this.radioCar.TabStop = true;
             this.radioCar.Text = "Car";
@@ -113,26 +117,29 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.EndRent);
-            this.panel6.Location = new System.Drawing.Point(26, 215);
+            this.panel6.Location = new System.Drawing.Point(39, 331);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(318, 55);
+            this.panel6.Size = new System.Drawing.Size(476, 84);
             this.panel6.TabIndex = 20;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 0);
+            this.label4.Location = new System.Drawing.Point(16, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
+            this.label4.Size = new System.Drawing.Size(120, 29);
             this.label4.TabIndex = 8;
             this.label4.Text = "End Rent";
             // 
             // EndRent
             // 
-            this.EndRent.Location = new System.Drawing.Point(15, 23);
+            this.EndRent.Location = new System.Drawing.Point(22, 35);
+            this.EndRent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EndRent.Name = "EndRent";
-            this.EndRent.Size = new System.Drawing.Size(200, 20);
+            this.EndRent.Size = new System.Drawing.Size(298, 26);
             this.EndRent.TabIndex = 1;
             // 
             // panel5
@@ -140,26 +147,29 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.startRent);
-            this.panel5.Location = new System.Drawing.Point(26, 146);
+            this.panel5.Location = new System.Drawing.Point(39, 225);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(318, 63);
+            this.panel5.Size = new System.Drawing.Size(476, 96);
             this.panel5.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 0);
+            this.label3.Location = new System.Drawing.Point(16, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 20);
+            this.label3.Size = new System.Drawing.Size(128, 29);
             this.label3.TabIndex = 7;
             this.label3.Text = "Start Rent";
             // 
             // startRent
             // 
-            this.startRent.Location = new System.Drawing.Point(15, 34);
+            this.startRent.Location = new System.Drawing.Point(22, 52);
+            this.startRent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.startRent.Name = "startRent";
-            this.startRent.Size = new System.Drawing.Size(200, 20);
+            this.startRent.Size = new System.Drawing.Size(298, 26);
             this.startRent.TabIndex = 0;
             // 
             // panel4
@@ -169,27 +179,30 @@
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.typeVehicle);
-            this.panel4.Location = new System.Drawing.Point(26, 71);
+            this.panel4.Location = new System.Drawing.Point(39, 109);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(318, 64);
+            this.panel4.Size = new System.Drawing.Size(476, 97);
             this.panel4.TabIndex = 18;
             // 
             // branchVehicle
             // 
             this.branchVehicle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.branchVehicle.FormattingEnabled = true;
-            this.branchVehicle.Location = new System.Drawing.Point(7, 33);
+            this.branchVehicle.Location = new System.Drawing.Point(10, 51);
+            this.branchVehicle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.branchVehicle.Name = "branchVehicle";
-            this.branchVehicle.Size = new System.Drawing.Size(121, 21);
+            this.branchVehicle.Size = new System.Drawing.Size(180, 28);
             this.branchVehicle.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 10);
+            this.label7.Location = new System.Drawing.Point(4, 15);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 20);
+            this.label7.Size = new System.Drawing.Size(94, 29);
             this.label7.TabIndex = 11;
             this.label7.Text = "Branch";
             // 
@@ -197,9 +210,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(166, 10);
+            this.label5.Location = new System.Drawing.Point(249, 15);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 20);
+            this.label5.Size = new System.Drawing.Size(166, 29);
             this.label5.TabIndex = 9;
             this.label5.Text = "Type Vehicle";
             // 
@@ -207,16 +221,19 @@
             // 
             this.typeVehicle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeVehicle.FormattingEnabled = true;
-            this.typeVehicle.Location = new System.Drawing.Point(170, 33);
+            this.typeVehicle.Location = new System.Drawing.Point(255, 51);
+            this.typeVehicle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.typeVehicle.Name = "typeVehicle";
-            this.typeVehicle.Size = new System.Drawing.Size(121, 21);
+            this.typeVehicle.Size = new System.Drawing.Size(180, 28);
             this.typeVehicle.TabIndex = 14;
+            this.typeVehicle.SelectedIndexChanged += new System.EventHandler(this.typeVehicle_SelectedIndexChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(135, 346);
+            this.button2.Location = new System.Drawing.Point(202, 532);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(112, 35);
             this.button2.TabIndex = 4;
             this.button2.Text = "Find";
             this.button2.UseVisualStyleBackColor = true;
@@ -226,9 +243,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(151, 9);
+            this.label1.Location = new System.Drawing.Point(226, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 37);
+            this.label1.Size = new System.Drawing.Size(121, 55);
             this.label1.TabIndex = 5;
             this.label1.Text = "Find";
             // 
@@ -236,9 +254,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(567, 7);
+            this.label2.Location = new System.Drawing.Point(850, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 37);
+            this.label2.Size = new System.Drawing.Size(166, 55);
             this.label2.TabIndex = 6;
             this.label2.Text = "Result";
             // 
@@ -250,9 +269,10 @@
             this.CostRent});
             this.listResult.GridLines = true;
             this.listResult.HideSelection = false;
-            this.listResult.Location = new System.Drawing.Point(16, 3);
+            this.listResult.Location = new System.Drawing.Point(24, 5);
+            this.listResult.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listResult.Name = "listResult";
-            this.listResult.Size = new System.Drawing.Size(348, 278);
+            this.listResult.Size = new System.Drawing.Size(520, 426);
             this.listResult.TabIndex = 4;
             this.listResult.UseCompatibleStateImageBehavior = false;
             this.listResult.View = System.Windows.Forms.View.Details;
@@ -277,17 +297,19 @@
             // 
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.listResult);
-            this.panel2.Location = new System.Drawing.Point(421, 49);
+            this.panel2.Location = new System.Drawing.Point(632, 75);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(367, 320);
+            this.panel2.Size = new System.Drawing.Size(550, 492);
             this.panel2.TabIndex = 7;
             // 
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(153, 287);
+            this.button1.Location = new System.Drawing.Point(230, 442);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(112, 35);
             this.button1.TabIndex = 8;
             this.button1.Text = "Book";
             this.button1.UseVisualStyleBackColor = true;
@@ -295,9 +317,10 @@
             // 
             // Home
             // 
-            this.Home.Location = new System.Drawing.Point(355, 346);
+            this.Home.Location = new System.Drawing.Point(532, 532);
+            this.Home.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(75, 23);
+            this.Home.Size = new System.Drawing.Size(112, 35);
             this.Home.TabIndex = 8;
             this.Home.Text = "Home";
             this.Home.UseVisualStyleBackColor = true;
@@ -305,15 +328,16 @@
             // 
             // FormBookAndRent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 387);
+            this.ClientSize = new System.Drawing.Size(1200, 595);
             this.Controls.Add(this.Home);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormBookAndRent";
             this.Text = "FormBookAndRent";
             this.panel1.ResumeLayout(false);

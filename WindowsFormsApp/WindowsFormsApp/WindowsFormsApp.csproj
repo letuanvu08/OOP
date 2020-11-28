@@ -67,6 +67,12 @@
     <Compile Include="ContractDetailForm.Designer.cs">
       <DependentUpon>ContractDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContractUpdater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContractUpdater.Designer.cs">
+      <DependentUpon>ContractUpdater.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBMySqlUnit.cs" />
     <Compile Include="DBUnit.cs" />
     <Compile Include="Fleet.cs" />
@@ -115,6 +121,9 @@
     <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="ContractDetailForm.resx">
       <DependentUpon>ContractDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContractUpdater.resx">
+      <DependentUpon>ContractUpdater.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

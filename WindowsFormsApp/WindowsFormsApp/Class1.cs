@@ -622,15 +622,28 @@ namespace WindowsFormsApp
         }
         public void AddVehicle(Vehicle vehicle)
         {
+           
             Console.WriteLine(" this function addVehicle  with 1 parameter: vehicle");
             listVehicle.Add(vehicle);
+            foreach (Vehicle vehicle in listVehicle)
+           
             this.numberOfVehicle += 1;
         }
         public void AddVehicle(int numberOfVehicle, List<Vehicle> listVehicle)
         {
             Console.WriteLine(" this function addVehicle  with 2 parameter: numberOfVehicle and listVehicle");
             foreach (Vehicle vehicle in listVehicle)
+            {
                 this.listVehicle.Add(vehicle);
+                //if (vehicle.GetType() == typeof(Car))
+                //{
+                //    Console.WriteLine("I AM A FUCKING CAR");
+                //}
+                //else
+                //{
+                //    Console.WriteLine("I AM ONLY A VEHICLE :(((((((((((((");
+                //}
+            }
             this.numberOfVehicle += numberOfVehicle;
 
         }

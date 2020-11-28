@@ -24,6 +24,7 @@ namespace WindowsFormsApp
             this.listTruckContracts= manage.GetTruckRelatedConTracts();
             ContractList.MouseDoubleClick += new MouseEventHandler(contractList_MouseDoubleClick);
             ApprovedContractList.MouseDoubleClick += new MouseEventHandler(approvedContractList_MouseDoubleClick);
+            // manage.testGetType();  // This is only for debug: Test if we can infer the type of the Subclass from the parent Class Object.
             setUpGUI();
         }
         // This will populate the box with all the Contracts when the form is first opened
@@ -211,10 +212,20 @@ namespace WindowsFormsApp
                         break;
                     }
                 }
-                ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage,contract_to_show);
-                var thread = new Thread(() => Program.Start(contractDetailForm));
-                thread.Start();
-                this.Close();
+                if (PreviewModeRadio.Checked == true)
+                {
+                    ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage, contract_to_show);
+                    var thread = new Thread(() => Program.Start(contractDetailForm));
+                    thread.Start();
+                    this.Close();
+                }
+                else
+                {
+                    ContractUpdater updater = new ContractUpdater(this.manage, contract_to_show);
+                    var thread = new Thread(() => Program.Start(updater));
+                    thread.Start();
+                    this.Close();
+                }
             }
         }
         private void approvedContractList_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -241,6 +252,16 @@ namespace WindowsFormsApp
         }
 
         private void ApprovedContractList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

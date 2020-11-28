@@ -91,11 +91,11 @@ namespace WindowsFormsApp
             adapter.Fill(carDataTable);
             foreach (DataRow row in carDataTable.Rows)
             {
-                
-                // Create a contract wit the Car
-                Car car = new Car(NameCar: row["Name"].ToString(), Branch: row["branch"].ToString(), idCar: Int32.Parse(row["ID"].ToString()), typecar: (TypeCar)Enum.Parse(typeof(TypeCar), row["TYPECAR"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
+
+                // Create a contract wit the Car: -- Vấn đề về đêm: Nếu bị null dưới database thì khi load lên sẽ lỗi (Khúc oilSIze vói oilNow khi Parse với định dạng Int32) cho nên ở đây t cho giá trị mặc định :(
+                Car car = new Car(NameCar: row["Name"].ToString(), Branch: row["branch"].ToString(), idCar: Int32.Parse(row["ID"].ToString()), typecar: (TypeCar)Enum.Parse(typeof(TypeCar), row["TYPECAR"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()),oilSize:2,fluidSize:3);
                 // Create the customer of the Contract:
-                Customer customer = new Customer(name: row["NAMECUSTORMER"].ToString(), password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
+                Customer customer = new Customer(name: row["NAMECUSTORMER"].ToString(), password: "", Email: row["EMAIL"].ToString(), PhoneNumber: row["PHONENUMBER"].ToString(), Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
                 // Creat a Insurance with the contract: 
                 Insurance insurance = new Insurance(id: (int)row["IID"], type: (TypeInsurance)Enum.Parse(typeof(TypeInsurance), row["TYPEINSURANCE"].ToString()));
                 int id = int.Parse(row["IDCONTRACT"].ToString());
@@ -110,7 +110,7 @@ namespace WindowsFormsApp
                 {
                     startDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
                 }
-                if (startDateString.ToString().Length > 10)
+                if (endDateString.Length > 10)
                 {
                     endDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
                 }
@@ -140,25 +140,19 @@ namespace WindowsFormsApp
                 // Create a contract wit the Car
                 Truck truck = new Truck(nameTruck: row["Name"].ToString(), branch: row["branch"].ToString(), idTruck: Int32.Parse(row["ID"].ToString()), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeTruck), row["TYPETRUCK"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
                 // Create the customer of the Contract:
-                Customer customer = new Customer(name: row["NAMECUSTORMER"].ToString(), password: "", Email: row["EMAIL"].ToString(), PhoneNumber: "", Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
+                Customer customer = new Customer(name: row["NAMECUSTORMER"].ToString(), password: "", Email: row["EMAIL"].ToString(), PhoneNumber: row["PHONENUMBER"].ToString(), Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
                 // Creat a Insurance with the contract: 
                 Insurance insurance = new Insurance(id: (int)row["IID"], type: (TypeInsurance)Enum.Parse(typeof(TypeInsurance), row["TYPEINSURANCE"].ToString()));
                 int id = int.Parse(row["IDCONTRACT"].ToString());
                 //DateTime dateStartRent = DateTime.ParseExact(row["STARTDATE"].ToString(), CultureInfo.InvariantCulture);
                 //DateTime dateEndRent = DateTime.ParseExact(row["ENDDATE"].ToString(), CultureInfo.InvariantCulture);
-                string startDateTimeFormat = "dd/MM/yyyy";
+                
                 string startDateString = row["STARTDATE"].ToString();
-                string endDateTimeFormat = "dd/MM/yyyy";
+                string startDateTimeFormat = GetDateTimeFormatString(startDateString);
                 string endDateString = row["ENDDATE"].ToString();
+                string endDateTimeFormat = GetDateTimeFormatString(endDateString);
                 CultureInfo provider = CultureInfo.InvariantCulture;
-                if (startDateString.Length > 10)
-                {
-                    startDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
-                }
-                if (startDateString.ToString().Length > 10)
-                {
-                    endDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
-                }
+                
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
 
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, endDateTimeFormat, provider);
@@ -169,6 +163,15 @@ namespace WindowsFormsApp
                 RentContract rentContract = new RentContract(id, truck, insurance, customer, dateStartRent, dateEndRent, totalBill, description, isApproved);
                 manager.AddContract(rentContract);
             }
+        }
+        public static string GetDateTimeFormatString(string datetime)
+        {
+            string retFormat = "dd/MM/yyyy";
+            if (datetime.Length > 10)
+            {
+                retFormat = "dd/MM/yyyy hh:mm:ss tt";
+            }
+            return retFormat;
         }
 
         public static void Start(Form form)

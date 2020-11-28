@@ -50,12 +50,16 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.UpdateModeRadio = new System.Windows.Forms.RadioButton();
+            this.PreviewModeRadio = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Home
             // 
-            this.Home.Location = new System.Drawing.Point(530, 569);
+            this.Home.Location = new System.Drawing.Point(548, 625);
             this.Home.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Home.Name = "Home";
             this.Home.Size = new System.Drawing.Size(112, 35);
@@ -72,6 +76,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(137, 67);
             this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // ManageCarRadioButton
             // 
@@ -172,7 +177,7 @@
             // 
             // ApproveButton
             // 
-            this.ApproveButton.Location = new System.Drawing.Point(204, 85);
+            this.ApproveButton.Location = new System.Drawing.Point(483, 561);
             this.ApproveButton.Name = "ApproveButton";
             this.ApproveButton.Size = new System.Drawing.Size(108, 35);
             this.ApproveButton.TabIndex = 7;
@@ -236,11 +241,44 @@
             this.columnHeader6.Text = "Insurance Type:";
             this.columnHeader6.Width = 100;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.PreviewModeRadio);
+            this.panel1.Controls.Add(this.UpdateModeRadio);
+            this.panel1.Location = new System.Drawing.Point(221, 84);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(363, 36);
+            this.panel1.TabIndex = 9;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // UpdateModeRadio
+            // 
+            this.UpdateModeRadio.AutoSize = true;
+            this.UpdateModeRadio.Location = new System.Drawing.Point(15, 4);
+            this.UpdateModeRadio.Name = "UpdateModeRadio";
+            this.UpdateModeRadio.Size = new System.Drawing.Size(131, 24);
+            this.UpdateModeRadio.TabIndex = 0;
+            this.UpdateModeRadio.TabStop = true;
+            this.UpdateModeRadio.Text = "Update Mode";
+            this.UpdateModeRadio.UseVisualStyleBackColor = true;
+            // 
+            // PreviewModeRadio
+            // 
+            this.PreviewModeRadio.AutoSize = true;
+            this.PreviewModeRadio.Location = new System.Drawing.Point(194, 4);
+            this.PreviewModeRadio.Name = "PreviewModeRadio";
+            this.PreviewModeRadio.Size = new System.Drawing.Size(132, 24);
+            this.PreviewModeRadio.TabIndex = 1;
+            this.PreviewModeRadio.TabStop = true;
+            this.PreviewModeRadio.Text = "Preview Mode";
+            this.PreviewModeRadio.UseVisualStyleBackColor = true;
+            // 
             // FormManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ApprovedContractList);
             this.Controls.Add(this.ApproveButton);
             this.Controls.Add(this.label2);
@@ -254,6 +292,8 @@
             this.Load += new System.EventHandler(this.FormManage_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,5 +323,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton PreviewModeRadio;
+        private System.Windows.Forms.RadioButton UpdateModeRadio;
     }
 }

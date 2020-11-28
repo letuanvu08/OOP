@@ -26,33 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="738175e1-dd3b-460c-b74a-3d323e68e1cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Lab/obj/Debug/netcoreapp3.1/Lab4.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab/obj/Debug/netcoreapp3.1/Lab4.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Class2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/Class2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/ContractDetailForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/ContractDetailForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/DBUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/DBUnit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/Form1.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormBookAndRent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormBookAndRent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormManage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormManage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormManageVehicle.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormManageVehicle.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormManageVehicle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormManageVehicle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormManageVehicle.resx" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormManageVehicle.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormRentContract.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormRentContract.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormRentContract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormRentContract.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/WindowsFormsApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/WindowsFormsApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/bin/Debug/WindowsFormsApp.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/bin/Debug/WindowsFormsApp.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/bin/Debug/WindowsFormsApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/bin/Debug/WindowsFormsApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.GenerateResource.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WindowsFormsApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WindowsFormsApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Release/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +98,7 @@
       <workItem from="1606497262267" duration="239000" />
       <workItem from="1606497554672" duration="2841000" />
       <workItem from="1606500531146" duration="513000" />
+      <workItem from="1606544762328" duration="515000" />
     </task>
     <servers />
   </component>

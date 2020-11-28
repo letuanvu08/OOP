@@ -164,5 +164,21 @@ namespace WindowsFormsApp
             return null;
 
         }
+        //public void testGetType()
+        //{
+        //    List<Vehicle> vecList = GetListVehicle("car");
+        //    foreach (Vehicle vehicle in vecList)
+        //    {
+        //        //this.listVehicle.Add(vehicle);
+        //        if (vehicle.GetType() == typeof(Car))
+        //        {
+        //            Console.WriteLine("I AM A FUCKING CAR");
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("I AM ONLY A VEHICLE :(((((((((((((");
+        //        }
+        //    }
+        //}
     }
 }

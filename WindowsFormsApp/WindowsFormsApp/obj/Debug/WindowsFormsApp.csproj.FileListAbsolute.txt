@@ -30,3 +30,4 @@ C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsF
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.CopyComplete
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.exe
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
+C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ContractUpdater.resources

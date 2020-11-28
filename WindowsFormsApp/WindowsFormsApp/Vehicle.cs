@@ -131,6 +131,21 @@ namespace WindowsFormsApp
             this.CostPerDay = costperday;
             this.type = TypeVehicle.Truck;
         }
+        public Truck(string nameTruck, string branch, int idTruck, TypeTruck typeTruck, bool stateUse, bool maintain, int costperday, int oilSize,int fluidSize)
+        {
+            serviceHistory = new ServiceHistory();
+            this.Name = nameTruck;
+            this.Branch = branch;
+            this.IdVehicle = idTruck;
+            this.TypeTruck = typeTruck;
+            this.description = "";
+            this.stateUsed = stateUse;
+            this.maintain = maintain;
+            this.CostPerDay = costperday;
+            this.type = TypeVehicle.Truck;
+            this.sizeOil = oilSize;
+            this.sizeFluid = fluidSize;
+        }
 
         //===============================//
 
@@ -257,6 +272,23 @@ namespace WindowsFormsApp
             this.CostPerDay = costperday;
             //===================This next line make sure the rent contract is able to know what type of Vehicle is assigned when creating the contract=======
             this.type = TypeVehicle.Car;
+        }
+        public Car(string NameCar, string Branch, int idCar, TypeCar typecar, bool maintain, bool stateUse, int costperday,int oilSize,int fluidSize)
+        {
+            serviceHistory = new ServiceHistory();
+            Console.WriteLine(" Constuctor New Car Parameter with 7 paramter: NameCar, Branch, IdCar, typeCar, Description,maintain,stateUse");
+            this.Name = NameCar;
+            this.branch = Branch;
+            this.IdVehicle = idCar;
+            this.TypeCar = typecar;
+            this.description = "";
+            this.stateUsed = stateUse;
+            this.maintain = maintain;
+            this.CostPerDay = costperday;
+            //===================This next line make sure the rent contract is able to know what type of Vehicle is assigned when creating the contract=======
+            this.type = TypeVehicle.Car;
+            this.sizeOil = oilSize;
+            this.sizeFluid = fluidSize;
         }
 
         override public void ServiceEngine(DateTime date, string error)
