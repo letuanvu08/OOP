@@ -498,6 +498,7 @@
             this.NameVehicle.ReadOnly = true;
             this.NameVehicle.Size = new System.Drawing.Size(426, 26);
             this.NameVehicle.TabIndex = 10;
+            this.NameVehicle.TextChanged += new System.EventHandler(this.NameVehicle_TextChanged);
             // 
             // label3
             // 
@@ -510,6 +511,7 @@
             this.label3.Size = new System.Drawing.Size(136, 27);
             this.label3.TabIndex = 9;
             this.label3.Text = "Name Vehicle";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 

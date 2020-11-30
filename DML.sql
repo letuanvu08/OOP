@@ -21,3 +21,8 @@ insert into VEHICLE(ID,NAME,branch,costperday,stateUsed,maintain) VALUE (8,'Merc
  insert into car(ID,TYPECAR)VALUE(9,'SEDAN');
 
  insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL)VALUE(2,2,"LE TUAN VU","LETUANVU@GMAIL.COM","KTX","11/11/2020","12/11/2020",100000);
+select * from rentcontract RC join insurance I on RC.IDCONTRACT = I.IDCONTRACT, vehicle V, car C where RC.IDVEHICLE = V.ID and V.ID = C.ID;
+insert into  insurance(IID, TYPEINSURANCE, IDCONTRACT) values (@ID,@TYPE,@IDCONTRACT);
+alter table rentcontract
+DROP COLUMN PHONE,
+ADD PHONENUMBER TEXT;

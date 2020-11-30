@@ -143,5 +143,10 @@ namespace WindowsFormsApp
                 typeVehicle.Items.Add(i);
             }
         }
+
+        private void typeVehicle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -84,6 +84,7 @@ namespace WindowsFormsApp
             this.InsuranceUsed = insurance;
             this.CustomerRentCar = customer;
             this.IsApproved = approval;
+           
         }
 
     }

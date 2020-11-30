@@ -98,7 +98,7 @@ namespace WindowsFormsApp
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
+            // This is the button to travel back to the main menu
             Form formManage = new FormManage(this.manage);
             var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
@@ -111,6 +111,21 @@ namespace WindowsFormsApp
         }
 
         private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FromStartToEnd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CostPerDay_Click(object sender, EventArgs e)
         {
 
         }
