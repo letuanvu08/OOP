@@ -22,7 +22,8 @@ namespace WindowsFormsApp
             customerRent = new Customer();
             setup();
             contract.CustomerRentCar = customerRent;
-          
+            Insurance insurance = new Insurance();
+            contract.InsuranceUsed = insurance;
         }
         private void setup()
         {
@@ -40,7 +41,10 @@ namespace WindowsFormsApp
             startRent.Value = this.contract.DateStartRent;
             endRent.Value= this.contract.DateEndRent;
             BranchVehicle.Text = contract.VehicleRented.Branch;
-            
+            foreach (var i in Enum.GetValues(typeof(TypeInsurance)))
+            {
+                insuranceBox.Items.Add(i);
+            }
             TotalBill.Text = contract.TotalCost.ToString();
         }
 
@@ -62,6 +66,15 @@ namespace WindowsFormsApp
                 MessageBox.Show("Address can't be null");
             else if(startRent.Value.Date>=endRent.Value.Date)
                 MessageBox.Show("Start Rent not equa less than End Rent");
+            else if (DriverLicense.Text == "")
+            {
+                MessageBox.Show("Driver License can't be null!");
+            }
+          
+           else if (insuranceBox.SelectedItem==null)
+            {
+                MessageBox.Show("Choose insurance!");
+            }
             else
             {
                 MessageBox.Show("Confirm Successly!");
@@ -87,7 +100,7 @@ namespace WindowsFormsApp
             }
             contract.Id = maxid + 1;
                 string sqlcontract = "insert into rentcontract(IDCONTRACT,IDVEHICLE,NAMECUSTORMER,EMAIL,ADDRESS,STARTDATE,ENDDATE,TOTALBILL,BIRTHDAY, DESCRIPTION,DRIVERLICENSE,APPROVED)" +
-                "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY,@DESCRIPTION,);";
+                "VALUE(@ID,@IDVEHICLE,@NAME,@EMAIL,@ADDRESS,@STARTDATE,@ENDDATE,@TOTALBILL,@BIRTHDAY,@DESCRIPTION,@DRIVERLICENSE,@APPROVED);";
             cmd = conn.CreateCommand();
             cmd.CommandText = sqlcontract;
             cmd.Parameters.Add("@ID", (MySqlDbType)SqlDbType.Int).Value=contract.Id;
@@ -100,9 +113,23 @@ namespace WindowsFormsApp
             cmd.Parameters.AddWithValue("@TOTALBILL",  contract.TotalCost.ToString());
             cmd.Parameters.AddWithValue("@BIRTHDAY",  contract.CustomerRentCar.birthday.Date.ToString());
             cmd.Parameters.AddWithValue("@DESCRIPTION", contract.Description);
+            cmd.Parameters.AddWithValue("@DRIVERLICENSE", contract.CustomerRentCar.Driver_license);
+            cmd.Parameters.AddWithValue("@APPROVED", contract.IsApproved);
             /*cmd.Par*//*//**ameters.AddWithValue("@DRIVERLICENSE", contract.CustomerRentCar.);*/
             cmd.ExecuteNonQuery();
-           
+           SaveInsurance();
+        }
+        private void SaveInsurance()
+        {
+            MySqlConnection conn = Program.ConnectDatabase();
+            string sql = "insert into  insurance(IID, TYPEINSURANCE, IDCONTRACT) values (@ID,@TYPE,@IDCONTRACT);";
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@ID", contract.Id);
+            cmd.Parameters.AddWithValue("@TYPE", contract.InsuranceUsed.Type.ToString());
+            cmd.Parameters.AddWithValue("@IDCONTRACT", contract.Id);
+            cmd.ExecuteNonQuery();
         }
 
         private void startRent_ValueChanged(object sender, EventArgs e)
@@ -180,6 +207,11 @@ namespace WindowsFormsApp
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void insuranceBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            contract.InsuranceUsed.Type = (TypeInsurance)Enum.Parse(typeof(TypeInsurance),insuranceBox.SelectedItem.ToString());
         }
     }
 }

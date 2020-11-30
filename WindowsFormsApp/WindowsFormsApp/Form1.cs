@@ -34,6 +34,7 @@ namespace WindowsFormsApp
             var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
+
         }
 
         private void button3_Click(object sender, EventArgs e)

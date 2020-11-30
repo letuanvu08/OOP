@@ -90,7 +90,7 @@ namespace WindowsFormsApp
             if (RadioCarview.Checked == true) {
                 
                   Car car=  (vehicleSelected as Car);
-                typeVehicledetail.Text = car.type.ToString();
+                typeVehicledetail.Text = car.TypeCar.ToString();
                 RadioCarDetail.Checked = true;
                     }
 
@@ -98,7 +98,7 @@ namespace WindowsFormsApp
             {
                 RadioTruckDetail.Checked = true;
                 Truck truck = (vehicleSelected as Truck);
-                typeVehicledetail.Text = truck.type.ToString();
+                typeVehicledetail.Text = truck.TypeTruck.ToString();
             }
             registration.Text = vehicleSelected.IdVehicle.ToString();
             costperdatetext.Text = vehicleSelected.CostPerDay.ToString();
@@ -171,34 +171,47 @@ namespace WindowsFormsApp
 
         private void btSave_Click(object sender, EventArgs e)
         {
-            if (checkedNotNull())
+            try
             {
-                if (change)
+                Int32.Parse(registration.Text);
+                Int32.Parse(Kilometer.Text);
+                Int32.Parse(costperdatetext.Text);
+                if (checkedNotNull())
                 {
-                    UpdateVehicle();
-                    MessageBox.Show("Update successly!");
-                    change = false;
-                    manage = Program.LoadData();
-                }
-                else 
-                {
-                    if (checkid(Int32.Parse(registration.Text)))
+                    if (change)
                     {
-                        InsertVehicle();
-                        MessageBox.Show("Add Successly!");
-                        addnew = false;
+                        UpdateVehicle();
+                        MessageBox.Show("Update successly!");
+                        change = false;
                         manage = Program.LoadData();
                     }
-                }
+                    else
+                    {
+                        if (checkid(Int32.Parse(registration.Text)))
+                        {
+                            InsertVehicle();
+                            MessageBox.Show("Add Successly!");
+                            addnew = false;
+                            manage = Program.LoadData();
+                        }
+                    }
 
-                setclear();
-                setunchange();
-                if (RadioCarview.Checked) loadcar();
-                else loadTruck();
+                    setclear();
+                    setunchange();
+                    if (RadioCarview.Checked) loadcar();
+                    else loadTruck();
+                }
             }
+            catch(Exception error)
+            {
+                MessageBox.Show("Please fill correct!");
+            }
+            
+            
             
 
         }
+        
         private bool checkedNotNull()
         {
             if (String.IsNullOrWhiteSpace(NameVehicle.Text) || String.IsNullOrWhiteSpace(BranchVehicle.Text) || String.IsNullOrWhiteSpace(registration.Text) || String.IsNullOrWhiteSpace(typeVehicledetail.Text))
@@ -237,7 +250,7 @@ namespace WindowsFormsApp
             cmd.Parameters.AddWithValue("@Description",descriptiontext.Text);
             cmd.Parameters.AddWithValue("@statususe",statusvehicleview.Checked);
             cmd.Parameters.AddWithValue("@maintain", maintainvehicleview.Checked);
-            cmd.Parameters.AddWithValue("@ID",Int32.Parse( registration.Text));
+            cmd.Parameters.AddWithValue("@ID", registration.Text);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
