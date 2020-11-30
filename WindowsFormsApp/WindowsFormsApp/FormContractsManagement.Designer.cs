@@ -121,7 +121,6 @@
             this.ContractList.TabIndex = 4;
             this.ContractList.UseCompatibleStateImageBehavior = false;
             this.ContractList.View = System.Windows.Forms.View.Details;
-            this.ContractList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // approvalCheckBox
             // 
@@ -162,8 +161,7 @@
             this.label1.Size = new System.Drawing.Size(161, 27);
             this.label1.TabIndex = 5;
             this.label1.Text = "List Of Contract:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
+          // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -173,8 +171,7 @@
             this.label2.Size = new System.Drawing.Size(265, 27);
             this.label2.TabIndex = 6;
             this.label2.Text = "List Of Approved Contracts:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
+           // 
             // ApproveButton
             // 
             this.ApproveButton.Location = new System.Drawing.Point(483, 561);
@@ -289,8 +286,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormManage";
             this.Text = "FormManage";
-            this.Load += new System.EventHandler(this.FormManage_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
+           this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

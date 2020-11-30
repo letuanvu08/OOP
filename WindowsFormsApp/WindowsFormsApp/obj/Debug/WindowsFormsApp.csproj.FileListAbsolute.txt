@@ -31,6 +31,11 @@ C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsF
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.exe
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.ContractUpdater.resources
+<<<<<<< HEAD
+C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormVehicleListService.resources
+C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormServiceAVehicle.resources
+=======
+>>>>>>> 75e4ce928fe4885415cd0445a0144c5df6f50764
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\WindowsFormsApp.exe.config
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\WindowsFormsApp.exe
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\WindowsFormsApp.pdb
@@ -63,3 +68,5 @@ D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.Core
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.csproj.CopyComplete
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.exe
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
+D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormServiceAVehicle.resources
+D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormVehicleListService.resources

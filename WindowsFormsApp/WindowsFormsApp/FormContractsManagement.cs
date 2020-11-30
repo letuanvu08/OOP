@@ -30,6 +30,8 @@ namespace WindowsFormsApp
         // This will populate the box with all the Contracts when the form is first opened
         private void setUpGUI()
         {
+            ApprovedContractList.Items.Clear();
+            ContractList.Items.Clear();
             /*
             ContractList.Columns.Add("MyColumn", -2, HorizontalAlignment.Left);
             ContractList.FullRowSelect = true;
@@ -118,41 +120,8 @@ namespace WindowsFormsApp
                    value = item.SubItems[1].Text;
                }
         */
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormManage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
+    
         private void ApproveButton_Click(object sender, EventArgs e)
         {
             // Get selected row
@@ -164,6 +133,7 @@ namespace WindowsFormsApp
                 int contractID = int.Parse(listSubItem[0].Text);
                 updateApprovalStatusInDatabase(contractID);
                 ListViewItem approvedItem = new ListViewItem();
+
                 foreach (ListViewItem.ListViewSubItem subItem in listSubItem)
                 {
                     approvedItem.SubItems.Add(subItem);
@@ -174,6 +144,8 @@ namespace WindowsFormsApp
 
                 // Add it to the right listview
                 ApprovedContractList.Items.Add(item);
+                manage = Program.LoadData();
+                setUpGUI();
 
                 // Get the removed item id and change the APPROVED to TRUE in the database:    
             }

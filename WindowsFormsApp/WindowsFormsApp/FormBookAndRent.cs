@@ -87,6 +87,8 @@ namespace WindowsFormsApp
                     FormRentContract formManage = new FormRentContract(contract);
                     var thread = new Thread(() => Program.Start(formManage));
                     thread.Start();
+                    thread.Join();
+                    manage = Program.LoadData();
                 }
             }
 
