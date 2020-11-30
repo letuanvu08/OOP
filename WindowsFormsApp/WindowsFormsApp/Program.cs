@@ -101,20 +101,15 @@ namespace WindowsFormsApp
                 int id = int.Parse(row["IDCONTRACT"].ToString());
                 //DateTime dateStartRent = DateTime.ParseExact(row["STARTDATE"].ToString(), CultureInfo.InvariantCulture);
                 //DateTime dateEndRent = DateTime.ParseExact(row["ENDDATE"].ToString(), CultureInfo.InvariantCulture);
-                string startDateTimeFormat = "dd/MM/yyyy";
                 string startDateString = row["STARTDATE"].ToString();
-                string endDateTimeFormat = "dd/MM/yyyy";
+                string startDateTimeFormat = GetDateTimeFormatString(startDateString);
+                
                 string endDateString = row["ENDDATE"].ToString();
+                string endDateTimeFormat = GetDateTimeFormatString(endDateString);
+                
                 CultureInfo provider = CultureInfo.InvariantCulture;
-                if (startDateString.Length > 10)
-                {
-                    startDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
-                }
-                if (endDateString.Length > 10)
-                {
-                    endDateTimeFormat = "MM/dd/yyyy hh:mm:ss tt";
-                }
-                DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
+                
+                DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, CultureInfo.InvariantCulture);
 
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, endDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
@@ -166,10 +161,10 @@ namespace WindowsFormsApp
         }
         public static string GetDateTimeFormatString(string datetime)
         {
-            string retFormat = "dd/MM/yyyy";
+            string retFormat = "MM/dd/yyyy";
             if (datetime.Length > 10)
             {
-                retFormat = "dd/MM/yyyy hh:mm:ss tt";
+                retFormat = "MM/dd/yyyy hh:mm:ss tt";
             }
             return retFormat;
         }
