@@ -15,7 +15,7 @@ namespace WindowsFormsApp
             int port = 3306;
             string database = "systemmanagecar";
             string username = "root";
-            string password = "0974706833vu";
+            string password = "161200";
 
             return DBMySQLUtils.GetDBConnection(host, port, database, username, password);
         }
