@@ -76,11 +76,11 @@
     <Compile Include="DBMySqlUnit.cs" />
     <Compile Include="DBUnit.cs" />
     <Compile Include="Fleet.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormMainMenu.Designer.cs">
+      <DependentUpon>FormMainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormServiceAVehicle.cs">
       <SubType>Form</SubType>
@@ -118,12 +118,6 @@
     <Compile Include="FormRentContract.Designer.cs">
       <DependentUpon>FormRentContract.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormService.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormService.Designer.cs">
-      <DependentUpon>FormService.cs</DependentUpon>
-    </Compile>
     <Compile Include="Insurance.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,8 +131,8 @@
     <EmbeddedResource Include="ContractUpdater.resx">
       <DependentUpon>ContractUpdater.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormMainMenu.resx">
+      <DependentUpon>FormMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormServiceAVehicle.resx">
       <DependentUpon>FormServiceAVehicle.cs</DependentUpon>
@@ -157,9 +151,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRentContract.resx">
       <DependentUpon>FormRentContract.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormService.resx">
-      <DependentUpon>FormService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

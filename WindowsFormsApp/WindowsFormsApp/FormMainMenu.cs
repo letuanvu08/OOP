@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
-     partial class Form1 : Form
+     partial class FormMainMenu : Form
     {
         CarRentalManagement manage;
-        public Form1(CarRentalManagement manage)
+        public FormMainMenu(CarRentalManagement manage)
         {
             InitializeComponent();
             this.manage = manage;
@@ -39,7 +39,7 @@ namespace WindowsFormsApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FormService formManage = new FormService(manage);
+            FormVehicleListService formManage = new FormVehicleListService(manage);
             var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();

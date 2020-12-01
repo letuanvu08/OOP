@@ -43,8 +43,16 @@ namespace WindowsFormsApp
             
         }
 
+        private void updateDataChange()
+        {
+            this.manage = Program.LoadData();
+            this.listCarContracts = manage.GetCarRelatedConTracts();
+            this.listTruckContracts = manage.GetTruckRelatedConTracts();
+        }
+
         private void DisplayCarContracts()
         {
+            updateDataChange();
             foreach (RentContract contract in listCarContracts)
             {
                 string[] briefContractInfo = new string[6];
@@ -58,6 +66,7 @@ namespace WindowsFormsApp
 
         private void DisplayTruckContracts()
         {
+            updateDataChange();
             foreach (RentContract contract in listTruckContracts)
             {
                 string[] briefContractInfo = new string[6];
@@ -80,7 +89,7 @@ namespace WindowsFormsApp
         }
         private void Home_Click(object sender, EventArgs e)
         {
-            Form formManage = new Form1(this.manage);
+            Form formManage = new FormMainMenu(this.manage);
             var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
@@ -144,8 +153,8 @@ namespace WindowsFormsApp
 
                 // Add it to the right listview
                 ApprovedContractList.Items.Add(item);
-                manage = Program.LoadData();
-                setUpGUI();
+                //manage = Program.LoadData();
+                //setUpGUI();
 
                 // Get the removed item id and change the APPROVED to TRUE in the database:    
             }
@@ -236,6 +245,12 @@ namespace WindowsFormsApp
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void FormManage_Load(object sender, EventArgs e)
+        {
+            manage = Program.LoadData();
+            setUpGUI();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace WindowsFormsApp
 
 
 
-            Application.Run(new Form1(manage));
+            Application.Run(new FormMainMenu(manage));
         }
         static public MySqlConnection ConnectDatabase()
         {

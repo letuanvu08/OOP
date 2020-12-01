@@ -15,27 +15,33 @@
         <e p="ContractDetailForm.cs" t="Include" />
         <e p="ContractDetailForm.Designer.cs" t="Include" />
         <e p="ContractDetailForm.resx" t="Include" />
+        <e p="ContractUpdater.cs" t="Include" />
+        <e p="ContractUpdater.Designer.cs" t="Include" />
+        <e p="ContractUpdater.resx" t="Include" />
         <e p="DBMySqlUnit.cs" t="Include" />
         <e p="DBUnit.cs" t="Include" />
         <e p="Fleet.cs" t="Include" />
-        <e p="Form1.cs" t="Include" />
-        <e p="Form1.Designer.cs" t="Include" />
-        <e p="Form1.resx" t="Include" />
         <e p="FormBookAndRent.cs" t="Include" />
         <e p="FormBookAndRent.Designer.cs" t="Include" />
         <e p="FormBookAndRent.resx" t="Include" />
-        <e p="FormManage.cs" t="Include" />
-        <e p="FormManage.Designer.cs" t="Include" />
-        <e p="FormManage.resx" t="Include" />
+        <e p="FormContractsManagement.cs" t="Include" />
+        <e p="FormContractsManagement.Designer.cs" t="Include" />
+        <e p="FormContractsManagement.resx" t="Include" />
+        <e p="FormMainMenu.cs" t="Include" />
+        <e p="FormMainMenu.Designer.cs" t="Include" />
+        <e p="FormMainMenu.resx" t="Include" />
         <e p="FormManageVehicle.cs" t="Include" />
         <e p="FormManageVehicle.Designer.cs" t="Include" />
         <e p="FormManageVehicle.resx" t="Include" />
         <e p="FormRentContract.cs" t="Include" />
         <e p="FormRentContract.Designer.cs" t="Include" />
         <e p="FormRentContract.resx" t="Include" />
-        <e p="FormService.cs" t="Include" />
-        <e p="FormService.Designer.cs" t="Include" />
-        <e p="FormService.resx" t="Include" />
+        <e p="FormServiceAVehicle.cs" t="Include" />
+        <e p="FormServiceAVehicle.Designer.cs" t="Include" />
+        <e p="FormServiceAVehicle.resx" t="Include" />
+        <e p="FormVehicleListService.cs" t="Include" />
+        <e p="FormVehicleListService.Designer.cs" t="Include" />
+        <e p="FormVehicleListService.resx" t="Include" />
         <e p="Insurance.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Program.cs" t="Include" />

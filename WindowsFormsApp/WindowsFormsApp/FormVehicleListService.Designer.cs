@@ -31,13 +31,13 @@ namespace WindowsFormsApp
         {
             this.GoBackButton = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.VehicleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ServiceAll = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CarCheckBox = new System.Windows.Forms.CheckBox();
             this.TruckCheckBox = new System.Windows.Forms.CheckBox();
             this.AllCheckBox = new System.Windows.Forms.CheckBox();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.VehicleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@ namespace WindowsFormsApp
             this.GoBackButton.TabIndex = 0;
             this.GoBackButton.Text = "Go Back";
             this.GoBackButton.UseVisualStyleBackColor = true;
+            this.GoBackButton.Click += new System.EventHandler(this.GoBackButton_Click);
             // 
             // listView1
             // 
@@ -64,6 +65,14 @@ namespace WindowsFormsApp
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // ID
+            // 
+            this.ID.Text = "Vehicle ID";
+            // 
+            // VehicleName
+            // 
+            this.VehicleName.Text = "Vehicle Name";
+            // 
             // ServiceAll
             // 
             this.ServiceAll.Location = new System.Drawing.Point(440, 83);
@@ -72,6 +81,7 @@ namespace WindowsFormsApp
             this.ServiceAll.TabIndex = 3;
             this.ServiceAll.Text = "Service All";
             this.ServiceAll.UseVisualStyleBackColor = true;
+            this.ServiceAll.Click += new System.EventHandler(this.ServiceAll_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -113,15 +123,7 @@ namespace WindowsFormsApp
             this.AllCheckBox.Text = "Show All Vehicles";
             this.AllCheckBox.UseVisualStyleBackColor = true;
             // 
-            // ID
-            // 
-            this.ID.Text = "Vehicle ID";
-            // 
-            // VehicleName
-            // 
-            this.VehicleName.Text = "Vehicle Name";
-            // 
-            // Form2
+            // FormVehicleListService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,7 +132,7 @@ namespace WindowsFormsApp
             this.Controls.Add(this.ServiceAll);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.GoBackButton);
-            this.Name = "Form2";
+            this.Name = "FormVehicleListService";
             this.Text = "Form2";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

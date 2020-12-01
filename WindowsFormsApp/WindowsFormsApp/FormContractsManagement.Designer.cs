@@ -51,8 +51,8 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.UpdateModeRadio = new System.Windows.Forms.RadioButton();
             this.PreviewModeRadio = new System.Windows.Forms.RadioButton();
+            this.UpdateModeRadio = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -161,7 +161,7 @@
             this.label1.Size = new System.Drawing.Size(161, 27);
             this.label1.TabIndex = 5;
             this.label1.Text = "List Of Contract:";
-          // 
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -171,7 +171,7 @@
             this.label2.Size = new System.Drawing.Size(265, 27);
             this.label2.TabIndex = 6;
             this.label2.Text = "List Of Approved Contracts:";
-           // 
+            // 
             // ApproveButton
             // 
             this.ApproveButton.Location = new System.Drawing.Point(483, 561);
@@ -248,17 +248,6 @@
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // UpdateModeRadio
-            // 
-            this.UpdateModeRadio.AutoSize = true;
-            this.UpdateModeRadio.Location = new System.Drawing.Point(15, 4);
-            this.UpdateModeRadio.Name = "UpdateModeRadio";
-            this.UpdateModeRadio.Size = new System.Drawing.Size(131, 24);
-            this.UpdateModeRadio.TabIndex = 0;
-            this.UpdateModeRadio.TabStop = true;
-            this.UpdateModeRadio.Text = "Update Mode";
-            this.UpdateModeRadio.UseVisualStyleBackColor = true;
-            // 
             // PreviewModeRadio
             // 
             this.PreviewModeRadio.AutoSize = true;
@@ -269,6 +258,17 @@
             this.PreviewModeRadio.TabStop = true;
             this.PreviewModeRadio.Text = "Preview Mode";
             this.PreviewModeRadio.UseVisualStyleBackColor = true;
+            // 
+            // UpdateModeRadio
+            // 
+            this.UpdateModeRadio.AutoSize = true;
+            this.UpdateModeRadio.Location = new System.Drawing.Point(15, 4);
+            this.UpdateModeRadio.Name = "UpdateModeRadio";
+            this.UpdateModeRadio.Size = new System.Drawing.Size(131, 24);
+            this.UpdateModeRadio.TabIndex = 0;
+            this.UpdateModeRadio.TabStop = true;
+            this.UpdateModeRadio.Text = "Update Mode";
+            this.UpdateModeRadio.UseVisualStyleBackColor = true;
             // 
             // FormManage
             // 
@@ -286,7 +286,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormManage";
             this.Text = "FormManage";
-           this.flowLayoutPanel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.FormManage_Load);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
