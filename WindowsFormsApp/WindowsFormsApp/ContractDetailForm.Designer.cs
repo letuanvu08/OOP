@@ -103,7 +103,7 @@ namespace WindowsFormsApp
             this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label1.Location = new System.Drawing.Point(334, -197);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(338, 29);
+            this.label1.Size = new System.Drawing.Size(229, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "CAR RENTING CONTRACT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -115,7 +115,7 @@ namespace WindowsFormsApp
             this.label2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(90, -126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 24);
+            this.label2.Size = new System.Drawing.Size(40, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Date:";
             // 
@@ -125,7 +125,7 @@ namespace WindowsFormsApp
             this.DateCreated.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateCreated.Location = new System.Drawing.Point(157, -126);
             this.DateCreated.Name = "DateCreated";
-            this.DateCreated.Size = new System.Drawing.Size(115, 24);
+            this.DateCreated.Size = new System.Drawing.Size(81, 17);
             this.DateCreated.TabIndex = 2;
             this.DateCreated.Text = "DateCreated";
             this.DateCreated.Click += new System.EventHandler(this.label3_Click);
@@ -136,7 +136,7 @@ namespace WindowsFormsApp
             this.label4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(90, -86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 24);
+            this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Contract #:";
             // 
@@ -146,7 +146,7 @@ namespace WindowsFormsApp
             this.contractNumber.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contractNumber.Location = new System.Drawing.Point(210, -86);
             this.contractNumber.Name = "contractNumber";
-            this.contractNumber.Size = new System.Drawing.Size(54, 24);
+            this.contractNumber.Size = new System.Drawing.Size(40, 17);
             this.contractNumber.TabIndex = 4;
             this.contractNumber.Text = "Date:";
             this.contractNumber.Click += new System.EventHandler(this.label3_Click_1);
@@ -158,7 +158,7 @@ namespace WindowsFormsApp
             this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label3.Location = new System.Drawing.Point(94, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(211, 27);
+            this.label3.Size = new System.Drawing.Size(141, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "Rental Company Info:";
             // 
@@ -166,9 +166,9 @@ namespace WindowsFormsApp
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(173, 65);
+            this.label5.Location = new System.Drawing.Point(133, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(184, 24);
+            this.label5.Size = new System.Drawing.Size(125, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "Nguyen Hoang Thinh";
             // 
@@ -176,9 +176,9 @@ namespace WindowsFormsApp
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(173, 21);
+            this.label6.Location = new System.Drawing.Point(133, 21);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(243, 24);
+            this.label6.Size = new System.Drawing.Size(162, 17);
             this.label6.TabIndex = 7;
             this.label6.Text = "V and T Transport Company";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -189,7 +189,7 @@ namespace WindowsFormsApp
             this.label7.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(24, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 24);
+            this.label7.Size = new System.Drawing.Size(102, 17);
             this.label7.TabIndex = 8;
             this.label7.Text = "Representative:";
             // 
@@ -199,7 +199,7 @@ namespace WindowsFormsApp
             this.label8.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(24, 21);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 24);
+            this.label8.Size = new System.Drawing.Size(86, 17);
             this.label8.TabIndex = 9;
             this.label8.Text = "Offical Name:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -208,9 +208,9 @@ namespace WindowsFormsApp
             // 
             this.DriverLicense.AutoSize = true;
             this.DriverLicense.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DriverLicense.Location = new System.Drawing.Point(143, 50);
+            this.DriverLicense.Location = new System.Drawing.Point(105, 50);
             this.DriverLicense.Name = "DriverLicense";
-            this.DriverLicense.Size = new System.Drawing.Size(102, 24);
+            this.DriverLicense.Size = new System.Drawing.Size(71, 17);
             this.DriverLicense.TabIndex = 12;
             this.DriverLicense.Text = "Contract #:";
             // 
@@ -218,9 +218,9 @@ namespace WindowsFormsApp
             // 
             this.CustomerName.AutoSize = true;
             this.CustomerName.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerName.Location = new System.Drawing.Point(143, 1);
+            this.CustomerName.Location = new System.Drawing.Point(105, 1);
             this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Size = new System.Drawing.Size(102, 24);
+            this.CustomerName.Size = new System.Drawing.Size(71, 17);
             this.CustomerName.TabIndex = 13;
             this.CustomerName.Text = "Contract #:";
             // 
@@ -230,7 +230,7 @@ namespace WindowsFormsApp
             this.DLField.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DLField.Location = new System.Drawing.Point(4, 50);
             this.DLField.Name = "DLField";
-            this.DLField.Size = new System.Drawing.Size(132, 24);
+            this.DLField.Size = new System.Drawing.Size(94, 17);
             this.DLField.TabIndex = 14;
             this.DLField.Text = "Driver License:";
             // 
@@ -240,7 +240,7 @@ namespace WindowsFormsApp
             this.label14.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(4, 1);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 24);
+            this.label14.Size = new System.Drawing.Size(46, 17);
             this.label14.TabIndex = 15;
             this.label14.Text = "Name:";
             // 
@@ -248,9 +248,9 @@ namespace WindowsFormsApp
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(173, 153);
+            this.label15.Location = new System.Drawing.Point(133, 153);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(110, 24);
+            this.label15.Size = new System.Drawing.Size(78, 17);
             this.label15.TabIndex = 16;
             this.label15.Text = "0886712316";
             // 
@@ -260,7 +260,7 @@ namespace WindowsFormsApp
             this.label16.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(24, 153);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(86, 24);
+            this.label16.Size = new System.Drawing.Size(61, 17);
             this.label16.TabIndex = 17;
             this.label16.Text = "Hot Line:";
             // 
@@ -268,9 +268,9 @@ namespace WindowsFormsApp
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(173, 109);
+            this.label17.Location = new System.Drawing.Point(133, 109);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(293, 24);
+            this.label17.Size = new System.Drawing.Size(197, 17);
             this.label17.TabIndex = 18;
             this.label17.Text = "Thu Duc District, Ho Chi Minh City";
             this.label17.Click += new System.EventHandler(this.label17_Click);
@@ -282,7 +282,7 @@ namespace WindowsFormsApp
             this.label18.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label18.Location = new System.Drawing.Point(24, 109);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(87, 24);
+            this.label18.Size = new System.Drawing.Size(63, 17);
             this.label18.TabIndex = 19;
             this.label18.Text = "Location:";
             // 
@@ -293,7 +293,7 @@ namespace WindowsFormsApp
             this.label19.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label19.Location = new System.Drawing.Point(562, 16);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(150, 27);
+            this.label19.Size = new System.Drawing.Size(100, 18);
             this.label19.TabIndex = 20;
             this.label19.Text = "Customer Info:";
             // 
@@ -303,7 +303,7 @@ namespace WindowsFormsApp
             this.label9.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(4, 99);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 24);
+            this.label9.Size = new System.Drawing.Size(60, 17);
             this.label9.TabIndex = 21;
             this.label9.Text = "Address:";
             // 
@@ -311,9 +311,9 @@ namespace WindowsFormsApp
             // 
             this.Address.AutoSize = true;
             this.Address.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Address.Location = new System.Drawing.Point(143, 99);
+            this.Address.Location = new System.Drawing.Point(105, 99);
             this.Address.Name = "Address";
-            this.Address.Size = new System.Drawing.Size(102, 24);
+            this.Address.Size = new System.Drawing.Size(71, 17);
             this.Address.TabIndex = 22;
             this.Address.Text = "Contract #:";
             this.Address.Click += new System.EventHandler(this.Address_Click);
@@ -324,7 +324,7 @@ namespace WindowsFormsApp
             this.label20.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(4, 148);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 24);
+            this.label20.Size = new System.Drawing.Size(50, 17);
             this.label20.TabIndex = 23;
             this.label20.Text = "Phone:";
             this.label20.Click += new System.EventHandler(this.label20_Click);
@@ -333,9 +333,9 @@ namespace WindowsFormsApp
             // 
             this.PhoneNum.AutoSize = true;
             this.PhoneNum.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNum.Location = new System.Drawing.Point(143, 148);
+            this.PhoneNum.Location = new System.Drawing.Point(105, 148);
             this.PhoneNum.Name = "PhoneNum";
-            this.PhoneNum.Size = new System.Drawing.Size(102, 24);
+            this.PhoneNum.Size = new System.Drawing.Size(71, 17);
             this.PhoneNum.TabIndex = 24;
             this.PhoneNum.Text = "Contract #:";
             this.PhoneNum.Click += new System.EventHandler(this.PhoneNum_Click);
@@ -346,7 +346,7 @@ namespace WindowsFormsApp
             this.CustomerSign.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerSign.Location = new System.Drawing.Point(635, 781);
             this.CustomerSign.Name = "CustomerSign";
-            this.CustomerSign.Size = new System.Drawing.Size(148, 24);
+            this.CustomerSign.Size = new System.Drawing.Size(101, 17);
             this.CustomerSign.TabIndex = 31;
             this.CustomerSign.Text = "Client Signature:";
             // 
@@ -367,7 +367,7 @@ namespace WindowsFormsApp
             this.FromStartToEnd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FromStartToEnd.Location = new System.Drawing.Point(33, 702);
             this.FromStartToEnd.Name = "FromStartToEnd";
-            this.FromStartToEnd.Size = new System.Drawing.Size(191, 24);
+            this.FromStartToEnd.Size = new System.Drawing.Size(127, 17);
             this.FromStartToEnd.TabIndex = 42;
             this.FromStartToEnd.Text = "This vehicle is rented ";
             this.FromStartToEnd.Click += new System.EventHandler(this.FromStartToEnd_Click);
@@ -378,7 +378,7 @@ namespace WindowsFormsApp
             this.TotalCost.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalCost.Location = new System.Drawing.Point(31, 737);
             this.TotalCost.Name = "TotalCost";
-            this.TotalCost.Size = new System.Drawing.Size(416, 24);
+            this.TotalCost.Size = new System.Drawing.Size(277, 17);
             this.TotalCost.TabIndex = 39;
             this.TotalCost.Text = "Which in total, Cost the customer an amount of:";
             this.TotalCost.Click += new System.EventHandler(this.label23_Click);
@@ -423,7 +423,7 @@ namespace WindowsFormsApp
             this.Model.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Model.Location = new System.Drawing.Point(132, 101);
             this.Model.Name = "Model";
-            this.Model.Size = new System.Drawing.Size(71, 24);
+            this.Model.Size = new System.Drawing.Size(49, 17);
             this.Model.TabIndex = 60;
             this.Model.Text = "label27";
             // 
@@ -432,7 +432,7 @@ namespace WindowsFormsApp
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(4, 101);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(116, 48);
+            this.label25.Size = new System.Drawing.Size(98, 17);
             this.label25.TabIndex = 59;
             this.label25.Text = "Branch/Model:";
             // 
@@ -442,7 +442,7 @@ namespace WindowsFormsApp
             this.CostPerDay.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CostPerDay.Location = new System.Drawing.Point(132, 51);
             this.CostPerDay.Name = "CostPerDay";
-            this.CostPerDay.Size = new System.Drawing.Size(64, 24);
+            this.CostPerDay.Size = new System.Drawing.Size(46, 17);
             this.CostPerDay.TabIndex = 58;
             this.CostPerDay.Text = "Name:";
             this.CostPerDay.Click += new System.EventHandler(this.CostPerDay_Click);
@@ -453,7 +453,7 @@ namespace WindowsFormsApp
             this.label10.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(4, 51);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 48);
+            this.label10.Size = new System.Drawing.Size(86, 17);
             this.label10.TabIndex = 49;
             this.label10.Text = "Cost Per Day:";
             // 
@@ -463,7 +463,7 @@ namespace WindowsFormsApp
             this.KilometerRun.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KilometerRun.Location = new System.Drawing.Point(132, 1);
             this.KilometerRun.Name = "KilometerRun";
-            this.KilometerRun.Size = new System.Drawing.Size(64, 24);
+            this.KilometerRun.Size = new System.Drawing.Size(46, 17);
             this.KilometerRun.TabIndex = 54;
             this.KilometerRun.Text = "Name:";
             this.KilometerRun.Click += new System.EventHandler(this.KilometerRun_Click);
@@ -474,7 +474,7 @@ namespace WindowsFormsApp
             this.label11.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(4, 1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 49);
+            this.label11.Size = new System.Drawing.Size(96, 34);
             this.label11.TabIndex = 50;
             this.label11.Text = "Number Of Kilometer Run:";
             this.label11.Click += new System.EventHandler(this.label11_Click);
@@ -509,7 +509,7 @@ namespace WindowsFormsApp
             this.VehicleDescription.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VehicleDescription.Location = new System.Drawing.Point(137, 145);
             this.VehicleDescription.Name = "VehicleDescription";
-            this.VehicleDescription.Size = new System.Drawing.Size(118, 48);
+            this.VehicleDescription.Size = new System.Drawing.Size(111, 17);
             this.VehicleDescription.TabIndex = 62;
             this.VehicleDescription.Text = "vehicleDescription";
             // 
@@ -519,7 +519,7 @@ namespace WindowsFormsApp
             this.FluidStatus.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FluidStatus.Location = new System.Drawing.Point(137, 97);
             this.FluidStatus.Name = "FluidStatus";
-            this.FluidStatus.Size = new System.Drawing.Size(64, 24);
+            this.FluidStatus.Size = new System.Drawing.Size(46, 17);
             this.FluidStatus.TabIndex = 55;
             this.FluidStatus.Text = "Name:";
             this.FluidStatus.Click += new System.EventHandler(this.FluidStatus_Click);
@@ -529,7 +529,7 @@ namespace WindowsFormsApp
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(4, 145);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(112, 48);
+            this.label23.Size = new System.Drawing.Size(124, 17);
             this.label23.TabIndex = 61;
             this.label23.Text = "Vehicle Description:";
             // 
@@ -539,7 +539,7 @@ namespace WindowsFormsApp
             this.label12.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(4, 97);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(114, 24);
+            this.label12.Size = new System.Drawing.Size(81, 17);
             this.label12.TabIndex = 51;
             this.label12.Text = "Fluid Status:";
             // 
@@ -549,7 +549,7 @@ namespace WindowsFormsApp
             this.OilCap.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OilCap.Location = new System.Drawing.Point(137, 49);
             this.OilCap.Name = "OilCap";
-            this.OilCap.Size = new System.Drawing.Size(64, 24);
+            this.OilCap.Size = new System.Drawing.Size(46, 17);
             this.OilCap.TabIndex = 56;
             this.OilCap.Text = "Name:";
             this.OilCap.Click += new System.EventHandler(this.OilCap_Click);
@@ -560,7 +560,7 @@ namespace WindowsFormsApp
             this.label13.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(4, 49);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 47);
+            this.label13.Size = new System.Drawing.Size(111, 17);
             this.label13.TabIndex = 52;
             this.label13.Text = "Oil Tank Capacity:";
             // 
@@ -570,7 +570,7 @@ namespace WindowsFormsApp
             this.RegistrationNum.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrationNum.Location = new System.Drawing.Point(137, 1);
             this.RegistrationNum.Name = "RegistrationNum";
-            this.RegistrationNum.Size = new System.Drawing.Size(64, 24);
+            this.RegistrationNum.Size = new System.Drawing.Size(46, 17);
             this.RegistrationNum.TabIndex = 57;
             this.RegistrationNum.Text = "Name:";
             this.RegistrationNum.Click += new System.EventHandler(this.RegistrationNum_Click);
@@ -581,7 +581,7 @@ namespace WindowsFormsApp
             this.label21.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(4, 1);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(116, 47);
+            this.label21.Size = new System.Drawing.Size(94, 17);
             this.label21.TabIndex = 53;
             this.label21.Text = "Registration #:";
             this.label21.Click += new System.EventHandler(this.label21_Click);
@@ -593,7 +593,7 @@ namespace WindowsFormsApp
             this.label22.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label22.Location = new System.Drawing.Point(250, 18);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(119, 27);
+            this.label22.Size = new System.Drawing.Size(82, 18);
             this.label22.TabIndex = 48;
             this.label22.Text = "Vehicle Info";
             this.label22.Click += new System.EventHandler(this.label22_Click);
@@ -603,7 +603,7 @@ namespace WindowsFormsApp
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(33, 654);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(205, 24);
+            this.label24.Size = new System.Drawing.Size(144, 17);
             this.label24.TabIndex = 49;
             this.label24.Text = "Additional Description:";
             this.label24.Click += new System.EventHandler(this.label24_Click_1);
@@ -624,7 +624,7 @@ namespace WindowsFormsApp
             this.tableLayoutPanel1.Controls.Add(this.label15, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 46);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 46);
             this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(0, 200);
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(0, 200);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -635,7 +635,7 @@ namespace WindowsFormsApp
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 200);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 200);
             this.tableLayoutPanel1.TabIndex = 51;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -654,7 +654,7 @@ namespace WindowsFormsApp
             this.tableLayoutPanel2.Controls.Add(this.label20, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.PhoneNum, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.DLField, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(538, 46);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(530, 46);
             this.tableLayoutPanel2.MaximumSize = new System.Drawing.Size(400, 200);
             this.tableLayoutPanel2.MinimumSize = new System.Drawing.Size(400, 200);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -672,7 +672,7 @@ namespace WindowsFormsApp
             this.AdditionalDescription.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdditionalDescription.Location = new System.Drawing.Point(244, 654);
             this.AdditionalDescription.Name = "AdditionalDescription";
-            this.AdditionalDescription.Size = new System.Drawing.Size(191, 24);
+            this.AdditionalDescription.Size = new System.Drawing.Size(129, 17);
             this.AdditionalDescription.TabIndex = 63;
             this.AdditionalDescription.Text = "AdditionalDescription";
             // 
@@ -701,7 +701,7 @@ namespace WindowsFormsApp
             this.InsuranceType.AutoSize = true;
             this.InsuranceType.Location = new System.Drawing.Point(61, 13);
             this.InsuranceType.Name = "InsuranceType";
-            this.InsuranceType.Size = new System.Drawing.Size(140, 24);
+            this.InsuranceType.Size = new System.Drawing.Size(100, 17);
             this.InsuranceType.TabIndex = 1;
             this.InsuranceType.Text = "TypePlacHolder";
             // 
@@ -710,7 +710,7 @@ namespace WindowsFormsApp
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(3, 13);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(55, 24);
+            this.label30.Size = new System.Drawing.Size(41, 17);
             this.label30.TabIndex = 0;
             this.label30.Text = "Type:";
             // 
@@ -728,7 +728,7 @@ namespace WindowsFormsApp
             this.InsuranceID.AutoSize = true;
             this.InsuranceID.Location = new System.Drawing.Point(43, 13);
             this.InsuranceID.Name = "InsuranceID";
-            this.InsuranceID.Size = new System.Drawing.Size(107, 24);
+            this.InsuranceID.Size = new System.Drawing.Size(79, 17);
             this.InsuranceID.TabIndex = 1;
             this.InsuranceID.Text = "InsuranceId";
             // 
@@ -737,7 +737,7 @@ namespace WindowsFormsApp
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(3, 13);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(34, 24);
+            this.label27.Size = new System.Drawing.Size(25, 17);
             this.label27.TabIndex = 0;
             this.label27.Text = "ID:";
             // 
@@ -748,17 +748,17 @@ namespace WindowsFormsApp
             this.label26.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label26.Location = new System.Drawing.Point(29, 19);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(144, 27);
+            this.label26.Size = new System.Drawing.Size(96, 18);
             this.label26.TabIndex = 49;
             this.label26.Text = "Insurance Info";
             // 
             // ContractDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(1013, 1028);
+            this.ClientSize = new System.Drawing.Size(1013, 749);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.AdditionalDescription);
             this.Controls.Add(this.tableLayoutPanel2);

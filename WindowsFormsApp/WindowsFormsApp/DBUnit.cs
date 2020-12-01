@@ -12,12 +12,27 @@ namespace WindowsFormsApp
         public static MySqlConnection GetDBConnection()
         {
             string host = "localhost";
-            int port = 3306;
+            int port = 3306;    
             string database = "systemmanagecar";
             string username = "root";
-            string password = "161200";
+          
+                MySqlConnection conn;
+           
+       
+                string password = "161200";
 
-            return DBMySQLUtils.GetDBConnection(host, port, database, username, password);
+                conn = DBMySQLUtils.GetDBConnection(host, port, database, username, password);
+            if (conn.State != System.Data.ConnectionState.Open)
+            {
+
+                password = "0974706833vu";
+
+                conn = DBMySQLUtils.GetDBConnection(host, port, database, username, password);
+
+            }
+                
+                return conn;
+            
         }
 
     }
