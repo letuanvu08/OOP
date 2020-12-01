@@ -55,7 +55,14 @@ namespace WindowsFormsApp
         Diamond
     }
 
-    
+    enum ContractStatus 
+    {
+        UnApproved,
+        UnPaid,
+        Paid,
+        Closed
+    }
+
     interface IBookAndRent
     {
 

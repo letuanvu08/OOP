@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp
 {
-    partial class Form1
+    partial class FormMainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -102,7 +102,7 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Rental Management System";
             // 
-            // Form1
+            // FormMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,8 +114,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.ManageRentContract);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormMainMenu";
+            this.Text = "FormMainMenu";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

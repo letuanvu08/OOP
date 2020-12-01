@@ -51,8 +51,8 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.UpdateModeRadio = new System.Windows.Forms.RadioButton();
             this.PreviewModeRadio = new System.Windows.Forms.RadioButton();
+            this.UpdateModeRadio = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +121,6 @@
             this.ContractList.TabIndex = 4;
             this.ContractList.UseCompatibleStateImageBehavior = false;
             this.ContractList.View = System.Windows.Forms.View.Details;
-            this.ContractList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // approvalCheckBox
             // 
@@ -162,7 +161,6 @@
             this.label1.Size = new System.Drawing.Size(161, 27);
             this.label1.TabIndex = 5;
             this.label1.Text = "List Of Contract:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -173,7 +171,6 @@
             this.label2.Size = new System.Drawing.Size(265, 27);
             this.label2.TabIndex = 6;
             this.label2.Text = "List Of Approved Contracts:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // ApproveButton
             // 
@@ -251,17 +248,6 @@
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // UpdateModeRadio
-            // 
-            this.UpdateModeRadio.AutoSize = true;
-            this.UpdateModeRadio.Location = new System.Drawing.Point(15, 4);
-            this.UpdateModeRadio.Name = "UpdateModeRadio";
-            this.UpdateModeRadio.Size = new System.Drawing.Size(131, 24);
-            this.UpdateModeRadio.TabIndex = 0;
-            this.UpdateModeRadio.TabStop = true;
-            this.UpdateModeRadio.Text = "Update Mode";
-            this.UpdateModeRadio.UseVisualStyleBackColor = true;
-            // 
             // PreviewModeRadio
             // 
             this.PreviewModeRadio.AutoSize = true;
@@ -272,6 +258,17 @@
             this.PreviewModeRadio.TabStop = true;
             this.PreviewModeRadio.Text = "Preview Mode";
             this.PreviewModeRadio.UseVisualStyleBackColor = true;
+            // 
+            // UpdateModeRadio
+            // 
+            this.UpdateModeRadio.AutoSize = true;
+            this.UpdateModeRadio.Location = new System.Drawing.Point(15, 4);
+            this.UpdateModeRadio.Name = "UpdateModeRadio";
+            this.UpdateModeRadio.Size = new System.Drawing.Size(131, 24);
+            this.UpdateModeRadio.TabIndex = 0;
+            this.UpdateModeRadio.TabStop = true;
+            this.UpdateModeRadio.Text = "Update Mode";
+            this.UpdateModeRadio.UseVisualStyleBackColor = true;
             // 
             // FormManage
             // 

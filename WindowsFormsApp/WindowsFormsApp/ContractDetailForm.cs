@@ -34,6 +34,10 @@ namespace WindowsFormsApp
             this.FromStartToEnd.Text = this.FromStartToEnd.Text + $"from {this.contract.DateStartRent.ToString()} to {this.contract.DateEndRent.ToString()}";
             this.Model.Text = this.contract.VehicleRented.Branch.ToString();
             this.TotalCost.Text = this.TotalCost.Text + this.contract.TotalCost.ToString();
+            this.VehicleDescription.Text = this.contract.VehicleRented.Description;
+            this.AdditionalDescription.Text = this.contract.Description;
+            this.InsuranceID.Text = this.contract.InsuranceUsed.InsuranceId.ToString();
+            this.InsuranceType.Text = this.contract.InsuranceUsed.Type.ToString();
         }
 
         private void ContractDetailForm_Load(object sender, EventArgs e)
@@ -126,6 +130,61 @@ namespace WindowsFormsApp
         }
 
         private void CostPerDay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistrationNum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OilCap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FluidStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KilometerRun_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Address_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PhoneNum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click_1(object sender, EventArgs e)
         {
 
         }

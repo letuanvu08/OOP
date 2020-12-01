@@ -30,6 +30,8 @@ namespace WindowsFormsApp
         // This will populate the box with all the Contracts when the form is first opened
         private void setUpGUI()
         {
+            ApprovedContractList.Items.Clear();
+            ContractList.Items.Clear();
             /*
             ContractList.Columns.Add("MyColumn", -2, HorizontalAlignment.Left);
             ContractList.FullRowSelect = true;
@@ -41,8 +43,16 @@ namespace WindowsFormsApp
             
         }
 
+        private void updateDataChange()
+        {
+            this.manage = Program.LoadData();
+            this.listCarContracts = manage.GetCarRelatedConTracts();
+            this.listTruckContracts = manage.GetTruckRelatedConTracts();
+        }
+
         private void DisplayCarContracts()
         {
+            updateDataChange();
             foreach (RentContract contract in listCarContracts)
             {
                 string[] briefContractInfo = new string[6];
@@ -56,6 +66,7 @@ namespace WindowsFormsApp
 
         private void DisplayTruckContracts()
         {
+            updateDataChange();
             foreach (RentContract contract in listTruckContracts)
             {
                 string[] briefContractInfo = new string[6];
@@ -78,7 +89,7 @@ namespace WindowsFormsApp
         }
         private void Home_Click(object sender, EventArgs e)
         {
-            Form formManage = new Form1(this.manage);
+            Form formManage = new FormMainMenu(this.manage);
             var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
@@ -118,41 +129,8 @@ namespace WindowsFormsApp
                    value = item.SubItems[1].Text;
                }
         */
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormManage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
+    
         private void ApproveButton_Click(object sender, EventArgs e)
         {
             // Get selected row
@@ -164,6 +142,7 @@ namespace WindowsFormsApp
                 int contractID = int.Parse(listSubItem[0].Text);
                 updateApprovalStatusInDatabase(contractID);
                 ListViewItem approvedItem = new ListViewItem();
+
                 foreach (ListViewItem.ListViewSubItem subItem in listSubItem)
                 {
                     approvedItem.SubItems.Add(subItem);
@@ -174,6 +153,8 @@ namespace WindowsFormsApp
 
                 // Add it to the right listview
                 ApprovedContractList.Items.Add(item);
+                //manage = Program.LoadData();
+                //setUpGUI();
 
                 // Get the removed item id and change the APPROVED to TRUE in the database:    
             }
@@ -264,6 +245,12 @@ namespace WindowsFormsApp
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void FormManage_Load(object sender, EventArgs e)
+        {
+            manage = Program.LoadData();
+            setUpGUI();
         }
     }
 }

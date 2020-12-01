@@ -26,7 +26,7 @@ namespace WindowsFormsApp
 
         private void Home_Click(object sender, EventArgs e)
         {
-            Form formManage = new Form1(this.manage);
+            Form formManage = new FormMainMenu(this.manage);
             var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
