@@ -42,6 +42,11 @@ namespace WindowsFormsApp
             this.StartDate = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.RegistrationNumberComboBox = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.FluidTextBox = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.OilTextBox = new System.Windows.Forms.TextBox();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.BranchComboBox = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -51,10 +56,9 @@ namespace WindowsFormsApp
             this.KilometerTextBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.CostPerDayTextBox = new System.Windows.Forms.TextBox();
-            this.RegistrationTextBox = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.TypeTruckRadio = new System.Windows.Forms.RadioButton();
+            this.label19 = new System.Windows.Forms.Label();
             this.TypeCarRadio = new System.Windows.Forms.RadioButton();
             this.VehicleNameTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -84,10 +88,6 @@ namespace WindowsFormsApp
             this.label3 = new System.Windows.Forms.Label();
             this.GoBackButton = new System.Windows.Forms.Button();
             this.UpdateAndGoBackButton = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.OilTextBox = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.FluidTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -116,9 +116,9 @@ namespace WindowsFormsApp
             this.TotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalCost.Location = new System.Drawing.Point(653, 790);
             this.TotalCost.Name = "TotalCost";
-            this.TotalCost.Size = new System.Drawing.Size(98, 25);
+            this.TotalCost.Size = new System.Drawing.Size(24, 25);
             this.TotalCost.TabIndex = 26;
-            this.TotalCost.Text = "totalCost";
+            this.TotalCost.Text = "0";
             // 
             // label24
             // 
@@ -198,6 +198,7 @@ namespace WindowsFormsApp
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(200, 26);
             this.EndDate.TabIndex = 22;
+            this.EndDate.ValueChanged += new System.EventHandler(this.EndDate_ValueChanged);
             // 
             // StartDate
             // 
@@ -205,6 +206,7 @@ namespace WindowsFormsApp
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(200, 26);
             this.StartDate.TabIndex = 21;
+            this.StartDate.ValueChanged += new System.EventHandler(this.StartDate_ValueChanged);
             // 
             // label15
             // 
@@ -218,6 +220,7 @@ namespace WindowsFormsApp
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.RegistrationNumberComboBox);
             this.panel4.Controls.Add(this.label26);
             this.panel4.Controls.Add(this.FluidTextBox);
             this.panel4.Controls.Add(this.label25);
@@ -231,10 +234,9 @@ namespace WindowsFormsApp
             this.panel4.Controls.Add(this.KilometerTextBox);
             this.panel4.Controls.Add(this.label21);
             this.panel4.Controls.Add(this.CostPerDayTextBox);
-            this.panel4.Controls.Add(this.RegistrationTextBox);
-            this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.TypeTruckRadio);
+            this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.TypeCarRadio);
             this.panel4.Controls.Add(this.VehicleNameTextBox);
             this.panel4.Controls.Add(this.label13);
@@ -244,6 +246,49 @@ namespace WindowsFormsApp
             this.panel4.Size = new System.Drawing.Size(356, 544);
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // RegistrationNumberComboBox
+            // 
+            this.RegistrationNumberComboBox.FormattingEnabled = true;
+            this.RegistrationNumberComboBox.Location = new System.Drawing.Point(21, 246);
+            this.RegistrationNumberComboBox.Name = "RegistrationNumberComboBox";
+            this.RegistrationNumberComboBox.Size = new System.Drawing.Size(163, 28);
+            this.RegistrationNumberComboBox.TabIndex = 39;
+            this.RegistrationNumberComboBox.SelectedIndexChanged += new System.EventHandler(this.RegistrationNumberComboBox_SelectedIndexChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(175, 409);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(136, 20);
+            this.label26.TabIndex = 38;
+            this.label26.Text = "Current Fluid Left:";
+            // 
+            // FluidTextBox
+            // 
+            this.FluidTextBox.Location = new System.Drawing.Point(189, 432);
+            this.FluidTextBox.Name = "FluidTextBox";
+            this.FluidTextBox.ReadOnly = true;
+            this.FluidTextBox.Size = new System.Drawing.Size(140, 26);
+            this.FluidTextBox.TabIndex = 37;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(16, 409);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(120, 20);
+            this.label25.TabIndex = 36;
+            this.label25.Text = "Current Oil Left:";
+            // 
+            // OilTextBox
+            // 
+            this.OilTextBox.Location = new System.Drawing.Point(21, 432);
+            this.OilTextBox.Name = "OilTextBox";
+            this.OilTextBox.ReadOnly = true;
+            this.OilTextBox.Size = new System.Drawing.Size(137, 26);
+            this.OilTextBox.TabIndex = 35;
             // 
             // TypeComboBox
             // 
@@ -284,6 +329,7 @@ namespace WindowsFormsApp
             this.VehicleDescriptionTextBox.Location = new System.Drawing.Point(23, 490);
             this.VehicleDescriptionTextBox.Multiline = true;
             this.VehicleDescriptionTextBox.Name = "VehicleDescriptionTextBox";
+            this.VehicleDescriptionTextBox.ReadOnly = true;
             this.VehicleDescriptionTextBox.Size = new System.Drawing.Size(304, 43);
             this.VehicleDescriptionTextBox.TabIndex = 30;
             // 
@@ -300,6 +346,7 @@ namespace WindowsFormsApp
             // 
             this.KilometerTextBox.Location = new System.Drawing.Point(22, 380);
             this.KilometerTextBox.Name = "KilometerTextBox";
+            this.KilometerTextBox.ReadOnly = true;
             this.KilometerTextBox.Size = new System.Drawing.Size(306, 26);
             this.KilometerTextBox.TabIndex = 28;
             // 
@@ -316,26 +363,10 @@ namespace WindowsFormsApp
             // 
             this.CostPerDayTextBox.Location = new System.Drawing.Point(21, 313);
             this.CostPerDayTextBox.Name = "CostPerDayTextBox";
+            this.CostPerDayTextBox.ReadOnly = true;
             this.CostPerDayTextBox.Size = new System.Drawing.Size(306, 26);
             this.CostPerDayTextBox.TabIndex = 26;
             this.CostPerDayTextBox.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
-            // 
-            // RegistrationTextBox
-            // 
-            this.RegistrationTextBox.Location = new System.Drawing.Point(21, 246);
-            this.RegistrationTextBox.Name = "RegistrationTextBox";
-            this.RegistrationTextBox.Size = new System.Drawing.Size(306, 26);
-            this.RegistrationTextBox.TabIndex = 24;
-            this.RegistrationTextBox.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(17, 223);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(159, 20);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Registration Number:";
             // 
             // label17
             // 
@@ -358,6 +389,15 @@ namespace WindowsFormsApp
             this.TypeTruckRadio.UseVisualStyleBackColor = true;
             this.TypeTruckRadio.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(19, 223);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(159, 20);
+            this.label19.TabIndex = 23;
+            this.label19.Text = "Registration Number:";
+            // 
             // TypeCarRadio
             // 
             this.TypeCarRadio.AutoSize = true;
@@ -372,15 +412,16 @@ namespace WindowsFormsApp
             // 
             // VehicleNameTextBox
             // 
-            this.VehicleNameTextBox.Location = new System.Drawing.Point(20, 113);
+            this.VehicleNameTextBox.Location = new System.Drawing.Point(21, 128);
             this.VehicleNameTextBox.Name = "VehicleNameTextBox";
+            this.VehicleNameTextBox.ReadOnly = true;
             this.VehicleNameTextBox.Size = new System.Drawing.Size(306, 26);
             this.VehicleNameTextBox.TabIndex = 7;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 81);
+            this.label13.Location = new System.Drawing.Point(16, 96);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(55, 20);
             this.label13.TabIndex = 5;
@@ -646,38 +687,6 @@ namespace WindowsFormsApp
             this.UpdateAndGoBackButton.UseVisualStyleBackColor = true;
             this.UpdateAndGoBackButton.Click += new System.EventHandler(this.UpdateAndGoBackButton_Click);
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(16, 409);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(120, 20);
-            this.label25.TabIndex = 36;
-            this.label25.Text = "Current Oil Left:";
-            // 
-            // OilTextBox
-            // 
-            this.OilTextBox.Location = new System.Drawing.Point(21, 432);
-            this.OilTextBox.Name = "OilTextBox";
-            this.OilTextBox.Size = new System.Drawing.Size(137, 26);
-            this.OilTextBox.TabIndex = 35;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(175, 409);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(136, 20);
-            this.label26.TabIndex = 38;
-            this.label26.Text = "Current Fluid Left:";
-            // 
-            // FluidTextBox
-            // 
-            this.FluidTextBox.Location = new System.Drawing.Point(189, 432);
-            this.FluidTextBox.Name = "FluidTextBox";
-            this.FluidTextBox.Size = new System.Drawing.Size(140, 26);
-            this.FluidTextBox.TabIndex = 37;
-            // 
             // ContractUpdater
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -745,7 +754,6 @@ namespace WindowsFormsApp
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox RegistrationTextBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox ContractDescriptionTextBox;
@@ -767,5 +775,6 @@ namespace WindowsFormsApp
         private System.Windows.Forms.TextBox FluidTextBox;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox OilTextBox;
+        private System.Windows.Forms.ComboBox RegistrationNumberComboBox;
     }
 }

@@ -15,7 +15,7 @@ namespace WindowsFormsApp
         /// The main entry point for the application.
         /// </summary>
         /// 
-        
+
         [STAThread]
         static void Main()
         {
@@ -73,11 +73,12 @@ namespace WindowsFormsApp
             }
             manage.AddFleet(fleettruck);
             LoadCarDataFromDatabase(manage);
-            
-            
+            LoadTruckDataFromDatabase(manage);
+            LoadInsuranceFromDatabase(manage);
+
             conn.Close();
             return manage;
-            
+
         }
         public static void LoadCarDataFromDatabase(CarRentalManagement manager)
         {
@@ -93,7 +94,7 @@ namespace WindowsFormsApp
             {
 
                 // Create a contract wit the Car: -- Vấn đề về đêm: Nếu bị null dưới database thì khi load lên sẽ lỗi (Khúc oilSIze vói oilNow khi Parse với định dạng Int32) cho nên ở đây t cho giá trị mặc định :(
-                Car car = new Car(NameCar: row["Name"].ToString(), Branch: row["branch"].ToString(), idCar: Int32.Parse(row["ID"].ToString()), typecar: (TypeCar)Enum.Parse(typeof(TypeCar), row["TYPECAR"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()),oilSize:2,fluidSize:3);
+                Car car = new Car(NameCar: row["Name"].ToString(), Branch: row["branch"].ToString(), idCar: Int32.Parse(row["ID"].ToString()), typecar: (TypeCar)Enum.Parse(typeof(TypeCar), row["TYPECAR"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()), oilSize: 2, fluidSize: 3);
                 // Create the customer of the Contract:
                 Customer customer = new Customer(name: row["NAMECUSTORMER"].ToString(), password: "", Email: row["EMAIL"].ToString(), PhoneNumber: row["PHONENUMBER"].ToString(), Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
                 // Creat a Insurance with the contract: 
@@ -103,12 +104,12 @@ namespace WindowsFormsApp
                 //DateTime dateEndRent = DateTime.ParseExact(row["ENDDATE"].ToString(), CultureInfo.InvariantCulture);
                 string startDateString = row["STARTDATE"].ToString();
                 string startDateTimeFormat = GetDateTimeFormatString(startDateString);
-                
+
                 string endDateString = row["ENDDATE"].ToString();
                 string endDateTimeFormat = GetDateTimeFormatString(endDateString);
-                
+
                 CultureInfo provider = CultureInfo.InvariantCulture;
-                
+
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, CultureInfo.InvariantCulture);
 
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, endDateTimeFormat, provider);
@@ -124,13 +125,13 @@ namespace WindowsFormsApp
         {
             MySqlConnection conn = ConnectDatabase();
             //====================== Fetch the car-related-contract information from datbase================
-            string query = "select * from rentcontract RC join insurance I on RC.IDINSURANCE = I.IID, vehicle V, truck T where RC.IDVEHICLE = V.ID and V.ID = T.ID;";
+            string query = "select * from rentcontract RC join insurance I on RC.IDCONTRACT = I.IDCONTRACT, vehicle V, truck T where RC.IDVEHICLE = V.ID and V.ID = T.ID;";
             // This adapter connect to the database and execute the query
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
             // Fill the queried data into a table:
-            DataTable carDataTable = new DataTable();
-            adapter.Fill(carDataTable);
-            foreach (DataRow row in carDataTable.Rows)
+            DataTable truckDataTable = new DataTable();
+            adapter.Fill(truckDataTable);
+            foreach (DataRow row in truckDataTable.Rows)
             {
                 // Create a contract wit the Car
                 Truck truck = new Truck(nameTruck: row["Name"].ToString(), branch: row["branch"].ToString(), idTruck: Int32.Parse(row["ID"].ToString()), typeTruck: (TypeTruck)Enum.Parse(typeof(TypeTruck), row["TYPETRUCK"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()));
@@ -141,13 +142,13 @@ namespace WindowsFormsApp
                 int id = int.Parse(row["IDCONTRACT"].ToString());
                 //DateTime dateStartRent = DateTime.ParseExact(row["STARTDATE"].ToString(), CultureInfo.InvariantCulture);
                 //DateTime dateEndRent = DateTime.ParseExact(row["ENDDATE"].ToString(), CultureInfo.InvariantCulture);
-                
+
                 string startDateString = row["STARTDATE"].ToString();
                 string startDateTimeFormat = GetDateTimeFormatString(startDateString);
                 string endDateString = row["ENDDATE"].ToString();
                 string endDateTimeFormat = GetDateTimeFormatString(endDateString);
                 CultureInfo provider = CultureInfo.InvariantCulture;
-                
+
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
 
                 DateTime dateEndRent = DateTime.ParseExact(startDateString, endDateTimeFormat, provider);
@@ -157,6 +158,19 @@ namespace WindowsFormsApp
 
                 RentContract rentContract = new RentContract(id, truck, insurance, customer, dateStartRent, dateEndRent, totalBill, description, isApproved);
                 manager.AddContract(rentContract);
+            }
+        }
+
+        public static void LoadInsuranceFromDatabase(CarRentalManagement manager){
+            MySqlConnection conn = ConnectDatabase();
+            string query = "select * from insurance;";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+            DataTable insuranceDataTable = new DataTable();
+            adapter.Fill(insuranceDataTable);
+            foreach (DataRow row in insuranceDataTable.Rows)
+            {
+                Insurance insurance = new Insurance(id: (int)row["IID"], type: (TypeInsurance)Enum.Parse(typeof(TypeInsurance), row["TYPEINSURANCE"].ToString()));
+                manager.AddInsurance(insurance);
             }
         }
         public static string GetDateTimeFormatString(string datetime)

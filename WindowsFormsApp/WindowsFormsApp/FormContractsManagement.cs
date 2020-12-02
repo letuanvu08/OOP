@@ -240,7 +240,7 @@ namespace WindowsFormsApp
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
-        }
+            }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -251,6 +251,11 @@ namespace WindowsFormsApp
         {
             manage = Program.LoadData();
             setUpGUI();
+        }
+
+        private void ContractList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

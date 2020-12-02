@@ -57,11 +57,10 @@ namespace WindowsFormsApp
 
     enum ContractStatus 
     {
-        UnApproved,
         UnPaid,
         Paid,
-        Closed
-    }
+        Approved
+    }   
 
     interface IBookAndRent
     {

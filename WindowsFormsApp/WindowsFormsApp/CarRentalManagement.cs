@@ -7,10 +7,12 @@ namespace WindowsFormsApp
     {
         private List<Fleet> listFleet;
         private List<RentContract> listContract;
+        private List<Insurance> listInsurance;
         public CarRentalManagement()
         {
             listFleet = new List<Fleet>();
             listContract = new List<RentContract>();
+            listInsurance = new List<Insurance>();
         }
         public void AddFleet(Fleet fleet)
         {
@@ -90,6 +92,15 @@ namespace WindowsFormsApp
             return null;
 
         }
+        // ================================ Insurance Supporting Functions ===============================
+        public List<Insurance> GetInsurances()
+        {
+            return this.listInsurance;
+        }
+        public void AddInsurance(Insurance insurance)
+        {
+            this.listInsurance.Add(insurance);
+        }
         // -===============================Contract Supporting Function=======================
         public void AddContract(RentContract contract)
         {
@@ -99,6 +110,7 @@ namespace WindowsFormsApp
         {
             return this.listContract;
         }
+       
         public List<RentContract> FindContractsWithDateStart(DateTime date)
         {
             List<RentContract> returnContracts = new List<RentContract>();
