@@ -83,7 +83,7 @@ namespace WindowsFormsApp
                     DateTime start = startRent.Value.Date;
                     DateTime end = EndRent.Value.Date;
                     double days = (end - start).TotalDays;
-                    RentContract contract = new RentContract(vehicle: vehicleSelected, DateStartRent: startRent.Value.Date, DateEndRent: EndRent.Value.Date, totalCost: (vehicleSelected.CostPerDay * (int)days));
+                    RentContract contract = new RentContract(vehicle: vehicleSelected, dateStartRent: startRent.Value.Date, dateEndRent: EndRent.Value.Date, totalCost: (vehicleSelected.CostPerDay * (int)days));
                     FormRentContract formManage = new FormRentContract(contract);
                     var thread = new Thread(() => Program.Start(formManage));
                     thread.Start();

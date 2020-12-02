@@ -17,20 +17,20 @@ namespace WindowsFormsApp
     {
         private CarRentalManagement manager;
         private Vehicle vehicleNeedServicing;
-        private ServiceHistory ServiceLog;
+        private ServiceHistory serviceLog;
         // Implementing the interface IObserver:
         public void Update(ISubject subject)
         {
-            ServiceLog = (ServiceHistory)subject;
+            serviceLog = (ServiceHistory)subject;
             Display();
         }
         // Implementing the interface IDisplayElement:
         public void Display()
         {
             ServiceHistoryListView.Items.Clear();
-            foreach (var record in ServiceLog.GetListRecord())
+            foreach (var record in serviceLog.GetListRecord())
             {
-                addServiceRecordToListView(record);
+                AddServiceRecordToListView(record);
             }
         }
         public FormServiceAVehicle(CarRentalManagement mangerInstance, Vehicle vehicleInstance)
@@ -38,33 +38,33 @@ namespace WindowsFormsApp
             InitializeComponent();
             this.manager = mangerInstance;
             this.vehicleNeedServicing = vehicleInstance;
-            this.ServiceLog = vehicleNeedServicing.GetServiceHistory;
-            this.ServiceLog.RegisterObserver(this);
+            this.serviceLog = vehicleNeedServicing.GetServiceHistory;
+            this.serviceLog.RegisterObserver(this);
             this.EngineStateComboBox.Text = vehicleNeedServicing.EngineState.ToString();
             this.TranmissionStateComboBox.Text = vehicleNeedServicing.TransmissionState.ToString();
             this.TiresStateComboBox.Text = vehicleNeedServicing.TiresState.ToString();
-            populateComboboxes();
-            displayPossibleServices();
+            PopulateComboboxOption();
+            DisplayPossibleServices();
             Display();
             // Load combobox options to manually set the states of the vehicle part:
         }
-        private void displayPossibleServices()
+        private void DisplayPossibleServices()
         {
             ServicesAvailableList.Items.Clear();
             if ((vehicleNeedServicing.EngineState != TypeState.VeryGood) || (vehicleNeedServicing.EngineState != TypeState.Good)) {
-                addServiceItem("engine", vehicleNeedServicing.EngineState.ToString());
+                AddServiceItem("engine", vehicleNeedServicing.EngineState.ToString());
             }
             if ((vehicleNeedServicing.TransmissionState != TypeState.VeryGood) || (vehicleNeedServicing.TransmissionState != TypeState.Good))
             {
-                addServiceItem("tranmission", vehicleNeedServicing.TransmissionState.ToString());
+                AddServiceItem("transmission", vehicleNeedServicing.TransmissionState.ToString());
             }
             if ((vehicleNeedServicing.TiresState != TypeState.VeryGood) || (vehicleNeedServicing.TiresState != TypeState.Good))
             {
-                addServiceItem("tires", vehicleNeedServicing.TiresState.ToString());
+                AddServiceItem("tires", vehicleNeedServicing.TiresState.ToString());
             }
             MessageBox.Show($"engine:{vehicleNeedServicing.EngineState.ToString()}, tranmission:{vehicleNeedServicing.TransmissionState.ToString()}, tires:{vehicleNeedServicing.TiresState.ToString()}");
         }
-        private void addServiceItem(string serviceType, string state)
+        private void AddServiceItem(string serviceType, string state)
         {
             if (serviceType == "engine")
             {
@@ -83,20 +83,20 @@ namespace WindowsFormsApp
                     ServicesAvailableList.Items.Add(new ListViewItem(serviceItem));
                 }
             }
-            else if (serviceType == "tranmission")
+            else if (serviceType == "transmission")
             {
                 if (state == "VeryBad")
                 {
                     string[] serviceItem = new string[2];
                     serviceItem[0] = serviceType;
-                    serviceItem[1] = $"The Tramission for this {vehicleNeedServicing.Name} is in a Very Bad Situation. Need servicing immediately";
+                    serviceItem[1] = $"The Transmission for this {vehicleNeedServicing.Name} is in a Very Bad Situation. Need servicing immediately";
                     ServicesAvailableList.Items.Add(new ListViewItem(serviceItem));
                 }
                 else if (state == "Bad")
                 {
                     string[] serviceItem = new string[2];
                     serviceItem[0] = serviceType;
-                    serviceItem[1] = $"The Tranmission for this {vehicleNeedServicing.Name} is in a Bad Situation. You may choose to service it now or later. But the earlier the better";
+                    serviceItem[1] = $"The Transmission for this {vehicleNeedServicing.Name} is in a Bad Situation. You may choose to service it now or later. But the earlier the better";
                     ServicesAvailableList.Items.Add(new ListViewItem(serviceItem));
                 }
             }
@@ -118,7 +118,7 @@ namespace WindowsFormsApp
                 }
             }
         }
-        private void addServiceRecordToListView(Record record)
+        private void AddServiceRecordToListView(Record record)
         {
             string[] recordItem = new string[3];
             recordItem[0] = record.DateTime.ToString(CultureInfo.InvariantCulture);
@@ -139,7 +139,7 @@ namespace WindowsFormsApp
 
             ServiceHistoryListView.Items.Add(new ListViewItem(recordItem));
         }
-        private void populateComboboxes()
+        private void PopulateComboboxOption()
         {
             foreach (var item in Enum.GetValues(typeof(TypeState)))
             {
@@ -169,7 +169,7 @@ namespace WindowsFormsApp
                 {
                     if (car.IdVehicle == vehicleNeedServicing.IdVehicle)
                     {
-                        car.GetServiceHistory = this.ServiceLog;
+                        car.GetServiceHistory = this.serviceLog;
                         break;
                     }
                 }
@@ -180,13 +180,13 @@ namespace WindowsFormsApp
                 {
                     if (truck.IdVehicle == vehicleNeedServicing.IdVehicle)
                     {
-                        truck.GetServiceHistory = this.ServiceLog;
+                        truck.GetServiceHistory = this.serviceLog;
                         break;
                     }
                 }
             }
             Form formManage = new FormVehicleListService(this.manager);
-            ServiceLog.RemoveObserver(this);
+            serviceLog.RemoveObserver(this);
             var thread = new Thread(() => Program.Start(formManage));
             thread.Start();
             this.Close();
@@ -202,7 +202,7 @@ namespace WindowsFormsApp
             this.vehicleNeedServicing.EngineState = (TypeState)Enum.Parse(typeof(TypeState), EngineStateComboBox.Text, true);
             this.vehicleNeedServicing.TransmissionState = (TypeState)Enum.Parse(typeof(TypeState), TranmissionStateComboBox.Text, true);
             this.vehicleNeedServicing.TiresState = (TypeState)Enum.Parse(typeof(TypeState), TiresStateComboBox.Text, true);
-            displayPossibleServices();
+            DisplayPossibleServices();
         }
 
         private void ServiceCheckedButton_Click(object sender, EventArgs e)
@@ -216,7 +216,7 @@ namespace WindowsFormsApp
                 {
                     vehicleNeedServicing.ServiceEngine();
                 }
-                else if (serviceType == "tranmission")
+                else if (serviceType == "transmission")
                 {
                     vehicleNeedServicing.ServiceTransmission();
                 }

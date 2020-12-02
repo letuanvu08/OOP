@@ -172,9 +172,10 @@ namespace WindowsFormsApp
                 desc += ", Filled the oil Tank to 100%";
                 numberOilNow = sizeOil;
             }
-
+                
             if (desc == "")
-            {
+            {    
+                // This patch is never reached but may be useful if the spec changes. Please leave it be.
                 desc = $"Nothing needs maintenance for this {Name} Truck's Engine.";
             }
             else
@@ -251,12 +252,12 @@ namespace WindowsFormsApp
             this.stateUsed = false;
             this.maintain = false;
         }
-        public Car(string NameCar, string Branch, int idCar)
+        public Car(string nameCar, string branch, int idCar)
         {
             serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with three paramter: NameCar, Branch, IdCar");
-            this.Name = NameCar;
-            this.branch = Branch;
+            this.Name = nameCar;
+            this.branch = branch;
             this.IdVehicle = idCar;
             this.TypeCar = 0;
             this.description = "";
@@ -264,26 +265,26 @@ namespace WindowsFormsApp
             this.maintain = false;
 
         }
-        public Car(string NameCar, string Branch, int idCar, TypeCar typeCar, string Description)
+        public Car(string nameCar, string branch, int idCar, TypeCar typeCar, string description)
         {
             serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 5 paramter: NameCar, Branch, IdCar, typeCar, Description");
-            this.Name = NameCar;
-            this.branch = Branch;
+            this.Name = nameCar;
+            this.branch = branch;
             this.IdVehicle = idCar;
             this.TypeCar = typeCar;
-            this.description = Description;
+            this.description = description;
             this.stateUsed = false;
             this.maintain = false;
         }
-        public Car(string NameCar, string Branch, int idCar, TypeCar typecar, bool maintain, bool stateUse, int costperday)
+        public Car(string nameCar, string branch, int idCar, TypeCar carType, bool maintain, bool stateUse, int costperday)
         {
             serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 7 paramter: NameCar, Branch, IdCar, typeCar, Description,maintain,stateUse");
-            this.Name = NameCar;
-            this.branch = Branch;
+            this.Name = nameCar;
+            this.branch = branch;
             this.IdVehicle = idCar;
-            this.TypeCar = typecar;
+            this.TypeCar = carType;
             this.description = "";
             this.stateUsed = stateUse;
             this.maintain = maintain;
@@ -291,18 +292,18 @@ namespace WindowsFormsApp
             //===================This next line make sure the rent contract is able to know what type of Vehicle is assigned when creating the contract=======
             this.type = TypeVehicle.Car;
         }
-        public Car(string NameCar, string Branch, int idCar, TypeCar typecar, bool maintain, bool stateUse, int costperday,int oilSize,int fluidSize)
+        public Car(string nameCar, string branch, int idCar, TypeCar carType, bool maintain, bool stateUse, int costPerDay,int oilSize,int fluidSize)
         {
             serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 7 paramter: NameCar, Branch, IdCar, typeCar, Description,maintain,stateUse");
-            this.Name = NameCar;
-            this.branch = Branch;
+            this.Name = nameCar;
+            this.branch = branch;
             this.IdVehicle = idCar;
-            this.TypeCar = typecar;
+            this.TypeCar = carType;
             this.description = "";
             this.stateUsed = stateUse;
             this.maintain = maintain;
-            this.CostPerDay = costperday;
+            this.CostPerDay = costPerDay;
             //===================This next line make sure the rent contract is able to know what type of Vehicle is assigned when creating the contract=======
             this.type = TypeVehicle.Car;
             this.sizeOil = oilSize;
