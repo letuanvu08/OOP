@@ -42,13 +42,13 @@ namespace WindowsFormsApp
             this.StartDate = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.branchTextBox = new System.Windows.Forms.TextBox();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
             this.RegistrationNumberComboBox = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.FluidTextBox = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.OilTextBox = new System.Windows.Forms.TextBox();
-            this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.BranchComboBox = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.VehicleDescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -109,6 +109,7 @@ namespace WindowsFormsApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(855, 831);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // TotalCost
             // 
@@ -220,13 +221,13 @@ namespace WindowsFormsApp
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.branchTextBox);
+            this.panel4.Controls.Add(this.typeTextBox);
             this.panel4.Controls.Add(this.RegistrationNumberComboBox);
             this.panel4.Controls.Add(this.label26);
             this.panel4.Controls.Add(this.FluidTextBox);
             this.panel4.Controls.Add(this.label25);
             this.panel4.Controls.Add(this.OilTextBox);
-            this.panel4.Controls.Add(this.TypeComboBox);
-            this.panel4.Controls.Add(this.BranchComboBox);
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.label23);
             this.panel4.Controls.Add(this.VehicleDescriptionTextBox);
@@ -246,6 +247,22 @@ namespace WindowsFormsApp
             this.panel4.Size = new System.Drawing.Size(356, 544);
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // branchTextBox
+            // 
+            this.branchTextBox.Location = new System.Drawing.Point(18, 182);
+            this.branchTextBox.Name = "branchTextBox";
+            this.branchTextBox.ReadOnly = true;
+            this.branchTextBox.Size = new System.Drawing.Size(140, 26);
+            this.branchTextBox.TabIndex = 41;
+            // 
+            // typeTextBox
+            // 
+            this.typeTextBox.Location = new System.Drawing.Point(179, 182);
+            this.typeTextBox.Name = "typeTextBox";
+            this.typeTextBox.ReadOnly = true;
+            this.typeTextBox.Size = new System.Drawing.Size(140, 26);
+            this.typeTextBox.TabIndex = 40;
             // 
             // RegistrationNumberComboBox
             // 
@@ -289,22 +306,6 @@ namespace WindowsFormsApp
             this.OilTextBox.ReadOnly = true;
             this.OilTextBox.Size = new System.Drawing.Size(137, 26);
             this.OilTextBox.TabIndex = 35;
-            // 
-            // TypeComboBox
-            // 
-            this.TypeComboBox.FormattingEnabled = true;
-            this.TypeComboBox.Location = new System.Drawing.Point(179, 182);
-            this.TypeComboBox.Name = "TypeComboBox";
-            this.TypeComboBox.Size = new System.Drawing.Size(150, 28);
-            this.TypeComboBox.TabIndex = 34;
-            // 
-            // BranchComboBox
-            // 
-            this.BranchComboBox.FormattingEnabled = true;
-            this.BranchComboBox.Location = new System.Drawing.Point(20, 182);
-            this.BranchComboBox.Name = "BranchComboBox";
-            this.BranchComboBox.Size = new System.Drawing.Size(138, 28);
-            this.BranchComboBox.TabIndex = 33;
             // 
             // label18
             // 
@@ -766,8 +767,6 @@ namespace WindowsFormsApp
         private System.Windows.Forms.TextBox KilometerTextBox;
         private System.Windows.Forms.Button GoBackButton;
         private System.Windows.Forms.Button UpdateAndGoBackButton;
-        private System.Windows.Forms.ComboBox TypeComboBox;
-        private System.Windows.Forms.ComboBox BranchComboBox;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label TotalCost;
         private System.Windows.Forms.Label label24;
@@ -776,5 +775,7 @@ namespace WindowsFormsApp
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox OilTextBox;
         private System.Windows.Forms.ComboBox RegistrationNumberComboBox;
+        private System.Windows.Forms.TextBox branchTextBox;
+        private System.Windows.Forms.TextBox typeTextBox;
     }
 }

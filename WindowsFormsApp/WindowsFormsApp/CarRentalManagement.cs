@@ -31,6 +31,21 @@ namespace WindowsFormsApp
 
             }
         }
+        public void ServiceCarFleet()
+        {
+            foreach (Vehicle vehicle in listFleet[0].listVehicle)
+            {
+                Console.WriteLine("...........");
+                vehicle.CheckVehicleCondition();
+            }
+        }
+        public void ServiceTruckFleet()
+        {
+            foreach (Vehicle vehicle in listFleet[1].listVehicle)
+            {
+                vehicle.CheckVehicleCondition();
+            }
+        }
         public List<Vehicle> FindCarAvailable(string type, string branch)
         {
             List<Vehicle> list = new List<Vehicle>();
@@ -109,6 +124,18 @@ namespace WindowsFormsApp
         public List<RentContract> GetContracts()
         {
             return this.listContract;
+        }
+
+        public RentContract FindContractById(int id)
+        {
+            foreach(var contract in listContract)
+            {
+                if (contract.Id == id)
+                {
+                    return contract;
+                }
+            }
+            return null;
         }
        
         public List<RentContract> FindContractsWithDateStart(DateTime date)

@@ -1,4 +1,6 @@
 ﻿using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace WindowsFormsApp
 {
@@ -45,9 +47,14 @@ namespace WindowsFormsApp
             set => numberKilometers = value > 0 ? value : 0;
         }
 
-        protected TypeState EngineState;
-        protected TypeState TransmissionState;
-        protected TypeState TiresState;
+        public TypeState EngineState { get; set; }
+
+        public TypeState TransmissionState { get; set; }
+
+        public TypeState TiresState { get; set; }
+        //protected TypeState TransmissionState;
+        //protected TypeState TiresState;
+
         // ==================================================== //
         // ================ END COMMENT ======================= //
         public string Branch { get => branch; set => branch = value; }
@@ -62,15 +69,16 @@ namespace WindowsFormsApp
         public TypeVehicle type;
         protected bool maintain;
         protected bool stateUsed;
-
+        [JsonProperty]
         protected ServiceHistory serviceHistory;
-        public ServiceHistory GetServiceHistory { get => serviceHistory; }
+        [JsonProperty]
+        public ServiceHistory GetServiceHistory { get => serviceHistory; set => serviceHistory = value; }
 
 
         // ============== METHOD SERVICE ==================== 
-        abstract public void ServiceEngine(DateTime d, string error);
-        abstract public void ServiceTransmission(DateTime d, string error);
-        abstract public void ServiceTires(DateTime d, string error);
+        abstract public void ServiceEngine();
+        abstract public void ServiceTransmission();
+        abstract public void ServiceTires();
         
         abstract public void CheckVehicleCondition();
 
@@ -149,69 +157,79 @@ namespace WindowsFormsApp
 
         //===============================//
 
-        override public void ServiceEngine(DateTime date, string error)
+        public override void ServiceEngine()
         {
+            DateTime dateTime = DateTime.Now;
+            string desc= "";
+            if ((this.EngineState == TypeState.Bad) || (EngineState == TypeState.VeryBad))
+            {
+                desc += "Fix the engine from the " + EngineState.ToString();
+                this.EngineState = TypeState.VeryGood;
+            }
 
-            EngineRecord record = new EngineRecord(this.IdVehicle, date, this.numberKilometers, this.numberOilNow, error);
-            Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.AddRecord(record);
+            if (numberOilNow < sizeOil)
+            {
+                desc += ", Filled the oil Tank to 100%";
+                numberOilNow = sizeOil;
+            }
+
+            if (desc == "")
+            {
+                desc = $"Nothing needs maintenance for this {Name} Truck's Engine.";
+            }
+            else
+            {
+                desc += $"for this {Name} Truck's Engine";
+                EngineRecord record = new EngineRecord(dateTime,desc);
+                this.serviceHistory.AddRecord(record);
+            }
+            
         }
 
-        override public void ServiceTransmission(DateTime dateTime, string error)
+        public override void ServiceTransmission()
         {
-            TransmissionRecord record = new TransmissionRecord(this.IdVehicle, dateTime, this.numberKilometers, this.NumberFluidNow, error);
-            Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.AddRecord(record);
+            DateTime dateTime = DateTime.Now;
+            string desc= "";
+            if ((this.TransmissionState == TypeState.Bad) || (TransmissionState == TypeState.VeryBad))
+            {
+                desc += "Fix the engine from the " + TransmissionState.ToString();
+                this.TransmissionState = TypeState.VeryGood;
+            }
+
+            if (NumberFluidNow < sizeFluid)
+            {
+                desc += ", Added fluid for better motion";
+                NumberFluidNow = sizeFluid;
+            }
+
+            if (desc == "")
+            {
+                desc = $"Nothing needs maintenance for this {Name} Truck's Transmission.";
+            }
+            else
+            {
+                desc += $"for this {Name} Truck's Engine";
+                TransmissionRecord record = new TransmissionRecord(dateTime,desc);
+                this.serviceHistory.AddRecord(record);
+            }
         }
-        override public void ServiceTires(DateTime dateTime, string error)
+        public override void ServiceTires()
         {
-            TiresRecord record = new TiresRecord(this.IdVehicle, dateTime, this.numberKilometers);
-            Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.AddRecord(record);
-
+            DateTime dateTime = DateTime.Now;
+            string desc= "";
+            if ((TiresState == TypeState.Bad) || (TiresState == TypeState.VeryBad))
+            {
+                desc += $"The Tires is now full of Air. This {Name} Truck can move fast now";
+                TiresRecord record = new TiresRecord(dateTime, desc);
+                this.serviceHistory.AddRecord(record);
+                TiresState = TypeState.VeryGood;
+            }
         }
-        override public void CheckVehicleCondition()
+        public override void CheckVehicleCondition()
         {
-            Console.WriteLine("Truck is serviced ....");
-            DateTime d = new DateTime();
-            string errorEngine = "";
-            if (this.EngineState == TypeState.Bad || this.EngineState == TypeState.VeryBad)
-            {
-                errorEngine += "Hong may !!!";
-            }
-            if (this.NumberOilNow == 0)
-            {
-                errorEngine += "Het xang !!!";
-            }
-            if (errorEngine != "")
-            {
-                this.ServiceEngine(d, errorEngine);
-            }
-
-            string errorTransmission = "";
-            if (this.TransmissionState == TypeState.Bad || this.TransmissionState == TypeState.VeryBad)
-            {
-                errorTransmission += "Hong bo truyen dong !!!";
-            }
-            if (this.NumberFluidNow == 0)
-            {
-                errorTransmission += "Het nhot !!!";
-            }
-            if (errorTransmission != "")
-            {
-                this.ServiceTransmission(d, errorTransmission);
-            }
-
-            string errorTires = "";
-            if (this.TiresState == TypeState.Bad || this.TiresState == TypeState.VeryBad)
-            {
-                errorTires += "Lung lop !!!";
-            }
-            if (errorTires != "")
-            {
-                this.ServiceTires(d, errorTires);
-            }
-
+            ServiceEngine();
+            ServiceTransmission();
+            ServiceTires();
         }
     }
 
@@ -291,70 +309,79 @@ namespace WindowsFormsApp
             this.sizeFluid = fluidSize;
         }
 
-        override public void ServiceEngine(DateTime date, string error)
+        public override void ServiceEngine()
         {
+            DateTime dateTime = DateTime.Now;
+            string desc= "";
+            if ((this.EngineState == TypeState.Bad) || (EngineState == TypeState.VeryBad))
+            {
+                desc += "Fix the engine from the " + EngineState.ToString();
+                this.EngineState = TypeState.VeryGood;
+            }
 
-            EngineRecord record = new EngineRecord(this.IdVehicle, date, this.numberKilometers, this.numberOilNow, error);
-            Console.WriteLine("Service Engnie is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.AddRecord(record);
+            if (numberOilNow < sizeOil)
+            {
+                desc += ", Filled the oil Tank to 100%";
+                numberOilNow = sizeOil;
+            }
+
+            if (desc == "")
+            {
+                desc = $"Nothing needs maintenance for this {Name} car's Engine.";
+            }
+            else
+            {
+                desc += $"for this {Name} car's Engine";
+                EngineRecord record = new EngineRecord(dateTime,desc);
+                this.serviceHistory.AddRecord(record);
+            }
+            
         }
 
-        override public void ServiceTransmission(DateTime dateTime, string error)
+        public override void ServiceTransmission()
         {
-            TransmissionRecord record = new TransmissionRecord(this.IdVehicle, dateTime, this.numberKilometers, this.NumberFluidNow, error);
-            Console.WriteLine("Service Tranmission is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.AddRecord(record);
+            DateTime dateTime = DateTime.Now;
+            string desc= "";
+            if ((this.TransmissionState == TypeState.Bad) || (TransmissionState == TypeState.VeryBad))
+            {
+                desc += "Fix the engine from the " + TransmissionState.ToString();
+                this.TransmissionState = TypeState.VeryGood;
+            }
+
+            if (NumberFluidNow < sizeFluid)
+            {
+                desc += ", Added fluid for better motion";
+                NumberFluidNow = sizeFluid;
+            }
+
+            if (desc == "")
+            {
+                desc = $"Nothing needs maintenance for this {Name} car's Transmission.";
+            }
+            else
+            {
+                desc += $"for this {Name} car's Engine";
+                TransmissionRecord record = new TransmissionRecord(dateTime,desc);
+                this.serviceHistory.AddRecord(record);
+            }
         }
-        override public void ServiceTires(DateTime dateTime, string error)
+        public override void ServiceTires()
         {
-            TiresRecord record = new TiresRecord(this.IdVehicle, dateTime, this.numberKilometers);
-            Console.WriteLine("Service Tires is call, error : " + error, ",km : " + this.numberKilometers);
-            this.serviceHistory.AddRecord(record);
-
+            DateTime dateTime = DateTime.Now;
+            string desc= "";
+            if ((TiresState == TypeState.Bad) || (TiresState == TypeState.VeryBad))
+            {
+                desc += $"The Tires is now full of Air. This {Name} car can move fast now";
+                TiresRecord record = new TiresRecord(dateTime, desc);
+                TiresState = TypeState.VeryGood;
+                this.serviceHistory.AddRecord(record);
+            }
         }
-        override public void CheckVehicleCondition()
+        public override void CheckVehicleCondition()
         {
-            Console.WriteLine("Car is serviced : ....");
-            DateTime d = new DateTime();
-            string errorEngine = "";
-            if (this.EngineState == TypeState.Bad || this.EngineState == TypeState.VeryBad)
-            {
-                errorEngine += "Hong may !!!";
-            }
-            if (this.NumberOilNow == 0)
-            {
-                errorEngine += "Het xang !!!";
-            }
-            if (errorEngine != "")
-            {
-                this.ServiceEngine(d, errorEngine);
-            }
-
-            string errorTransmission = "";
-            if (this.TransmissionState == TypeState.Bad || this.TransmissionState == TypeState.VeryBad)
-            {
-                errorTransmission += "Hong bo truyen dong !!!";
-            }
-            if (this.NumberFluidNow == 0)
-            {
-                errorTransmission += "Het nhot !!!";
-            }
-            if (errorTransmission != "")
-            {
-                this.ServiceTransmission(d, errorTransmission);
-            }
-
-            string errorTires = "";
-            if (this.TiresState == TypeState.Bad || this.TiresState == TypeState.VeryBad)
-            {
-                errorTires += "Lung lop !!!";
-            }
-            if (errorTires != "")
-            {
-                this.ServiceTires(d, errorTires);
-            }
-
-
+            ServiceEngine();
+            ServiceTires();
+            ServiceTransmission();
         }
 
     }

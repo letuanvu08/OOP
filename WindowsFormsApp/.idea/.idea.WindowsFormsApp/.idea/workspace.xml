@@ -26,35 +26,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="738175e1-dd3b-460c-b74a-3d323e68e1cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WindowsFormsApp/FormVehicleListService.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WindowsFormsApp/FormVehicleListService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WindowsFormsApp/FormVehicleListService.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.FormServiceAVehicle.resources" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.FormVehicleListService.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WindowsFormsApp/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WindowsFormsApp/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WindowsFormsApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WindowsFormsApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Class2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/Class2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/ContractDetailForm.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/ContractDetailForm.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/ContractDetailForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/ContractDetailForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Form1.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Form1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Form1.resx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormBookAndRent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormBookAndRent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormManage.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormContractsManagement.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormManage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormContractsManagement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormManage.resx" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormContractsManagement.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormManageVehicle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormManageVehicle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormService.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormService.resx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/CarRentalManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/CarRentalManagement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/ContractUpdater.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/ContractUpdater.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/ContractUpdater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/ContractUpdater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormContractsManagement.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormContractsManagement.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormContractsManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormContractsManagement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormVehicleListService.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormVehicleListService.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/FormVehicleListService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/FormVehicleListService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Record.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/Record.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/ServiceHistory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/ServiceHistory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/Vehicle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/Vehicle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WindowsFormsApp/WindowsFormsApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/WindowsFormsApp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WindowsFormsApp/bin/Debug/WindowsFormsApp.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/bin/Debug/WindowsFormsApp.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WindowsFormsApp/bin/Debug/WindowsFormsApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/bin/Debug/WindowsFormsApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WindowsFormsApp/obj/Debug/WindowsFormsApp.csproj.GenerateResource.cache" afterDir="false" />
@@ -73,11 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WindowsFormsApp/Program.cs" />
-        <option value="$PROJECT_DIR$/WindowsFormsApp/Record.cs" />
         <option value="$PROJECT_DIR$/WindowsFormsApp/RentContract.cs" />
         <option value="$PROJECT_DIR$/WindowsFormsApp/ServiceHistory.cs" />
-        <option value="$PROJECT_DIR$/WindowsFormsApp/Vehicle.cs" />
         <option value="$PROJECT_DIR$/WindowsFormsApp/FormBookAndRent.cs" />
         <option value="$PROJECT_DIR$/WindowsFormsApp/Fleet.cs" />
         <option value="$PROJECT_DIR$/WindowsFormsApp/Insurance.cs" />
@@ -86,8 +72,11 @@
         <option value="$PROJECT_DIR$/WindowsFormsApp/Class2.cs" />
         <option value="$PROJECT_DIR$/WindowsFormsApp/FormMainMenu.cs" />
         <option value="$PROJECT_DIR$/WindowsFormsApp/FormVehicleListService.cs" />
-        <option value="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.cs" />
         <option value="$PROJECT_DIR$/../../../../../../Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/Microsoft.Common.CurrentVersion.targets" />
+        <option value="$PROJECT_DIR$/WindowsFormsApp/Record.cs" />
+        <option value="$PROJECT_DIR$/WindowsFormsApp/FormServiceAVehicle.cs" />
+        <option value="$PROJECT_DIR$/WindowsFormsApp/Program.cs" />
+        <option value="$PROJECT_DIR$/WindowsFormsApp/Vehicle.cs" />
       </list>
     </option>
   </component>
@@ -137,6 +126,8 @@
       <workItem from="1606500531146" duration="513000" />
       <workItem from="1606544762328" duration="515000" />
       <workItem from="1606808483059" duration="375000" />
+      <workItem from="1606905006971" duration="189000" />
+      <workItem from="1606918505693" duration="5318000" />
     </task>
     <servers />
   </component>
@@ -185,6 +176,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1606501048602" />
+    <state x="445" y="15" key="RiderGenerateDialog" timestamp="1606918632086">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="445" y="15" key="RiderGenerateDialog/0.0.1280.680@0.0.1280.680" timestamp="1606918632086" />
+    <state x="408" y="51" key="RollbackChangesDialog" timestamp="1606934091042">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="408" y="51" key="RollbackChangesDialog/0.0.1280.680@0.0.1280.680" timestamp="1606934091042" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1606500395509">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
