@@ -364,7 +364,7 @@ namespace WindowsFormsApp
                 MySqlConnection conn = Program.ConnectDatabase();
                 // Update the rentcontract table (include infomation related to customer and the contract)
                 string Query = $@"update rentcontract
-                                  set IDVEHICLE = '{RegistrationNumberComboBox.Text}', NAMECUSTORMER = '{CustomerNameTextBox.Text}',PHONENUMBER = '{PhoneNumberTextBox.Text}', EMAIL = '{EmailTextBox.Text}', ADDRESS = '{AddressTextBox.Text}', CAREER = '{CareerTextBox.Text}', STARTDATE = '{StartDate.Value.ToString("dd/MM/yyyy")}', ENDDATE = '{EndDate.Value.ToString("dd/MM/yyyy")}', TOTALBILL = '{TotalCost.Text}', DESCRIPTION = '{ContractDescriptionTextBox.Text}', APPROVED = FALSE, DRIVERLICENSE = '{DriverLicenseTextBox.Text}'
+                                  set IDVEHICLE = '{RegistrationNumberComboBox.Text}', NAMECUSTORMER = '{CustomerNameTextBox.Text}',PHONENUMBER = '{PhoneNumberTextBox.Text}', EMAIL = '{EmailTextBox.Text}', ADDRESS = '{AddressTextBox.Text}', CAREER = '{CareerTextBox.Text}', STARTDATE = '{StartDate.Value.ToString("MM/dd/yyyy")}', ENDDATE = '{EndDate.Value.ToString("MM/dd/yyyy")}', TOTALBILL = '{TotalCost.Text}', DESCRIPTION = '{ContractDescriptionTextBox.Text}', APPROVED = FALSE, DRIVERLICENSE = '{DriverLicenseTextBox.Text}'
                                   where IDCONTRACT = '{contract.Id.ToString()}';";
                 // Update the vehicle table:   May use the following to update the availability of the Vehicle: ==== , /*stateUsed = '0', maintain = '0'*/ =========
                 Query += $@"update vehicle 
@@ -426,6 +426,7 @@ namespace WindowsFormsApp
             {
                 // Update the Vehicle information with the new Chosen Registration ID.
                 UpdateCost();
+                updateContractInfoInDatabase();
             }
             else
             {
@@ -435,6 +436,11 @@ namespace WindowsFormsApp
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ContractUpdater_Load(object sender, EventArgs e)
         {
 
         }

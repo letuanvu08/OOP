@@ -15,11 +15,11 @@ namespace WindowsFormsApp
     {
         CarRentalManagement manage;
         RentContract contract;
-         public ContractDetailForm(CarRentalManagement manage,RentContract contract_to_show)
+         public ContractDetailForm(CarRentalManagement manage,RentContract contractToShow)
         {
             InitializeComponent();
             this.manage = manage;
-            this.contract = contract_to_show;
+            this.contract = contractToShow;
             this.DateCreated.Text = DateTime.Now.ToString();
             this.contractNumber.Text = this.manage.GetContracts().Count().ToString();
             this.CustomerName.Text = this.contract.CustomerRentCar.Name;

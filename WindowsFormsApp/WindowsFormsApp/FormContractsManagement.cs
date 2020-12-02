@@ -25,10 +25,10 @@ namespace WindowsFormsApp
             ContractList.MouseDoubleClick += new MouseEventHandler(contractList_MouseDoubleClick);
             ApprovedContractList.MouseDoubleClick += new MouseEventHandler(approvedContractList_MouseDoubleClick);
             // manage.testGetType();  // This is only for debug: Test if we can infer the type of the Subclass from the parent Class Object.
-            setUpGUI();
+            SetUpGui();
         }
         // This will populate the box with all the Contracts when the form is first opened
-        private void setUpGUI()
+        private void SetUpGui()
         {
             ApprovedContractList.Items.Clear();
             ContractList.Items.Clear();
@@ -43,7 +43,7 @@ namespace WindowsFormsApp
             
         }
 
-        private void updateDataChange()
+        private void UpdateDataChange()
         {
             this.manage = Program.LoadData();
             this.listCarContracts = manage.GetCarRelatedConTracts();
@@ -52,7 +52,7 @@ namespace WindowsFormsApp
 
         private void DisplayCarContracts()
         {
-            updateDataChange();
+            UpdateDataChange();
             foreach (RentContract contract in listCarContracts)
             {
                 string[] briefContractInfo = new string[6];
@@ -66,7 +66,7 @@ namespace WindowsFormsApp
 
         private void DisplayTruckContracts()
         {
-            updateDataChange();
+            UpdateDataChange();
             foreach (RentContract contract in listTruckContracts)
             {
                 string[] briefContractInfo = new string[6];
@@ -190,10 +190,10 @@ namespace WindowsFormsApp
             try
             {
                 MySqlConnection conn = Program.ConnectDatabase();
-                string Query = $"update rentcontract set approved = TRUE where idcontract ={contractID};";
+                string query = $"update rentcontract set approved = TRUE where idcontract ={contractID};";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = Query;
+                cmd.CommandText = query;
                 cmd.ExecuteNonQuery();                
             }
             catch (Exception ex)
@@ -205,29 +205,29 @@ namespace WindowsFormsApp
         private void contractList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewHitTestInfo listViewHitTestInfo = ContractList.HitTest(e.X, e.Y);
-            ListViewItem ClickedItem = listViewHitTestInfo.Item;
-            if (ClickedItem != null)
+            ListViewItem clickedItem = listViewHitTestInfo.Item;
+            if (clickedItem != null)
             {
-                int contractID = int.Parse(ClickedItem.SubItems[1].Text);
-                RentContract contract_to_show = manage.GetContracts()[0];
+                int contractID = int.Parse(clickedItem.SubItems[1].Text);
+                RentContract contractToShow = manage.GetContracts()[0];
                 foreach (RentContract contract in manage.GetContracts())
                 {
                     if (contract.Id == contractID)
                     {
-                        contract_to_show = contract;
+                        contractToShow = contract;
                         break;
                     }
                 }
                 if (PreviewModeRadio.Checked == true)
                 {
-                    ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage, contract_to_show);
+                    ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage, contractToShow);
                     var thread = new Thread(() => Program.Start(contractDetailForm));
                     thread.Start();
                     this.Close();
                 }
                 else
                 {
-                    ContractUpdater updater = new ContractUpdater(this.manage, contract_to_show);
+                    ContractUpdater updater = new ContractUpdater(this.manage, contractToShow);
                     var thread = new Thread(() => Program.Start(updater));
                     thread.Start();
                     this.Close();
@@ -237,20 +237,20 @@ namespace WindowsFormsApp
         private void approvedContractList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewHitTestInfo listViewHitTestInfo = ApprovedContractList.HitTest(e.X, e.Y);
-            ListViewItem ClickedItem = listViewHitTestInfo.Item;
-            if (ClickedItem != null)
+            ListViewItem clickedItem = listViewHitTestInfo.Item;
+            if (clickedItem != null)
             {
-                int contractID = int.Parse(ClickedItem.SubItems[1].Text);
-                RentContract contract_to_show = manage.GetContracts()[0];
+                int contractID = int.Parse(clickedItem.SubItems[1].Text);
+                RentContract contractToShow = manage.GetContracts()[0];
                 foreach (RentContract contract in manage.GetContracts())
                 {
                     if (contract.Id == contractID)
                     {
-                        contract_to_show = contract;
+                        contractToShow = contract;
                         break;
                     }
                 }
-                ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage, contract_to_show);
+                ContractDetailForm contractDetailForm = new ContractDetailForm(this.manage, contractToShow);
                 var thread = new Thread(() => Program.Start(contractDetailForm));
                 thread.Start();
                 this.Close();
@@ -275,7 +275,7 @@ namespace WindowsFormsApp
         private void FormManage_Load(object sender, EventArgs e)
         {
             manage = Program.LoadData();
-            setUpGUI();
+            SetUpGui();
         }
 
         private void ContractList_SelectedIndexChanged(object sender, EventArgs e)

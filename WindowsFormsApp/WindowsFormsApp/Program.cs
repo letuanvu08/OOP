@@ -56,7 +56,7 @@ namespace WindowsFormsApp
                 while (d.Read())
                 {
 
-                    fleetcar.AddVehicle(new Car(NameCar: d.GetString(1), Branch: d.GetString(3), typecar: (TypeCar)Enum.Parse(typeof(TypeCar), d.GetString(0)), stateUse: d.GetBoolean(5), idCar: d.GetInt32(2), costperday: d.GetInt32(4), maintain: d.GetBoolean(6)));
+                    fleetcar.AddVehicle(new Car(nameCar: d.GetString(1), branch: d.GetString(3), carType: (TypeCar)Enum.Parse(typeof(TypeCar), d.GetString(0)), stateUse: d.GetBoolean(5), idCar: d.GetInt32(2), costperday: d.GetInt32(4), maintain: d.GetBoolean(6)));
 
                 }
             }
@@ -94,7 +94,7 @@ namespace WindowsFormsApp
             {
 
                 // Create a contract wit the Car: -- Vấn đề về đêm: Nếu bị null dưới database thì khi load lên sẽ lỗi (Khúc oilSIze vói oilNow khi Parse với định dạng Int32) cho nên ở đây t cho giá trị mặc định :(
-                Car car = new Car(NameCar: row["Name"].ToString(), Branch: row["branch"].ToString(), idCar: Int32.Parse(row["ID"].ToString()), typecar: (TypeCar)Enum.Parse(typeof(TypeCar), row["TYPECAR"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costperday: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()), oilSize: 2, fluidSize: 3);
+                Car car = new Car(nameCar: row["Name"].ToString(), branch: row["branch"].ToString(), idCar: Int32.Parse(row["ID"].ToString()), carType: (TypeCar)Enum.Parse(typeof(TypeCar), row["TYPECAR"].ToString()), maintain: Boolean.Parse(row["maintain"].ToString()), costPerDay: Int32.Parse(row["costperday"].ToString()), stateUse: Boolean.Parse(row["stateUsed"].ToString()), oilSize: 2, fluidSize: 3);
                 // Create the customer of the Contract:
                 Customer customer = new Customer(name: row["NAMECUSTORMER"].ToString(), password: "", Email: row["EMAIL"].ToString(), PhoneNumber: row["PHONENUMBER"].ToString(), Sex: "", Age: 0, Address: row["ADDRESS"].ToString(), Career: row["CAREER"].ToString(), license: row["DRIVERLICENSE"].ToString());
                 // Creat a Insurance with the contract: 
@@ -112,7 +112,7 @@ namespace WindowsFormsApp
 
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, CultureInfo.InvariantCulture);
 
-                DateTime dateEndRent = DateTime.ParseExact(startDateString, endDateTimeFormat, provider);
+                DateTime dateEndRent = DateTime.ParseExact(endDateString, endDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
                 string description = row["DESCRIPTION"].ToString();
                 bool is_approved = (bool)row["APPROVED"];
@@ -151,7 +151,7 @@ namespace WindowsFormsApp
 
                 DateTime dateStartRent = DateTime.ParseExact(startDateString, startDateTimeFormat, provider);
 
-                DateTime dateEndRent = DateTime.ParseExact(startDateString, endDateTimeFormat, provider);
+                DateTime dateEndRent = DateTime.ParseExact(endDateString, endDateTimeFormat, provider);
                 int totalBill = (int)row["TOTALBILL"];
                 string description = row["DESCRIPTION"].ToString();
                 bool isApproved = (bool)row["APPROVED"];

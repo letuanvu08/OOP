@@ -20,23 +20,23 @@ namespace WindowsFormsApp
             InitializeComponent();
             this.contract = contract;
             customerRent = new Customer();
-            setup();
+            Setup();
             contract.CustomerRentCar = customerRent;
             Insurance insurance = new Insurance();
             contract.InsuranceUsed = insurance;
         }
-        private void setup()
+        private void Setup()
         {
             NameVehicle.Text = this.contract.VehicleRented.Name;
             if (contract.VehicleRented.GetType() == typeof(Car))
             {
                 Car car = (contract.VehicleRented as Car);
-                TypeVehicle.Text = car.TypeCar.ToString();
+                if (car != null) TypeVehicle.Text = car.TypeCar.ToString();
             }
             else
             {
                 Truck car = (contract.VehicleRented as Truck);
-                TypeVehicle.Text = car.TypeTruck.ToString();
+                if (car != null) TypeVehicle.Text = car.TypeTruck.ToString();
             }
             startRent.Value = this.contract.DateStartRent;
             endRent.Value= this.contract.DateEndRent;
@@ -78,11 +78,11 @@ namespace WindowsFormsApp
             else
             {
                 MessageBox.Show("Confirm Successly!");
-                saveContract();
+                SaveContract();
                 this.Close();
             }
         }
-        private void saveContract()
+        private void SaveContract()
         {
             
             MySqlConnection conn = Program.ConnectDatabase();

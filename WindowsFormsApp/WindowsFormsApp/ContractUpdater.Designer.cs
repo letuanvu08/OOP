@@ -699,6 +699,7 @@ namespace WindowsFormsApp
             this.Controls.Add(this.panel1);
             this.Name = "ContractUpdater";
             this.Text = "ContractUpdater";
+            this.Load += new System.EventHandler(this.ContractUpdater_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);

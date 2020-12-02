@@ -42,44 +42,44 @@ namespace WindowsFormsApp
 
             this.Description = "";
         }
-        public RentContract(Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent)
+        public RentContract(Vehicle vehicle, DateTime dateStartRent, DateTime dateEndRent)
         {
             Console.WriteLine(" Constuctor New RentContract with 5 parameter: Customer,Car,...");
 
             this.VehicleRented = vehicle;
-            this.DateStartRent = DateStartRent;
-            this.DateEndRent = DateEndRent;
+            this.DateStartRent = dateStartRent;
+            this.DateEndRent = dateEndRent;
 
             this.Description = "";
         }
-        public RentContract(Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent, int totalCost)
+        public RentContract(Vehicle vehicle, DateTime dateStartRent, DateTime dateEndRent, int totalCost)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Customer,Car,...");
 
             this.VehicleRented = vehicle;
-            this.DateStartRent = DateStartRent;
-            this.DateEndRent = DateEndRent;
+            this.DateStartRent = dateStartRent;
+            this.DateEndRent = dateEndRent;
             this.TotalCost = totalCost;
             this.Description = "";
         }
-        public RentContract(int id, Vehicle vehicle, DateTime DateStartRent, DateTime DateEndRent, int totalCost)
+        public RentContract(int id, Vehicle vehicle, DateTime dateStartRent, DateTime dateEndRent, int totalCost)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Customer,Car,...");
             this.Id = id;
             this.VehicleRented = vehicle;
-            this.DateStartRent = DateStartRent;
-            this.DateEndRent = DateEndRent;
+            this.DateStartRent = dateStartRent;
+            this.DateEndRent = dateEndRent;
             this.TotalCost = totalCost;
             this.Description = "";
         }
         // This is the fully initialized constructor to insert a complete record into the database
-        public RentContract(int id, Vehicle vehicle,Insurance insurance,Customer customer,DateTime DateStartRent, DateTime DateEndRent, int totalCost, string description,bool approval)
+        public RentContract(int id, Vehicle vehicle,Insurance insurance,Customer customer,DateTime dateStartRent, DateTime dateEndRent, int totalCost, string description,bool approval)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Customer,Car,...");
             this.Id = id;
             this.VehicleRented = vehicle;
-            this.DateStartRent = DateStartRent;
-            this.DateEndRent = DateEndRent;
+            this.DateStartRent = dateStartRent;
+            this.DateEndRent = dateEndRent;
             this.TotalCost = totalCost;
             this.Description = description;
             this.InsuranceUsed = insurance;
@@ -87,13 +87,13 @@ namespace WindowsFormsApp
             this.IsApproved = approval;           
         }
 
-        public RentContract(int id, Vehicle vehicle, Insurance insurance, Customer customer, DateTime DateStartRent, DateTime DateEndRent, int totalCost, string description, ContractStatus status)
+        public RentContract(int id, Vehicle vehicle, Insurance insurance, Customer customer, DateTime dateStartRent, DateTime dateEndRent, int totalCost, string description, ContractStatus status)
         {
             Console.WriteLine(" Constuctor New RentContract with 6 parameter: Customer,Car,...");
             this.Id = id;
             this.VehicleRented = vehicle;
-            this.DateStartRent = DateStartRent;
-            this.DateEndRent = DateEndRent;
+            this.DateStartRent = dateStartRent;
+            this.DateEndRent = dateEndRent;
             this.TotalCost = totalCost;
             this.Description = description;
             this.InsuranceUsed = insurance;

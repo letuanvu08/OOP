@@ -34,9 +34,9 @@ namespace WindowsFormsApp
 
         private void RadioCarview_CheckedChanged(object sender, EventArgs e)
         {
-            loadcar();
+            LoadCar();
         }
-        private void loadcar()
+        private void LoadCar()
         {
             listResult.Items.Clear();
             List<Vehicle> listcar = manage.GetListVehicle("car");
@@ -82,7 +82,7 @@ namespace WindowsFormsApp
             }
         }
 
-        private void viewdetail() 
+        private void ViewDetail() 
         {
             Vehicle vehicleSelected = manage.FindVehicle(this.nameVehicleSelected);
             NameVehicle.Text = vehicleSelected.Name;
@@ -119,7 +119,7 @@ namespace WindowsFormsApp
                 {
                     ListViewItem item = lsv.SelectedItems[0];
                     nameVehicleSelected = item.Text;
-                viewdetail();
+                ViewDetail();
             }
             
         }
@@ -129,13 +129,13 @@ namespace WindowsFormsApp
             BtChange.Enabled = false;
             btAddVehicle.Enabled = false;
             btSave.Enabled = true;
-            setchange();
+            Setchange();
             registration.ReadOnly = true;
             change = true;
             BtChange.Enabled = false;
 
         }
-        private void setchange()
+        private void Setchange()
         {
             panellistvehilce.Enabled = false;
             paneltypevehicle.Enabled = true;
@@ -150,7 +150,7 @@ namespace WindowsFormsApp
             paneltypevehicleview.Enabled = true;
            
         }
-        private void setunchange()
+        private void SetUnChange()
         {
             BtChange.Enabled = true;
             btSave.Enabled = false;
@@ -176,7 +176,7 @@ namespace WindowsFormsApp
                 Int32.Parse(registration.Text);
                 Int32.Parse(Kilometer.Text);
                 Int32.Parse(costperdatetext.Text);
-                if (checkedNotNull())
+                if (CheckedNotNull())
                 {
                     if (change)
                     {
@@ -187,7 +187,7 @@ namespace WindowsFormsApp
                     }
                     else
                     {
-                        if (checkid(Int32.Parse(registration.Text)))
+                        if (CheckId(Int32.Parse(registration.Text)))
                         {
                             InsertVehicle();
                             MessageBox.Show("Add Successly!");
@@ -197,8 +197,8 @@ namespace WindowsFormsApp
                     }
 
                     setclear();
-                    setunchange();
-                    if (RadioCarview.Checked) loadcar();
+                    SetUnChange();
+                    if (RadioCarview.Checked) LoadCar();
                     else loadTruck();
                 }
             }
@@ -212,7 +212,7 @@ namespace WindowsFormsApp
 
         }
         
-        private bool checkedNotNull()
+        private bool CheckedNotNull()
         {
             if (String.IsNullOrWhiteSpace(NameVehicle.Text) || String.IsNullOrWhiteSpace(BranchVehicle.Text) || String.IsNullOrWhiteSpace(registration.Text) || String.IsNullOrWhiteSpace(typeVehicledetail.Text))
             {
@@ -222,7 +222,7 @@ namespace WindowsFormsApp
             
                 return true;
         }
-        private bool checkid(int id)
+        private bool CheckId(int id)
         {
             if (manage.FindVehiclebyId(Int32.Parse(registration.Text)) != null)
             {
@@ -275,9 +275,9 @@ namespace WindowsFormsApp
             cmd.Parameters.AddWithValue("@ID", Int32.Parse(registration.Text));
             cmd.ExecuteNonQuery();
             conn.Close();
-            InsertVehicletype();
+            InsertVehicleType();
         }
-        private void InsertVehicletype()
+        private void InsertVehicleType()
         {
             MySqlConnection conn = Program.ConnectDatabase();
             string sql = "";
@@ -305,7 +305,7 @@ namespace WindowsFormsApp
             btAddVehicle.Enabled = false;
             panellistvehilce.Enabled = false;
             setclear();
-            setchange();
+            Setchange();
 
         }
         private void setclear()
@@ -318,7 +318,7 @@ namespace WindowsFormsApp
             descriptiontext.Clear();
             Kilometer.Clear();
         }
-        private void settype(string type){
+        private void SetType(string type){
             if (type == "car")
             {
                
@@ -345,17 +345,17 @@ namespace WindowsFormsApp
         private void Cancelview_Click(object sender, EventArgs e)
         {
             setclear();
-            setunchange();
+            SetUnChange();
         }
 
         private void RadioCarDetail_CheckedChanged(object sender, EventArgs e)
         {
-            settype("car");
+            SetType("car");
         }
 
         private void RadioTruckDetail_CheckedChanged(object sender, EventArgs e)
         {
-            settype("tr");
+            SetType("tr");
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
