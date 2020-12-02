@@ -175,11 +175,35 @@ namespace WindowsFormsApp
         }
         public static string GetDateTimeFormatString(string datetime)
         {
-            string retFormat = "MM/dd/yyyy";
-            if (datetime.Length > 10)
+            string retFormat = "MM/dd/yyyy hh:mm:ss tt";
+            string month_format = "";
+            string date_format = "";
+            int first_slash = datetime.IndexOf('/');
+            int last_slash = datetime.LastIndexOf('/');
+            string month_string = datetime.Substring(0, first_slash);
+            string date_string = datetime.Substring(first_slash + 1, last_slash - first_slash - 1);
+           if(month_string.Length == 2)
             {
-                retFormat = "MM/dd/yyyy hh:mm:ss tt";
+                month_format = "MM";
+            } 
+           else if (month_string.Length == 1)
+            {
+                month_format = "M";
             }
+           if (date_string.Length == 2)
+            {
+                date_format = "dd";
+            }
+           else if (date_string.Length == 1)
+            {
+                date_format = "d";
+            }
+            if(datetime.Length < 12)
+            {
+                retFormat = month_format + '/' + date_format + '/' + "yyyy";
+                return retFormat;
+            }
+            retFormat = month_format + '/' + date_format + '/' + "yyyy" + " hh:mm:ss tt";
             return retFormat;
         }
 
