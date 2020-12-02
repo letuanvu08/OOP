@@ -358,17 +358,17 @@ namespace WindowsFormsApp
                             set Name = '{VehicleNameTextBox.Text}', branch = '{BranchComboBox.Text}', costperday = '{CostPerDayTextBox.Text}', numberOilNow = '{OilTextBox.Text}', sizeOil = '{vehicle.SizeOil.ToString()}', numberKilometers = '{KilometerTextBox.Text}', Description ='{VehicleDescriptionTextBox.Text}'
                             where ID = '{vehicle.IdVehicle.ToString()}';";
                 // Update the state of the Car or Truck related:
-                if (TypeCarRadio.Checked) {
-                    Query += $@"update car
-                            set TYPECAR = '{TypeComboBox.Text}'
-                            where ID = '{RegistrationNumberComboBox.Text}';";
-                }
-                else
-                {
-                    Query += $@"update truck
-                            set TYPETRUCK = '{TypeComboBox.Text}
-                            where ID = '{RegistrationNumberComboBox.Text}';";
-                }
+                //if (TypeCarRadio.Checked) {
+                //    Query += $@"update car
+                //            set TYPECAR = '{TypeComboBox.Text}'
+                //            where ID = '{RegistrationNumberComboBox.Text}';";
+                //}
+                //else
+                //{
+                //    Query += $@"update truck
+                //            set TYPETRUCK = '{TypeComboBox.Text}
+                //            where ID = '{RegistrationNumberComboBox.Text}';";
+                //}
                 // Update the insurance Type:
                 Query += $@"update insurance
                             set TYPEINSURANCE ='{InsuranceTypeSpinBox.Text}'
