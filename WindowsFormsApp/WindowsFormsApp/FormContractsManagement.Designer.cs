@@ -53,6 +53,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.PreviewModeRadio = new System.Windows.Forms.RadioButton();
             this.UpdateModeRadio = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.contractStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +114,8 @@
             this.VehicleIDColumn,
             this.CustomerName,
             this.DriverLicense,
-            this.InsuranceType});
+            this.InsuranceType,
+            this.contractStatus});
             this.ContractList.GridLines = true;
             this.ContractList.HideSelection = false;
             this.ContractList.Location = new System.Drawing.Point(12, 123);
@@ -121,6 +124,7 @@
             this.ContractList.TabIndex = 4;
             this.ContractList.UseCompatibleStateImageBehavior = false;
             this.ContractList.View = System.Windows.Forms.View.Details;
+            this.ContractList.SelectedIndexChanged += new System.EventHandler(this.ContractList_SelectedIndexChanged);
             // 
             // approvalCheckBox
             // 
@@ -168,13 +172,13 @@
             this.label2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(618, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(265, 27);
+            this.label2.Size = new System.Drawing.Size(251, 27);
             this.label2.TabIndex = 6;
-            this.label2.Text = "List Of Approved Contracts:";
+            this.label2.Text = "List Of Finished Contracts:";
             // 
             // ApproveButton
             // 
-            this.ApproveButton.Location = new System.Drawing.Point(483, 561);
+            this.ApproveButton.Location = new System.Drawing.Point(359, 562);
             this.ApproveButton.Name = "ApproveButton";
             this.ApproveButton.Size = new System.Drawing.Size(108, 35);
             this.ApproveButton.TabIndex = 7;
@@ -270,11 +274,25 @@
             this.UpdateModeRadio.Text = "Update Mode";
             this.UpdateModeRadio.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(486, 561);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 36);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Pay";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // contractStatus
+            // 
+            this.contractStatus.Text = "Status";
+            // 
             // FormManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ApprovedContractList);
             this.Controls.Add(this.ApproveButton);
@@ -323,5 +341,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton PreviewModeRadio;
         private System.Windows.Forms.RadioButton UpdateModeRadio;
+        private System.Windows.Forms.ColumnHeader contractStatus;
+        private System.Windows.Forms.Button button1;
     }
 }

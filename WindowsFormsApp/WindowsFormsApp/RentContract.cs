@@ -20,7 +20,8 @@ namespace WindowsFormsApp
         public int TotalCost { get; set; }
 
         public string Description { get; set; }
-
+        
+        public ContractStatus Status { get; set; }
         public bool IsApproved { get; set; }
 
         public RentContract()
@@ -83,9 +84,21 @@ namespace WindowsFormsApp
             this.Description = description;
             this.InsuranceUsed = insurance;
             this.CustomerRentCar = customer;
-            this.IsApproved = approval;
-           
+            this.IsApproved = approval;           
         }
 
+        public RentContract(int id, Vehicle vehicle, Insurance insurance, Customer customer, DateTime DateStartRent, DateTime DateEndRent, int totalCost, string description, ContractStatus status)
+        {
+            Console.WriteLine(" Constuctor New RentContract with 6 parameter: Customer,Car,...");
+            this.Id = id;
+            this.VehicleRented = vehicle;
+            this.DateStartRent = DateStartRent;
+            this.DateEndRent = DateEndRent;
+            this.TotalCost = totalCost;
+            this.Description = description;
+            this.InsuranceUsed = insurance;
+            this.CustomerRentCar = customer;
+            this.Status = status;
+        }
     }
 }

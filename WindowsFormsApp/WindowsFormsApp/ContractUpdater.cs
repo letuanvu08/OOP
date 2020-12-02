@@ -18,7 +18,7 @@ namespace WindowsFormsApp
         RentContract contract;
         Customer customer;
         Vehicle vehicle;
-        Insurance insurance; 
+        Insurance insurance;
         public ContractUpdater(CarRentalManagement _manager, RentContract _contract)
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace WindowsFormsApp
             this.vehicle = contract.VehicleRented;
             this.insurance = contract.InsuranceUsed;
             // Initialize the Contract into its current state:
-            
+
             // + Customer Info
             if (customer.Sex == "M")
             {
@@ -48,7 +48,7 @@ namespace WindowsFormsApp
             {
                 this.TypeCarRadio.Checked = true;
                 populateBranchTypeComboBoxWithCarOption();
-                
+
             }
             else
             {
@@ -56,7 +56,6 @@ namespace WindowsFormsApp
                 populateBranchTypeComboBoxWithTruckOption();
             }
             this.VehicleNameTextBox.Text = vehicle.Name;
-            this.RegistrationTextBox.Text = vehicle.IdVehicle.ToString();
             this.CostPerDayTextBox.Text = vehicle.CostPerDay.ToString();
             this.KilometerTextBox.Text = vehicle.NumberKilometers.ToString();
             this.VehicleDescriptionTextBox.Text = vehicle.Description;
@@ -71,10 +70,11 @@ namespace WindowsFormsApp
             this.InsuranceIdTextBox.Text = insurance.InsuranceId.ToString();
             this.InsuranceTypeSpinBox.Text = insurance.Type.ToString();
             addInsuranceTypeOption();
-            
+
+            this.RegistrationNumberComboBox.Text = vehicle.IdVehicle.ToString();
 
         }
-        private void populateBranchTypeComboBoxWithCarOption(){
+        private void populateBranchTypeComboBoxWithCarOption() {
             BranchComboBox.Items.Clear();
             TypeComboBox.Items.Clear();
             List<string> listbranch = manager.GetlistBranch("car");
@@ -87,10 +87,15 @@ namespace WindowsFormsApp
             {
                 TypeComboBox.Items.Add(i);
             }
+            foreach (Vehicle v in manager.GetListVehicle("car"))
+            {
+                RegistrationNumberComboBox.Items.Add(v.IdVehicle);
+            }
             this.BranchComboBox.Text = vehicle.Branch;
             Car car = vehicle as Car;
             this.TypeComboBox.Text = car.TypeCar.ToString();
         }
+    
         private void populateBranchTypeComboBoxWithTruckOption()
         {
             BranchComboBox.Items.Clear();
@@ -105,11 +110,15 @@ namespace WindowsFormsApp
             {
                 TypeComboBox.Items.Add(i);
             }
+            foreach (Car v in manager.GetListVehicle("car"))
+            {
+                RegistrationNumberComboBox.Items.Add(v.IdVehicle);
+            }
             this.BranchComboBox.Text = vehicle.Branch;
             Truck truck = vehicle as Truck;
             this.TypeComboBox.Text = truck.TypeTruck.ToString();
         }
-        
+       
         private void addInsuranceTypeOption()
         {
             foreach (var item in Enum.GetValues(typeof(TypeInsurance)))
@@ -221,27 +230,128 @@ namespace WindowsFormsApp
             this.Close();
 
         }
+        private void UpdateVehicleInfomation(Vehicle v)
+        {
+            this.VehicleNameTextBox.Text = v.Name;
+            this.CostPerDayTextBox.Text = v.CostPerDay.ToString();
+            this.KilometerTextBox.Text = v.NumberKilometers.ToString();
+            this.VehicleDescriptionTextBox.Text = v.Description;
+            this.BranchComboBox.Text = v.Branch;
+            this.TypeComboBox.Text = v.Type.ToString();
+            this.FluidTextBox.Text = v.SizeFluid.ToString();
+            this.OilTextBox.Text = v.SizeOil.ToString();
+        }
 
+        private bool CheckContractValidity()
+        {
+            bool isValid = true;
+            if (EndDate.Value < StartDate.Value)
+            {
+                isValid = false;
+                MessageBox.Show("Start Date or End Date is Wrong. Please check again");
+            }
+            else if (Int32.Parse(TotalCost.Text.ToString()) < 0)
+            {
+                isValid = false;
+                MessageBox.Show("Some Thing is wrong. The total cost is negative. Please check again");
+            }
+            int vehicleID = Int32.Parse(InsuranceIdTextBox.Text);
+            foreach (Insurance insurance in manager.GetInsurances())
+            {
+                int match = 0;
+                if (Int32.Parse(InsuranceIdTextBox.Text) == insurance.InsuranceId)
+                {
+                    match++;
+                }
+                if (match >= 2)
+                {
+                    MessageBox.Show("Invalid Insurance Id. Please use another one");
+                    isValid = false;
+                }
+
+            }
+            // CHeck if the selected vehicle is available: Does it exist, is it being used, is it being maintained
+            if (TypeCarRadio.Checked)
+            {
+                foreach (Car car in manager.GetListVehicle("car")) {
+                    if (car.IdVehicle == Int32.Parse(RegistrationNumberComboBox.Text))
+                    {
+                        if (car.Maintain)
+                        {
+                            isValid = false;
+                            MessageBox.Show("Car selected is being maintained. Please choose another one");
+                            goto returnLabel;
+                        }
+                        else if (car.StateUsed)
+                        {
+                            isValid = false;
+                            MessageBox.Show("Car selected is being used. Please choose anotehr one");
+                            goto returnLabel;
+                        }
+                        else
+                        {
+                            UpdateVehicleInfomation(car);
+                            UpdateCost();
+                            goto returnLabel;
+                        }
+                    }
+                }
+                // Not found the vehicle (done looping through the vehicle list)
+                MessageBox.Show("Car Selected Not Found. Please choose another vehicel and try again");
+                isValid = false;
+            }
+            else if (TypeTruckRadio.Checked){
+                foreach (Truck truck in manager.GetListVehicle("truck"))
+                {
+                    if (truck.IdVehicle == Int32.Parse(RegistrationNumberComboBox.Text))
+                    {
+                        if (truck.Maintain)
+                        {
+                            isValid = false;
+                            MessageBox.Show("Truck selected is being maintained. Please choose another one");
+                            goto returnLabel;
+                        }
+                        else if (truck.StateUsed)
+                        {
+                            isValid = false;
+                            MessageBox.Show("Truck selected is being used. Please choose anotehr one");
+                            goto returnLabel;
+                        }
+                        {
+                            UpdateVehicleInfomation(truck);
+                            UpdateCost();
+                            goto returnLabel;
+                        }
+                    }
+                }
+                // Not found the vehicle (done looping through the vehicle list)
+                MessageBox.Show("Truck Selected Not Found. Please choose another vehicel and try again");
+                isValid = false;
+            }
+            returnLabel:
+            return isValid;
+        }
 
         // This is where the real update happens when the user confirm the update.
         private void UpdateAndGoBackButton_Click(object sender, EventArgs e)
         {
-            updateContractInfoInDatabase();
-            Form manageContracts = new FormManage(this.manager);
-            var thread = new Thread(() => Program.Start(manageContracts));
-            thread.Start();
-            this.Close();
+            if (CheckContractValidity())
+            {
+                updateContractInfoInDatabase();
+                Form manageContracts = new FormManage(this.manager);
+                var thread = new Thread(() => Program.Start(manageContracts));
+                thread.Start();
+                this.Close();
+            }
         }
         private void updateContractInfoInDatabase()
-        {   
-
-
+        {
             try
             {
                 MySqlConnection conn = Program.ConnectDatabase();
                 // Update the rentcontract table (include infomation related to customer and the contract)
                 string Query = $@"update rentcontract
-                                  set IDVEHICLE = '{RegistrationTextBox.Text}', NAMECUSTORMER = '{CustomerNameTextBox.Text}',PHONENUMBER = '{PhoneNumberTextBox.Text}', EMAIL = '{EmailTextBox.Text}', ADDRESS = '{AddressTextBox.Text}', CAREER = '{CareerTextBox.Text}', STARTDATE = '{StartDate.Value.ToString("dd/MM/yyyy")}', ENDDATE = '{EndDate.Value.ToString("dd/MM/yyyy")}', TOTALBILL = '{TotalCost.Text}', DESCRIPTION = '{ContractDescriptionTextBox.Text}', APPROVED = FALSE, DRIVERLICENSE = '{DriverLicenseTextBox.Text}'
+                                  set IDVEHICLE = '{RegistrationNumberComboBox.Text}', NAMECUSTORMER = '{CustomerNameTextBox.Text}',PHONENUMBER = '{PhoneNumberTextBox.Text}', EMAIL = '{EmailTextBox.Text}', ADDRESS = '{AddressTextBox.Text}', CAREER = '{CareerTextBox.Text}', STARTDATE = '{StartDate.Value.ToString("dd/MM/yyyy")}', ENDDATE = '{EndDate.Value.ToString("dd/MM/yyyy")}', TOTALBILL = '{TotalCost.Text}', DESCRIPTION = '{ContractDescriptionTextBox.Text}', APPROVED = FALSE, DRIVERLICENSE = '{DriverLicenseTextBox.Text}'
                                   where IDCONTRACT = '{contract.Id.ToString()}';";
                 // Update the vehicle table:   May use the following to update the availability of the Vehicle: ==== , /*stateUsed = '0', maintain = '0'*/ =========
                 Query += $@"update vehicle 
@@ -251,18 +361,18 @@ namespace WindowsFormsApp
                 if (TypeCarRadio.Checked) {
                     Query += $@"update car
                             set TYPECAR = '{TypeComboBox.Text}'
-                            where ID = '{RegistrationTextBox.Text}';";
+                            where ID = '{RegistrationNumberComboBox.Text}';";
                 }
                 else
                 {
                     Query += $@"update truck
                             set TYPETRUCK = '{TypeComboBox.Text}
-                            where ID = '{RegistrationTextBox.Text}';";
+                            where ID = '{RegistrationNumberComboBox.Text}';";
                 }
                 // Update the insurance Type:
                 Query += $@"update insurance
                             set TYPEINSURANCE ='{InsuranceTypeSpinBox.Text}'
-                            where IDCONTRACT = '{contract.Id.ToString()}';";   // Could have used the insuranceIDTextBox value. should be modified according to the teacher instruction.
+                            where IID = '{insurance.InsuranceId.ToString()}';";   // Could have used the insuranceIDTextBox value. should be modified according to the teacher instruction.
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = Query;
@@ -273,5 +383,43 @@ namespace WindowsFormsApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void StartDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (this.StartDate.Value.Date > this.EndDate.Value.Date)
+            {
+                MessageBox.Show("Invalid Date, Please make sure the start date is smaller than End date");
+            }
+            UpdateCost();
+        }
+        private void EndDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (this.EndDate.Value.Date < this.StartDate.Value.Date)
+            {
+                MessageBox.Show("Invalid Date, Please make sure the start date is smaller than End Date");
+            }
+            UpdateCost();
+        }
+        private void UpdateCost()
+        {
+            double timeInterval = (EndDate.Value - StartDate.Value).TotalDays;
+            int totalCost = (int)timeInterval * Int32.Parse(CostPerDayTextBox.Text);
+            this.TotalCost.Text = totalCost.ToString();
+        }
+
+        private void RegistrationNumberComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CheckContractValidity())
+            {
+                // Update the Vehicle information with the new Chosen Registration ID.
+                UpdateCost();
+            }
+            else
+            {
+                // If not valid. Change back to the old vehicle.
+                RegistrationNumberComboBox.Text = vehicle.IdVehicle.ToString();
+            }
+        }
+
     }
 }

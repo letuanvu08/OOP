@@ -213,5 +213,10 @@ namespace WindowsFormsApp
         {
             contract.InsuranceUsed.Type = (TypeInsurance)Enum.Parse(typeof(TypeInsurance),insuranceBox.SelectedItem.ToString());
         }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
