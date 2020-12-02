@@ -39,6 +39,7 @@
             this.CustomerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DriverLicense = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.InsuranceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contractStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -54,7 +55,6 @@
             this.PreviewModeRadio = new System.Windows.Forms.RadioButton();
             this.UpdateModeRadio = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.contractStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +156,10 @@
             this.InsuranceType.Text = "Insurance Type:";
             this.InsuranceType.Width = 100;
             // 
+            // contractStatus
+            // 
+            this.contractStatus.Text = "Status";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -216,7 +220,7 @@
             // 
             this.columnHeader2.DisplayIndex = 0;
             this.columnHeader2.Text = "ID:";
-            this.columnHeader2.Width = 39;
+            this.columnHeader2.Width = 40;
             // 
             // columnHeader3
             // 
@@ -282,10 +286,6 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Pay";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // contractStatus
-            // 
-            this.contractStatus.Text = "Status";
             // 
             // FormManage
             // 

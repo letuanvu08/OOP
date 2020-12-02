@@ -44,6 +44,8 @@
         <e p="FormVehicleListService.resx" t="Include" />
         <e p="Insurance.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="ObserverPatternInterfaces.cs" t="Include" />
+        <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />

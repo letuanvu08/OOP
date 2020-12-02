@@ -5,9 +5,18 @@ namespace WindowsFormsApp
     internal abstract class Record
     {
         protected DateTime dateTime;
+
+        public DateTime DateTime
+        {
+            get => dateTime;
+            set => dateTime = value;
+        }
+
         protected int id;
         protected int idVehicle;
         protected double numberKilometers;
+        public string Description { get; set; }
+
 
         public int IdVehicle
         {
@@ -81,6 +90,11 @@ namespace WindowsFormsApp
             numberOilChange = numberOil;
             this.error = error;
         }
+        public EngineRecord(DateTime datetime, string description)
+        {
+            this.dateTime = datetime;
+            this.Description = description;
+        }
     }
 
     internal class TransmissionRecord : Record
@@ -97,6 +111,11 @@ namespace WindowsFormsApp
             numberFluidChange = numberFluid;
             this.error = error;
         }
+        public TransmissionRecord(DateTime datetime, string description)
+        {
+            this.dateTime = datetime;
+            this.Description = description;
+        }
     }
 
     internal class TiresRecord : Record
@@ -107,6 +126,11 @@ namespace WindowsFormsApp
 
             this.dateTime = dateTime;
             numberKilometers = kilometer;
+        }
+        public TiresRecord(DateTime datetime, string description)
+        {
+            this.dateTime = datetime;
+            this.Description = description;
         }
     }
 }

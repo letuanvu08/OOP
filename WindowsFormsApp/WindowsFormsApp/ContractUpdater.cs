@@ -48,18 +48,21 @@ namespace WindowsFormsApp
             {
                 this.TypeCarRadio.Checked = true;
                 populateBranchTypeComboBoxWithCarOption();
-
+                Car car = vehicle as Car;
+                this.typeTextBox.Text = car.TypeCar.ToString();
             }
             else
             {
                 this.TypeTruckRadio.Checked = true;
                 populateBranchTypeComboBoxWithTruckOption();
+                Truck truck = vehicle as Truck;
+                this.typeTextBox.Text = truck.TypeTruck.ToString();
             }
             this.VehicleNameTextBox.Text = vehicle.Name;
             this.CostPerDayTextBox.Text = vehicle.CostPerDay.ToString();
             this.KilometerTextBox.Text = vehicle.NumberKilometers.ToString();
             this.VehicleDescriptionTextBox.Text = vehicle.Description;
-
+            this.branchTextBox.Text = vehicle.Branch;
             // + Contract Info (Description):
             this.ContractDescriptionTextBox.Text = contract.Description;
             this.StartDate.Value = contract.DateStartRent;
@@ -75,48 +78,48 @@ namespace WindowsFormsApp
 
         }
         private void populateBranchTypeComboBoxWithCarOption() {
-            BranchComboBox.Items.Clear();
-            TypeComboBox.Items.Clear();
-            List<string> listbranch = manager.GetlistBranch("car");
-            List<string> listtype = manager.GetlistType("car");
-            foreach (var i in listbranch)
-            {
-                BranchComboBox.Items.Add(i);
-            }
-            foreach (var i in listtype)
-            {
-                TypeComboBox.Items.Add(i);
-            }
+            //BranchComboBox.Items.Clear();
+            //TypeComboBox.Items.Clear();
+            //List<string> listbranch = manager.GetlistBranch("car");
+            //List<string> listtype = manager.GetlistType("car");
+            //foreach (var i in listbranch)
+            //{
+            //    BranchComboBox.Items.Add(i);
+            //}
+            //foreach (var i in listtype)
+            //{
+            //    TypeComboBox.Items.Add(i);
+            //}
             foreach (Vehicle v in manager.GetListVehicle("car"))
-            {
+            {   
                 RegistrationNumberComboBox.Items.Add(v.IdVehicle);
             }
-            this.BranchComboBox.Text = vehicle.Branch;
-            Car car = vehicle as Car;
-            this.TypeComboBox.Text = car.TypeCar.ToString();
+            //this.BranchComboBox.Text = vehicle.Branch;
+            //Car car = vehicle as Car;
+            //this.TypeComboBox.Text = car.TypeCar.ToString();
         }
     
         private void populateBranchTypeComboBoxWithTruckOption()
         {
-            BranchComboBox.Items.Clear();
-            TypeComboBox.Items.Clear();
-            List<string> listbranch = manager.GetlistBranch("truck");
-            List<string> listtype = manager.GetlistType("truck");
-            foreach (var i in listbranch)
-            {
-                BranchComboBox.Items.Add(i);
-            }
-            foreach (var i in listtype)
-            {
-                TypeComboBox.Items.Add(i);
-            }
+            //BranchComboBox.Items.Clear();
+            //TypeComboBox.Items.Clear();
+            //List<string> listbranch = manager.GetlistBranch("truck");
+            //List<string> listtype = manager.GetlistType("truck");
+            //foreach (var i in listbranch)
+            //{
+            //    BranchComboBox.Items.Add(i);
+            //}
+            //foreach (var i in listtype)
+            //{
+            //    TypeComboBox.Items.Add(i);
+            //}
             foreach (Car v in manager.GetListVehicle("car"))
             {
                 RegistrationNumberComboBox.Items.Add(v.IdVehicle);
             }
-            this.BranchComboBox.Text = vehicle.Branch;
-            Truck truck = vehicle as Truck;
-            this.TypeComboBox.Text = truck.TypeTruck.ToString();
+            //this.BranchComboBox.Text = vehicle.Branch;
+            //Truck truck = vehicle as Truck;
+            //this.TypeComboBox.Text = truck.TypeTruck.ToString();
         }
        
         private void addInsuranceTypeOption()
@@ -236,8 +239,17 @@ namespace WindowsFormsApp
             this.CostPerDayTextBox.Text = v.CostPerDay.ToString();
             this.KilometerTextBox.Text = v.NumberKilometers.ToString();
             this.VehicleDescriptionTextBox.Text = v.Description;
-            this.BranchComboBox.Text = v.Branch;
-            this.TypeComboBox.Text = v.Type.ToString();
+            this.branchTextBox.Text = v.Branch;
+            if (TypeCarRadio.Checked)
+            {
+                Car car = v as Car;
+                this.typeTextBox.Text = car.TypeCar.ToString();
+            }
+            else
+            {
+                Truck truck = v as Truck;
+                this.typeTextBox.Text = truck.TypeTruck.ToString();
+            }
             this.FluidTextBox.Text = v.SizeFluid.ToString();
             this.OilTextBox.Text = v.SizeOil.ToString();
         }
@@ -338,6 +350,7 @@ namespace WindowsFormsApp
             if (CheckContractValidity())
             {
                 updateContractInfoInDatabase();
+                MessageBox.Show("Update Successfully");
                 Form manageContracts = new FormManage(this.manager);
                 var thread = new Thread(() => Program.Start(manageContracts));
                 thread.Start();
@@ -355,7 +368,7 @@ namespace WindowsFormsApp
                                   where IDCONTRACT = '{contract.Id.ToString()}';";
                 // Update the vehicle table:   May use the following to update the availability of the Vehicle: ==== , /*stateUsed = '0', maintain = '0'*/ =========
                 Query += $@"update vehicle 
-                            set Name = '{VehicleNameTextBox.Text}', branch = '{BranchComboBox.Text}', costperday = '{CostPerDayTextBox.Text}', numberOilNow = '{OilTextBox.Text}', sizeOil = '{vehicle.SizeOil.ToString()}', numberKilometers = '{KilometerTextBox.Text}', Description ='{VehicleDescriptionTextBox.Text}'
+                            set Name = '{VehicleNameTextBox.Text}', branch = '{branchTextBox.Text}', costperday = '{CostPerDayTextBox.Text}', numberOilNow = '{OilTextBox.Text}', sizeOil = '{vehicle.SizeOil.ToString()}', numberKilometers = '{KilometerTextBox.Text}', Description ='{VehicleDescriptionTextBox.Text}'
                             where ID = '{vehicle.IdVehicle.ToString()}';";
                 // Update the state of the Car or Truck related:
                 //if (TypeCarRadio.Checked) {
@@ -421,5 +434,9 @@ namespace WindowsFormsApp
             }
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

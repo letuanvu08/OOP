@@ -140,25 +140,50 @@ namespace WindowsFormsApp
                 ListViewItem.ListViewSubItemCollection listSubItem = item.SubItems;
                 listSubItem.RemoveAt(0);
                 int contractID = int.Parse(listSubItem[0].Text);
-                updateApprovalStatusInDatabase(contractID);
-                ListViewItem approvedItem = new ListViewItem();
-
-                foreach (ListViewItem.ListViewSubItem subItem in listSubItem)
+                RentContract contract = manage.FindContractById(contractID);
+                if (checkContractValidity(contract))
                 {
-                    approvedItem.SubItems.Add(subItem);
+                    updateApprovalStatusInDatabase(contractID);
+                    ListViewItem approvedItem = new ListViewItem();
+
+                    foreach (ListViewItem.ListViewSubItem subItem in listSubItem)
+                    {
+                        approvedItem.SubItems.Add(subItem);
+                    }
+
+                    // remove it from the left listview
+                    ContractList.Items.Remove(item);
+
+                    // Add it to the right listview
+                    ApprovedContractList.Items.Add(item);
                 }
-
-                // remove it from the left listview
-                ContractList.Items.Remove(item);
-
-                // Add it to the right listview
-                ApprovedContractList.Items.Add(item);
                 //manage = Program.LoadData();
                 //setUpGUI();
 
                 // Get the removed item id and change the APPROVED to TRUE in the database:    
             }
             
+        }
+        private bool checkContractValidity(RentContract contract)
+        {
+            bool isValid = true;
+            if (contract.VehicleRented.StateUsed)
+            {
+                isValid = false;
+                MessageBox.Show($"Vehicle is being used. Pls check and update the contract with ID: {contract.Id} again before aprroving");
+            }
+            else if (contract.VehicleRented.Maintain)
+            {
+                isValid = false;
+                MessageBox.Show($"Vehicle is being maintained. Pls check and update the contract with ID: {contract.Id} before approving");
+            }
+            else if (contract.DateStartRent > contract.DateEndRent)
+            {
+                isValid = false;
+                MessageBox.Show($"Invalid Rent interval. Please check and update the contract with ID: {contract.Id} before approving");
+            }
+
+            return isValid;
         }
         private void updateApprovalStatusInDatabase(int contractID)
         {
