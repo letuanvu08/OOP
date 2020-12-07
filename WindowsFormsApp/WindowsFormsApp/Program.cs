@@ -30,14 +30,7 @@ namespace WindowsFormsApp
         static public MySqlConnection ConnectDatabase()
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
-            try
-            {
-                conn.Open();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error: " + e.Message);
-            }
+           
             return conn;
         }
         static public CarRentalManagement LoadData()

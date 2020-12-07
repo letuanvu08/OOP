@@ -17,17 +17,23 @@ namespace WindowsFormsApp
             string username = "root";
           
                 MySqlConnection conn;
-           
-       
-                string password = "161200";
+            string password = "";
+            try
+            {
+
+                password = "161200";
 
                 conn = DBMySQLUtils.GetDBConnection(host, port, database, username, password);
-            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+            }
+            catch
+           /* if (conn.State == System.Data.ConnectionState.Open)*/
             {
 
                 password = "0974706833vu";
 
                 conn = DBMySQLUtils.GetDBConnection(host, port, database, username, password);
+                conn.Open();
 
             }
                 
