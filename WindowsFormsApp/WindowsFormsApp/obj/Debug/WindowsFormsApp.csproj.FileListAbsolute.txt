@@ -71,9 +71,9 @@ D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.pdb
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormServiceAVehicle.resources
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormVehicleListService.resources
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormMainMenu.resources
-<<<<<<< HEAD
 D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\obj\Debug\WindowsFormsApp.FormMainMenu.resources
-=======
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\Newtonsoft.Json.dll
 C:\Users\dell\Desktop\OOP\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\Newtonsoft.Json.xml
 >>>>>>> thinh
+D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\Newtonsoft.Json.dll
+D:\oop\OOP\WindowsFormsApp\WindowsFormsApp\bin\Debug\Newtonsoft.Json.xml

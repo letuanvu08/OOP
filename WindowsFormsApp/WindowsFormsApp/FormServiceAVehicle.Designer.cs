@@ -29,71 +29,11 @@ namespace WindowsFormsApp
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Information = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.ServiceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ServiceInfo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-=======
->>>>>>> thinh
             this.BackButton = new System.Windows.Forms.Button();
             this.ServiceCheckedButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-            this.SuspendLayout();
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Type,
-            this.Information});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(19, 68);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(373, 272);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // Type
-            // 
-            this.Type.Text = "Service Type";
-            this.Type.Width = 100;
-            // 
-            // Information
-            // 
-            this.Information.Text = "Additional Information";
-            this.Information.Width = 200;
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ServiceType,
-            this.ServiceInfo});
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(427, 68);
-            this.listView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(383, 272);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            // 
-            // ServiceType
-            // 
-            this.ServiceType.Text = "Service Type";
-            // 
-            // ServiceInfo
-            // 
-            this.ServiceInfo.Text = "Service Infomation";
-            // 
-=======
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.EngineStateComboBox = new System.Windows.Forms.ComboBox();
@@ -112,7 +52,6 @@ namespace WindowsFormsApp
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
->>>>>>> thinh
             // BackButton
             // 
             this.BackButton.Location = new System.Drawing.Point(19, 380);
@@ -126,15 +65,6 @@ namespace WindowsFormsApp
             // 
             // ServiceCheckedButton
             // 
-<<<<<<< HEAD
-            this.ServiceAllBtton.Location = new System.Drawing.Point(249, 342);
-            this.ServiceAllBtton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ServiceAllBtton.Name = "ServiceAllBtton";
-            this.ServiceAllBtton.Size = new System.Drawing.Size(142, 26);
-            this.ServiceAllBtton.TabIndex = 3;
-            this.ServiceAllBtton.Text = "Apply  Checked Services";
-            this.ServiceAllBtton.UseVisualStyleBackColor = true;
-=======
             this.ServiceCheckedButton.Location = new System.Drawing.Point(374, 531);
             this.ServiceCheckedButton.Name = "ServiceCheckedButton";
             this.ServiceCheckedButton.Size = new System.Drawing.Size(213, 40);
@@ -142,7 +72,6 @@ namespace WindowsFormsApp
             this.ServiceCheckedButton.Text = "Apply  Checked Services";
             this.ServiceCheckedButton.UseVisualStyleBackColor = true;
             this.ServiceCheckedButton.Click += new System.EventHandler(this.ServiceCheckedButton_Click);
->>>>>>> thinh
             // 
             // label1
             // 
@@ -176,8 +105,6 @@ namespace WindowsFormsApp
             this.button1.Text = "Check All";
             this.button1.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
-=======
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label4);
@@ -310,31 +237,20 @@ namespace WindowsFormsApp
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.reloadButton_Click);
             // 
->>>>>>> thinh
             // FormServiceAVehicle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(817, 518);
-=======
             this.ClientSize = new System.Drawing.Size(1225, 667);
             this.Controls.Add(this.ServiceHistoryListView);
             this.Controls.Add(this.flowLayoutPanel1);
->>>>>>> thinh
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ServiceCheckedButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.BackButton);
-<<<<<<< HEAD
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-=======
             this.Controls.Add(this.ServicesAvailableList);
->>>>>>> thinh
             this.Name = "FormServiceAVehicle";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.flowLayoutPanel1.ResumeLayout(false);

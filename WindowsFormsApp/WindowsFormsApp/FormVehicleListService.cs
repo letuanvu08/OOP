@@ -192,7 +192,15 @@ namespace WindowsFormsApp
                 }
 
             OutOfVehicleSearch:
-                System.IO.File.WriteAllText(@"C:\Users\dell\Desktop\VehicleServiceHistory.json", serializedString);
+                try
+                {
+                    System.IO.File.WriteAllText(@"C:\Users\dell\Desktop\VehicleServiceHistory.json", serializedString);
+                }
+                catch
+                {
+                    System.IO.File.WriteAllText(@"C:\Users\ren\Desktop\VehicleServiceHistory.json", serializedString);
+                }
+
             }
 
             MessageBox.Show(serializedString);

@@ -156,7 +156,7 @@ namespace WindowsFormsApp
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label3.Location = new System.Drawing.Point(94, 16);
+            this.label3.Location = new System.Drawing.Point(36, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 18);
             this.label3.TabIndex = 5;
@@ -344,7 +344,7 @@ namespace WindowsFormsApp
             // 
             this.CustomerSign.AutoSize = true;
             this.CustomerSign.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerSign.Location = new System.Drawing.Point(635, 781);
+            this.CustomerSign.Location = new System.Drawing.Point(670, 524);
             this.CustomerSign.Name = "CustomerSign";
             this.CustomerSign.Size = new System.Drawing.Size(101, 17);
             this.CustomerSign.TabIndex = 31;
@@ -352,10 +352,10 @@ namespace WindowsFormsApp
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(35, 797);
+            this.button2.Location = new System.Drawing.Point(374, 632);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 58);
+            this.button2.Size = new System.Drawing.Size(108, 47);
             this.button2.TabIndex = 38;
             this.button2.Text = "Go Back";
             this.button2.UseVisualStyleBackColor = true;
@@ -365,7 +365,7 @@ namespace WindowsFormsApp
             // 
             this.FromStartToEnd.AutoSize = true;
             this.FromStartToEnd.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FromStartToEnd.Location = new System.Drawing.Point(33, 702);
+            this.FromStartToEnd.Location = new System.Drawing.Point(36, 563);
             this.FromStartToEnd.Name = "FromStartToEnd";
             this.FromStartToEnd.Size = new System.Drawing.Size(127, 17);
             this.FromStartToEnd.TabIndex = 42;
@@ -376,7 +376,7 @@ namespace WindowsFormsApp
             // 
             this.TotalCost.AutoSize = true;
             this.TotalCost.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalCost.Location = new System.Drawing.Point(31, 737);
+            this.TotalCost.Location = new System.Drawing.Point(36, 591);
             this.TotalCost.Name = "TotalCost";
             this.TotalCost.Size = new System.Drawing.Size(277, 17);
             this.TotalCost.TabIndex = 39;
@@ -389,10 +389,10 @@ namespace WindowsFormsApp
             this.panel1.Controls.Add(this.tableLayoutPanel4);
             this.panel1.Controls.Add(this.tableLayoutPanel3);
             this.panel1.Controls.Add(this.label22);
-            this.panel1.Location = new System.Drawing.Point(20, 307);
+            this.panel1.Location = new System.Drawing.Point(23, 263);
             this.panel1.MaximumSize = new System.Drawing.Size(600, 300);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 300);
+            this.panel1.Size = new System.Drawing.Size(600, 243);
             this.panel1.TabIndex = 48;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -408,7 +408,7 @@ namespace WindowsFormsApp
             this.tableLayoutPanel4.Controls.Add(this.label10, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.KilometerRun, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(333, 67);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(319, 41);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -493,7 +493,7 @@ namespace WindowsFormsApp
             this.tableLayoutPanel3.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.RegistrationNum, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label21, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(32, 67);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(33, 40);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -591,7 +591,7 @@ namespace WindowsFormsApp
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label22.Location = new System.Drawing.Point(250, 18);
+            this.label22.Location = new System.Drawing.Point(265, 9);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(82, 18);
             this.label22.TabIndex = 48;
@@ -601,7 +601,7 @@ namespace WindowsFormsApp
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(33, 654);
+            this.label24.Location = new System.Drawing.Point(28, 524);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(144, 17);
             this.label24.TabIndex = 49;
@@ -624,7 +624,7 @@ namespace WindowsFormsApp
             this.tableLayoutPanel1.Controls.Add(this.label15, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label6, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 46);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 37);
             this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(0, 200);
             this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(0, 200);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -635,7 +635,7 @@ namespace WindowsFormsApp
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 200);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(379, 200);
             this.tableLayoutPanel1.TabIndex = 51;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -654,7 +654,7 @@ namespace WindowsFormsApp
             this.tableLayoutPanel2.Controls.Add(this.label20, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.PhoneNum, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.DLField, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(530, 46);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(409, 57);
             this.tableLayoutPanel2.MaximumSize = new System.Drawing.Size(400, 200);
             this.tableLayoutPanel2.MinimumSize = new System.Drawing.Size(400, 200);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -665,12 +665,13 @@ namespace WindowsFormsApp
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(400, 200);
             this.tableLayoutPanel2.TabIndex = 52;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // AdditionalDescription
             // 
             this.AdditionalDescription.AutoSize = true;
             this.AdditionalDescription.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdditionalDescription.Location = new System.Drawing.Point(244, 654);
+            this.AdditionalDescription.Location = new System.Drawing.Point(195, 524);
             this.AdditionalDescription.Name = "AdditionalDescription";
             this.AdditionalDescription.Size = new System.Drawing.Size(129, 17);
             this.AdditionalDescription.TabIndex = 63;
@@ -682,7 +683,7 @@ namespace WindowsFormsApp
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label26);
-            this.panel2.Location = new System.Drawing.Point(650, 307);
+            this.panel2.Location = new System.Drawing.Point(645, 263);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(209, 208);
             this.panel2.TabIndex = 64;
@@ -758,7 +759,7 @@ namespace WindowsFormsApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(1013, 749);
+            this.ClientSize = new System.Drawing.Size(880, 692);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.AdditionalDescription);
             this.Controls.Add(this.tableLayoutPanel2);
