@@ -13,10 +13,10 @@ namespace WindowsFormsApp
 {
      partial class FormManage : Form
     {
-        CarRentalManagement manage;
+        VehicleRentalManagement manage;
         List<RentContract> listCarContracts;
         List<RentContract> listTruckContracts;
-        public FormManage(CarRentalManagement manage)
+        public FormManage(VehicleRentalManagement manage)
         {
             InitializeComponent();
             this.manage = manage;

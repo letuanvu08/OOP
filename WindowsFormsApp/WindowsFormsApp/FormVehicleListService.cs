@@ -20,8 +20,8 @@ namespace WindowsFormsApp
 {
     partial class FormVehicleListService : Form
     {
-        CarRentalManagement manager;
-        public FormVehicleListService(CarRentalManagement managerInstance)
+        VehicleRentalManagement manager;
+        public FormVehicleListService(VehicleRentalManagement managerInstance)
         {   
             InitializeComponent();
             this.manager = managerInstance;

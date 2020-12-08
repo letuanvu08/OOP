@@ -114,19 +114,19 @@ namespace WindowsFormsApp
             this.maintain = false;
 
         }
-        public Truck(string nameTruck, string branch, int idTruck, TypeTruck typeTruck, string description)
+        public Truck(string nameTruck, string branch, int idTruck, TypeTruck typeTruck)
         {
             serviceHistory = new ServiceHistory();
             this.Name = nameTruck;
             this.branch = branch;
             this.IdVehicle = idTruck;
             this.TypeTruck = typeTruck;
-            this.description = description;
+            this.description = "";
             this.stateUsed = false;
             this.maintain = false;
 
         }
-        public Truck(string nameTruck, string branch, int idTruck, TypeTruck typeTruck, bool stateUse, bool maintain, int costperday)
+        public Truck(string nameTruck, string branch, int idTruck, TypeTruck typeTruck, bool stateUse, bool maintain, int costperday,int kilometer)
         {
             serviceHistory = new ServiceHistory();
             this.Name = nameTruck;
@@ -138,6 +138,21 @@ namespace WindowsFormsApp
             this.maintain = maintain;
             this.CostPerDay = costperday;
             this.type = TypeVehicle.Truck;
+            this.numberKilometers = kilometer;
+        }
+        public Truck(string nameTruck, string branch, int idTruck, TypeTruck typeTruck, bool stateUse, bool maintain, int costperday,int kilometer,string description)
+        {
+            serviceHistory = new ServiceHistory();
+            this.Name = nameTruck;
+            this.Branch = branch;
+            this.IdVehicle = idTruck;
+            this.TypeTruck = typeTruck;
+            this.description = description;
+            this.stateUsed = stateUse;
+            this.maintain = maintain;
+            this.CostPerDay = costperday;
+            this.type = TypeVehicle.Truck;
+            this.numberKilometers = kilometer;
         }
         public Truck(string nameTruck, string branch, int idTruck, TypeTruck typeTruck, bool stateUse, bool maintain, int costperday, int oilSize,int fluidSize)
         {
@@ -265,7 +280,7 @@ namespace WindowsFormsApp
             this.maintain = false;
 
         }
-        public Car(string nameCar, string branch, int idCar, TypeCar typeCar, string description)
+        public Car(string nameCar, string branch, int idCar, TypeCar typeCar)
         {
             serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 5 paramter: NameCar, Branch, IdCar, typeCar, Description");
@@ -273,11 +288,12 @@ namespace WindowsFormsApp
             this.branch = branch;
             this.IdVehicle = idCar;
             this.TypeCar = typeCar;
-            this.description = description;
+            this.description = "";
             this.stateUsed = false;
             this.maintain = false;
         }
-        public Car(string nameCar, string branch, int idCar, TypeCar carType, bool maintain, bool stateUse, int costperday)
+
+        public Car(string nameCar, string branch, int idCar, TypeCar carType, bool maintain, bool stateUse, int costperday,int kilometer)
         {
             serviceHistory = new ServiceHistory();
             Console.WriteLine(" Constuctor New Car Parameter with 7 paramter: NameCar, Branch, IdCar, typeCar, Description,maintain,stateUse");
@@ -289,8 +305,25 @@ namespace WindowsFormsApp
             this.stateUsed = stateUse;
             this.maintain = maintain;
             this.CostPerDay = costperday;
+            this.numberKilometers = kilometer;
             //===================This next line make sure the rent contract is able to know what type of Vehicle is assigned when creating the contract=======
             this.type = TypeVehicle.Car;
+        }
+        public Car(string nameCar, string branch, int idCar, TypeCar carType, bool maintain, bool stateUse, int costperday,int kilometer,string description)
+        {
+            serviceHistory = new ServiceHistory();
+            Console.WriteLine(" Constuctor New Car Parameter with 7 paramter: NameCar, Branch, IdCar, typeCar, Description,maintain,stateUse");
+            this.Name = nameCar;
+            this.branch = branch;
+            this.IdVehicle = idCar;
+            this.TypeCar = carType;
+            this.description = description;
+            this.stateUsed = stateUse;
+            this.maintain = maintain;
+            this.CostPerDay = costperday;
+            //===================This next line make sure the rent contract is able to know what type of Vehicle is assigned when creating the contract=======
+            this.type = TypeVehicle.Car;
+            this.numberKilometers = kilometer;
         }
         public Car(string nameCar, string branch, int idCar, TypeCar carType, bool maintain, bool stateUse, int costPerDay,int oilSize,int fluidSize)
         {

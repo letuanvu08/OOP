@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace WindowsFormsApp
 {
-    class CarRentalManagement : IBookAndRent
+    class VehicleRentalManagement : IVehicleRentalManagement
     {
         private List<Fleet> listFleet;
         private List<RentContract> listContract;
         private List<Insurance> listInsurance;
-        public CarRentalManagement()
+        public VehicleRentalManagement()
         {
             listFleet = new List<Fleet>();
             listContract = new List<RentContract>();

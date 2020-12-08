@@ -13,8 +13,8 @@ namespace WindowsFormsApp
 {
      partial class FormMainMenu : Form
     {
-        CarRentalManagement manage;
-        public FormMainMenu(CarRentalManagement manage)
+        VehicleRentalManagement manage;
+        public FormMainMenu(VehicleRentalManagement manage)
         {
             InitializeComponent();
             this.manage = manage;

@@ -21,7 +21,7 @@ namespace WindowsFormsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            CarRentalManagement manage = LoadData();
+            VehicleRentalManagement manage = LoadData();
 
 
 
@@ -33,14 +33,14 @@ namespace WindowsFormsApp
            
             return conn;
         }
-        static public CarRentalManagement LoadData()
+        static public VehicleRentalManagement LoadData()
         {
             MySqlConnection conn = ConnectDatabase();
             string sqlcar = "(select c.TYPECAR, V.Name, V.ID,V.branch,V.costperday,V.stateUsed,V.maintain from vehicle V, car c where v.id=c.id); ";
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = sqlcar;
-            CarRentalManagement manage = new CarRentalManagement();
+            VehicleRentalManagement manage = new VehicleRentalManagement();
             //======================== Fetch the two fleet from mySQL: 1 for Car, 1 for Truck =========================
             Fleet fleetcar = new Fleet();
             Fleet fleettruck = new Fleet();
@@ -73,7 +73,7 @@ namespace WindowsFormsApp
             return manage;
 
         }
-        public static void LoadCarDataFromDatabase(CarRentalManagement manager)
+        public static void LoadCarDataFromDatabase(VehicleRentalManagement manager)
         {
             MySqlConnection conn = ConnectDatabase();
             //====================== Fetch the car-related-contract information from datbase================
@@ -114,7 +114,7 @@ namespace WindowsFormsApp
                 manager.AddContract(rentContract);
             }
         }
-        public static void LoadTruckDataFromDatabase(CarRentalManagement manager)
+        public static void LoadTruckDataFromDatabase(VehicleRentalManagement manager)
         {
             MySqlConnection conn = ConnectDatabase();
             //====================== Fetch the car-related-contract information from datbase================
@@ -154,7 +154,7 @@ namespace WindowsFormsApp
             }
         }
 
-        public static void LoadInsuranceFromDatabase(CarRentalManagement manager){
+        public static void LoadInsuranceFromDatabase(VehicleRentalManagement manager){
             MySqlConnection conn = ConnectDatabase();
             string query = "select * from insurance;";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);

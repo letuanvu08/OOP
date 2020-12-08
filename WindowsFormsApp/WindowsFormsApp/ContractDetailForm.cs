@@ -13,9 +13,9 @@ namespace WindowsFormsApp
 {
     partial class ContractDetailForm : Form
     {
-        CarRentalManagement manage;
+        VehicleRentalManagement manage;
         RentContract contract;
-         public ContractDetailForm(CarRentalManagement manage,RentContract contractToShow)
+         public ContractDetailForm(VehicleRentalManagement manage,RentContract contractToShow)
         {
             InitializeComponent();
             this.manage = manage;

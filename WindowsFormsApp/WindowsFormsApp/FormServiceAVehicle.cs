@@ -15,7 +15,7 @@ namespace WindowsFormsApp
 {
     partial class FormServiceAVehicle : Form, IObserver, IDisplayElement
     {
-        private CarRentalManagement manager;
+        private VehicleRentalManagement manager;
         private Vehicle vehicleNeedServicing;
         private ServiceHistory serviceLog;
         // Implementing the interface IObserver:
@@ -33,7 +33,7 @@ namespace WindowsFormsApp
                 AddServiceRecordToListView(record);
             }
         }
-        public FormServiceAVehicle(CarRentalManagement mangerInstance, Vehicle vehicleInstance)
+        public FormServiceAVehicle(VehicleRentalManagement mangerInstance, Vehicle vehicleInstance)
         {
             InitializeComponent();
             this.manager = mangerInstance;

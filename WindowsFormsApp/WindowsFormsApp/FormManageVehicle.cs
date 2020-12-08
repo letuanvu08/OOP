@@ -14,11 +14,11 @@ namespace WindowsFormsApp
 {
     partial class FormManageVehicle : Form
     {
-        CarRentalManagement manage;
+        VehicleRentalManagement manage;
         string nameVehicleSelected;
         bool change = false;
         bool addnew = false;
-        public FormManageVehicle(CarRentalManagement manage)
+        public FormManageVehicle(VehicleRentalManagement manage)
         {
             InitializeComponent();
             this.manage = manage;
@@ -187,9 +187,38 @@ namespace WindowsFormsApp
                     }
                     else
                     {
+                      
                         if (CheckId(Int32.Parse(registration.Text)))
                         {
-                            InsertVehicle();
+                            Vehicle vehicle;
+                            if ((RadioCarDetail.Checked))
+                            {
+                            
+                                if (descriptiontext.Text == "")
+                                {
+                                   vehicle = new Car(NameVehicle.Text, BranchVehicle.Text, Int32.Parse(registration.Text),(TypeCar)Enum.Parse(typeof(TypeCar), typeVehicledetail.SelectedItem.ToString()), maintainvehicleview.Checked, statusvehicleview.Checked, Int32.Parse(costperdatetext.Text), Int32.Parse(Kilometer.Text));
+                                 }
+                                else
+                                {
+                                   vehicle = new Car(NameVehicle.Text, BranchVehicle.Text, Int32.Parse(registration.Text), (TypeCar)Enum.Parse(typeof(TypeCar), typeVehicledetail.SelectedItem.ToString()), maintainvehicleview.Checked, statusvehicleview.Checked, Int32.Parse(costperdatetext.Text), Int32.Parse(Kilometer.Text),descriptiontext.Text);
+
+                                }
+                            }
+
+                            else{
+
+                                if (descriptiontext.Text == "")
+                                {
+                                    vehicle = new Truck(NameVehicle.Text, BranchVehicle.Text, Int32.Parse(registration.Text), (TypeTruck)Enum.Parse(typeof(TypeTruck), typeVehicledetail.SelectedItem.ToString()), maintainvehicleview.Checked, statusvehicleview.Checked, Int32.Parse(costperdatetext.Text), Int32.Parse(Kilometer.Text));
+                                }
+                                else
+                                {
+                                    vehicle = new Truck(NameVehicle.Text, BranchVehicle.Text, Int32.Parse(registration.Text), (TypeTruck)Enum.Parse(typeof(TypeTruck), typeVehicledetail.SelectedItem.ToString()), maintainvehicleview.Checked, statusvehicleview.Checked, Int32.Parse(costperdatetext.Text), Int32.Parse(Kilometer.Text), descriptiontext.Text);
+
+                                }
+
+                            }
+                            InsertVehicle(vehicle);
                             MessageBox.Show("Add Successly!");
                             addnew = false;
                             manage = Program.LoadData();
@@ -254,7 +283,7 @@ namespace WindowsFormsApp
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        private void InsertVehicle()
+        private void InsertVehicle(Vehicle vehicle)
         {
             MySqlConnection conn = Program.ConnectDatabase();
             string sql = "INSERT INTO vehicle(Name, ID, branch, costperday, numberKilometers, stateUsed, maintain, Description)VALUES(@NAME, @ID, @branch, @costperday, @kilometer, @statususe, @maintain, @Description); ";
@@ -265,14 +294,14 @@ namespace WindowsFormsApp
             cmd.CommandText = sql;
 
 
-            cmd.Parameters.AddWithValue("@NAME", NameVehicle.Text);
-            cmd.Parameters.AddWithValue("@Branch", BranchVehicle.Text);
-            cmd.Parameters.AddWithValue("@costperday", costperdatetext.Text);
-            cmd.Parameters.AddWithValue("@kilometer", Kilometer.Text);
-            cmd.Parameters.AddWithValue("@Description", descriptiontext.Text);
-            cmd.Parameters.AddWithValue("@statususe", statusvehicleview.Checked);
-            cmd.Parameters.AddWithValue("@maintain", maintainvehicleview.Checked);
-            cmd.Parameters.AddWithValue("@ID", Int32.Parse(registration.Text));
+            cmd.Parameters.AddWithValue("@NAME", vehicle.Name);
+            cmd.Parameters.AddWithValue("@Branch", vehicle.Branch);
+            cmd.Parameters.AddWithValue("@costperday", vehicle.CostPerDay);
+            cmd.Parameters.AddWithValue("@kilometer", vehicle.NumberKilometers);
+            cmd.Parameters.AddWithValue("@Description", vehicle.Description);
+            cmd.Parameters.AddWithValue("@statususe", vehicle.StateUsed);
+            cmd.Parameters.AddWithValue("@maintain", vehicle.Maintain);
+            cmd.Parameters.AddWithValue("@ID", vehicle.IdVehicle);
             cmd.ExecuteNonQuery();
             conn.Close();
             InsertVehicleType();

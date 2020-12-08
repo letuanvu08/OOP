@@ -16,9 +16,9 @@ namespace WindowsFormsApp
     partial class FormBookAndRent : Form
     {
         
-        CarRentalManagement manage;
+        VehicleRentalManagement manage;
         string nameVehicleSelected;
-        public FormBookAndRent(CarRentalManagement Mamage)
+        public FormBookAndRent(VehicleRentalManagement Mamage)
         {
             InitializeComponent();
             panel2.Enabled = false;

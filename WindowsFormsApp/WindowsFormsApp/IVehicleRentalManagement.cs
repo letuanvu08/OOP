@@ -2,7 +2,7 @@
 
 namespace WindowsFormsApp
 {
-    interface ICarRentalManagement
+    interface IVehicleRentalManagement
     {
 
         List<Vehicle> FindCarAvailable(string type, string branch);
@@ -11,5 +11,8 @@ namespace WindowsFormsApp
         List<string> GetlistBranch(string type);
         Vehicle FindVehicle(string name);
         RentContract FindContractById(int id);
+        List<Insurance> GetInsurances();
+        List<RentContract> GetTruckRelatedConTracts();
+        List<RentContract> GetCarRelatedConTracts();
     }
 }

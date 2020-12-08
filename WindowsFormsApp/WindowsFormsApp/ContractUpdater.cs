@@ -14,12 +14,12 @@ namespace WindowsFormsApp
 {
     partial class ContractUpdater : Form
     {
-        CarRentalManagement manager;
+        VehicleRentalManagement manager;
         RentContract contract;
         Customer customer;
         Vehicle vehicle;
         Insurance insurance;
-        public ContractUpdater(CarRentalManagement _manager, RentContract _contract)
+        public ContractUpdater(VehicleRentalManagement _manager, RentContract _contract)
         {
             InitializeComponent();
             // Initialize the Form Object for cleaner code:

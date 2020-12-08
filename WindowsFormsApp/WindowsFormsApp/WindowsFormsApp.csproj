@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="CarRentalManagement.cs" />
+    <Compile Include="VehicleRentalManagement.cs" />
     <Compile Include="Class2.cs" />
     <Compile Include="ContractDetailForm.cs">
       <SubType>Form</SubType>
@@ -121,6 +121,7 @@
     <Compile Include="FormRentContract.Designer.cs">
       <DependentUpon>FormRentContract.cs</DependentUpon>
     </Compile>
+    <Compile Include="IVehicleRentalManagement.cs" />
     <Compile Include="Insurance.cs" />
     <Compile Include="ObserverPatternInterfaces.cs" />
     <Compile Include="Program.cs" />
